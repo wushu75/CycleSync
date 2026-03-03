@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CycleSync - Synchronize Your Life With Your Cycle</title>
+  <meta name="description" content="CycleSync is a free Chrome extension that helps you track your menstrual cycle, log symptoms, and sync your life to your body's natural rhythm." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rose: #f4607a;
+      --rose-light: #fde8ec;
+      --mauve: #c084b0;
+      --mauve-light: #f3e6f0;
+      --plum: #7c3f6e;
+      --cream: #fdf8f5;
+      --text: #2d1f2a;
+      --text-mid: #6b4e63;
+      --text-light: #a8849e;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(253,248,245,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(244,96,122,0.1);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--plum); text-decoration: none; }
+    .nav-logo span { color: var(--rose); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--rose); color: white; text-decoration: none;
+      font-size: 14px; font-weight: 500; padding: 10px 22px;
+      border-radius: 100px; transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: #d44d67; transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 120px 48px 80px; position: relative; overflow: hidden;
+    }
+    .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35; pointer-events: none; }
+    .blob-1 { width: 560px; height: 560px; background: radial-gradient(circle, #f4a0b0, #e06080); top: -120px; right: -120px; animation: drift 12s ease-in-out infinite alternate; }
+    .blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, #d4a0cc, #9060a0); bottom: -60px; left: -80px; animation: drift 16s ease-in-out infinite alternate-reverse; }
+    .blob-3 { width: 260px; height: 260px; background: radial-gradient(circle, #f9d0dc, #f4a0b0); top: 40%; left: 30%; animation: drift 10s ease-in-out infinite alternate; }
+    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(30px,20px) scale(1.05); } }
+
+    .hero-inner { max-width: 780px; text-align: center; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--rose-light); color: var(--rose);
+      font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px;
+      margin-bottom: 28px; border: 1px solid rgba(244,96,122,0.2);
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px,7vw,76px); line-height: 1.08;
+      letter-spacing: -1.5px; color: var(--plum); margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero-title em { font-style: italic; color: var(--rose); }
+    .hero-subtitle {
+      font-size: clamp(16px,2vw,19px); font-weight: 300; color: var(--text-mid);
+      line-height: 1.7; max-width: 560px; margin: 0 auto 40px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--rose); color: white; text-decoration: none;
+      font-size: 16px; font-weight: 500; padding: 16px 32px; border-radius: 100px;
+      transition: all 0.25s; box-shadow: 0 8px 24px rgba(244,96,122,0.35);
+    }
+    .btn-primary:hover { background: #d44d67; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(244,96,122,0.45); }
+    .hero-note { font-size: 13px; color: var(--text-light); }
+    .hero-note strong { color: var(--text-mid); font-weight: 500; }
+
+    .hero-preview {
+      margin-top: 64px; display: inline-flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;
+      background: white; border: 1px solid rgba(192,132,176,0.2); border-radius: 20px;
+      padding: 18px 28px; box-shadow: 0 20px 60px rgba(124,63,110,0.1);
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .preview-col { display: flex; flex-direction: column; align-items: flex-start; }
+    .preview-label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 3px; }
+    .preview-value { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--plum); }
+    .preview-divider { width: 1px; height: 36px; background: var(--mauve-light); flex-shrink: 0; }
+    .preview-live { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-light); }
+    .preview-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rose); box-shadow: 0 0 0 4px rgba(244,96,122,0.15); animation: pulse 2s ease infinite; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(244,96,122,0.15); } 50% { box-shadow: 0 0 0 8px rgba(244,96,122,0.06); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* SHARED */
+    section { position: relative; z-index: 1; }
+    .section-label { display: inline-block; font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mauve); margin-bottom: 14px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,46px); line-height: 1.15; letter-spacing: -0.8px; color: var(--plum); margin-bottom: 16px; }
+    .section-subtitle { font-size: 17px; font-weight: 300; color: var(--text-mid); line-height: 1.7; max-width: 520px; }
+
+    /* HOW IT WORKS */
+    .how { padding: 100px 48px; background: white; }
+    .how-inner { max-width: 1080px; margin: 0 auto; }
+    .how-header { margin-bottom: 64px; }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; position: relative; }
+    .steps::before {
+      content: ''; position: absolute; top: 36px;
+      left: calc(16.66% + 16px); right: calc(16.66% + 16px); height: 1px;
+      background: linear-gradient(to right, var(--rose-light), var(--mauve-light), var(--rose-light));
+    }
+    .step {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+      padding: 32px; border-radius: 20px; background: var(--cream);
+      border: 1px solid rgba(192,132,176,0.12); transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .step:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(124,63,110,0.1); }
+    .step-number {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--rose-light); color: var(--rose);
+      font-family: 'Playfair Display', serif; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid rgba(244,96,122,0.2); flex-shrink: 0;
+    }
+    .step-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--plum); }
+    .step-desc { font-size: 15px; font-weight: 300; color: var(--text-mid); line-height: 1.65; }
+
+    /* FEATURES */
+    .features { padding: 100px 48px; background: var(--cream); }
+    .features-inner { max-width: 1080px; margin: 0 auto; }
+    .features-header { margin-bottom: 64px; }
+    .features-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .feature-card {
+      background: white; border-radius: 20px; padding: 36px;
+      border: 1px solid rgba(192,132,176,0.12);
+      display: flex; gap: 24px; align-items: flex-start;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .feature-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(124,63,110,0.08); }
+    .feature-card.wide { grid-column: span 2; }
+    .feature-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+    .icon-rose  { background: var(--rose-light); }
+    .icon-mauve { background: var(--mauve-light); }
+    .icon-plum  { background: #ede0ea; }
+    .icon-peach { background: #fdeee6; }
+    .icon-lilac { background: #ece8f8; }
+    .feature-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--plum); margin-bottom: 8px; }
+    .feature-desc { font-size: 15px; font-weight: 300; color: var(--text-mid); line-height: 1.65; }
+
+    /* CTA */
+    .cta { padding: 120px 48px; text-align: center; background: white; position: relative; overflow: hidden; }
+    .cta-blob-1 { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, #fde8ec, transparent 70%); top: -150px; left: -100px; border-radius: 50%; pointer-events: none; }
+    .cta-blob-2 { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, #f3e6f0, transparent 70%); bottom: -120px; right: -80px; border-radius: 50%; pointer-events: none; }
+    .cta-inner { max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(34px,5vw,54px); line-height: 1.1; letter-spacing: -1px; color: var(--plum); margin-bottom: 20px; }
+    .cta-title em { font-style: italic; color: var(--rose); }
+    .cta-subtitle { font-size: 17px; font-weight: 300; color: var(--text-mid); line-height: 1.7; margin-bottom: 44px; }
+    .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .cta-perks { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; font-size: 13px; color: var(--text-light); }
+    .perk { display: flex; align-items: center; gap: 5px; }
+    .perk-check { color: var(--rose); font-weight: 700; }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 48px; background: var(--cream);
+      border-top: 1px solid rgba(192,132,176,0.15);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--plum); text-decoration: none; }
+    .footer-logo span { color: var(--rose); }
+    .footer-note { font-size: 13px; color: var(--text-light); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .hero { padding: 100px 24px 60px; }
+      .how, .features, .cta { padding: 72px 24px; }
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card.wide { grid-column: span 1; }
+      footer { padding: 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Cycle<span>Sync</span></a>
+  <a href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" class="nav-cta" target="_blank" rel="noopener">Add to Chrome &mdash; Free</a>
+</nav>
+
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">&#10024; Free Chrome Extension</div>
+    <h1 class="hero-title">Live in <em>rhythm</em><br/>with your body</h1>
+    <p class="hero-subtitle">CycleSync brings menstrual cycle tracking right into your browser &mdash; so you can plan your days, understand your energy, and feel truly in sync.</p>
+    <div class="hero-actions">
+      <a href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" class="btn-primary" target="_blank" rel="noopener">Add to Chrome &mdash; It&rsquo;s Free</a>
+      <span class="hero-note"><strong>No account needed.</strong> Works instantly.</span>
+    </div>
+    <div class="hero-preview">
+      <div class="preview-col">
+        <span class="preview-label">Current Phase</span>
+        <span class="preview-value">Follicular</span>
+      </div>
+      <div class="preview-divider"></div>
+      <div class="preview-col">
+        <span class="preview-label">Cycle Day</span>
+        <span class="preview-value">Day 7</span>
+      </div>
+      <div class="preview-divider"></div>
+      <div class="preview-col">
+        <span class="preview-label">Next Period</span>
+        <span class="preview-value">In 21 days</span>
+      </div>
+      <div class="preview-divider"></div>
+      <div class="preview-live"><div class="preview-dot"></div> Live tracking</div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="how-inner">
+    <div class="how-header">
+      <span class="section-label">How it works</span>
+      <h2 class="section-title">Up and running<br/>in under a minute</h2>
+      <p class="section-subtitle">No sign-up. No subscriptions. Just install and go &mdash; your data stays private on your device.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-title">Install the extension</div>
+        <p class="step-desc">Add CycleSync to Chrome in one click. It appears instantly in your browser toolbar, ready whenever you need it.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-title">Enter your last period</div>
+        <p class="step-desc">Tell CycleSync when your last period started. That&rsquo;s all it needs to begin predicting your cycle and tracking your phases.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-title">Sync your life</div>
+        <p class="step-desc">See your current phase, log symptoms daily, and get personalised tips to make the most of every part of your cycle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <span class="section-label">Features</span>
+      <h2 class="section-title">Everything you need,<br/>nothing you don&rsquo;t</h2>
+      <p class="section-subtitle">Thoughtfully designed to fit quietly into your day &mdash; one click from any tab.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-rose">&#127769;</div>
+        <div>
+          <h3 class="feature-title">Phase Tracking</h3>
+          <p class="feature-desc">Always know where you are in your cycle. CycleSync shows your current phase &mdash; Menstrual, Follicular, Ovulation, or Luteal &mdash; and your progress at a glance.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-mauve">&#128197;</div>
+        <div>
+          <h3 class="feature-title">Cycle Calendar</h3>
+          <p class="feature-desc">A clear visual calendar showing your period days, fertile window, and ovulation &mdash; colour-coded so you can plan ahead with confidence.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-peach">&#9999;&#65039;</div>
+        <div>
+          <h3 class="feature-title">Symptom Logging</h3>
+          <p class="feature-desc">Quickly log mood, energy, flow, and more. The more you track, the more CycleSync learns about your personal patterns over time.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-plum">&#128161;</div>
+        <div>
+          <h3 class="feature-title">Daily Tips</h3>
+          <p class="feature-desc">Phase-aware tips for nutrition, exercise, focus, and self-care &mdash; tailored to what your body actually needs right now.</p>
+        </div>
+      </div>
+      <div class="feature-card wide">
+        <div class="feature-icon icon-lilac">&#128274;</div>
+        <div>
+          <h3 class="feature-title">100% Private &mdash; Your Data Stays on Your Device</h3>
+          <p class="feature-desc">CycleSync stores everything locally in your browser. Nothing is sent to a server, no account is required, and no one else can see your data. Your cycle is yours alone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-blob-1"></div>
+  <div class="cta-blob-2"></div>
+  <div class="cta-inner">
+    <h2 class="cta-title">Start living in <em>sync</em><br/>today</h2>
+    <p class="cta-subtitle">Join women who use CycleSync to understand their bodies and plan their lives with clarity &mdash; all from their browser.</p>
+    <div class="cta-actions">
+      <a href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" class="btn-primary" target="_blank" rel="noopener">Add to Chrome &mdash; It&rsquo;s Free</a>
+      <div class="cta-perks">
+        <span class="perk"><span class="perk-check">&#10003;</span> Free forever</span>
+        <span class="perk"><span class="perk-check">&#10003;</span> No account needed</span>
+        <span class="perk"><span class="perk-check">&#10003;</span> Private by design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">Cycle<span>Sync</span></a>
+  <p class="footer-note">&copy; 2026 CycleSync. Made with care.</p>
+</footer>
+
+</body>
+</html>
