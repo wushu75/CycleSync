@@ -109,6 +109,43 @@
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,46px); line-height: 1.15; letter-spacing: -0.8px; color: var(--plum); margin-bottom: 16px; }
     .section-subtitle { font-size: 17px; font-weight: 300; color: var(--text-mid); line-height: 1.7; max-width: 520px; }
 
+    /* TRUST BAR */
+    .trust-bar {
+      background: white;
+      border-top: 1px solid rgba(192,132,176,0.15);
+      border-bottom: 1px solid rgba(192,132,176,0.15);
+      padding: 32px 48px;
+    }
+    .trust-bar-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 0;
+    }
+    .trust-stat {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 0 40px;
+    }
+    .trust-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 600;
+      color: var(--rose); line-height: 1.2;
+    }
+    .trust-label {
+      font-size: 13px; font-weight: 300;
+      color: var(--text-light); margin-top: 4px; text-align: center;
+    }
+    .trust-divider {
+      width: 1px; height: 48px;
+      background: rgba(192,132,176,0.2);
+    }
+    @media (max-width: 768px) {
+      .trust-bar { padding: 28px 24px; }
+      .trust-divider { display: none; }
+      .trust-bar-inner { gap: 24px; }
+      .trust-stat { padding: 0 16px; }
+      .trust-number { font-size: 26px; }
+    }
+
     /* HOW IT WORKS */
     .how { padding: 100px 48px; background: white; }
     .how-inner { max-width: 1080px; margin: 0 auto; }
@@ -229,6 +266,30 @@
       </div>
       <div class="preview-divider"></div>
       <div class="preview-live"><div class="preview-dot"></div> Live tracking</div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-stat">
+      <span class="trust-number">80+</span>
+      <span class="trust-label">Chrome installs</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-stat">
+      <span class="trust-number">34</span>
+      <span class="trust-label">weekly active users</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-stat">
+      <span class="trust-number">4</span>
+      <span class="trust-label">versions released</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-stat">
+      <span class="trust-number">100%</span>
+      <span class="trust-label">private — no account</span>
     </div>
   </div>
 </section>
