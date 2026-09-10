@@ -635,7 +635,7 @@
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
-<!-- Install banner -->
+<!-- Install banner (Android) -->
 <div class="install-banner" id="install-banner">
   <div class="install-banner-text">
     <div class="install-banner-title">Add to Home Screen</div>
@@ -643,6 +643,21 @@
   </div>
   <button class="install-btn" id="install-btn">Install</button>
   <button class="install-close" onclick="document.getElementById('install-banner').classList.remove('show')">×</button>
+</div>
+
+<!-- iOS install banner -->
+<div class="install-banner" id="ios-banner" style="flex-direction:column; gap:8px;">
+  <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+    <div class="install-banner-title">Add to Home Screen</div>
+    <button class="install-close" onclick="document.getElementById('ios-banner').classList.remove('show'); localStorage.setItem('ios_banner_dismissed','1')">×</button>
+  </div>
+  <div class="install-banner-sub" style="text-align:left;">
+    Tap <strong style="color:white;">Share</strong> 
+    <span style="font-size:16px;">⬆️</span> 
+    then <strong style="color:white;">"Add to Home Screen"</strong> to install CycleSync
+  </div>
+  <div style="width:100%; height:1px; background:rgba(255,255,255,0.1);"></div>
+  <div style="font-size:11px; color:rgba(255,255,255,0.4); text-align:center;">Works offline once installed</div>
 </div>
 
 <script src="app.js"></script>

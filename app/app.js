@@ -866,6 +866,18 @@ document.getElementById('install-btn').addEventListener('click', function() {
   }
 });
 
+// ===== iOS INSTALL PROMPT =====
+function checkiOSInstall() {
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isStandalone = window.navigator.standalone;
+  var dismissed = localStorage.getItem('ios_banner_dismissed');
+  if (isIOS && !isStandalone && !dismissed) {
+    setTimeout(function() {
+      document.getElementById('ios-banner').classList.add('show');
+    }, 3000);
+  }
+}
+
 // ===== SERVICE WORKER =====
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
@@ -885,6 +897,7 @@ function initApp() {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
+  checkiOSInstall();
   var data = getData();
   if (data && data.onboardingComplete) {
     document.getElementById('onboarding').style.display = 'none';
