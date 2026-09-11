@@ -301,6 +301,32 @@ const T = {
     tipsL: ['세부 작업에 집중하세요', '자기 관리가 중요합니다', '기분 변화에 주의하세요'],
     savedToast: '증상이 기록되었습니다!', periodToast: '생리가 기록되었습니다 🩸'
   },
+  zh: {
+    welcomeTitle: '欢迎使用 CycleSync', welcomeDesc: '让我们设置您的周期，以便给您准确的预测。',
+    startBtn: '开始', step2Title: '您上次月经是什么时候开始的？',
+    step2Desc: '请选择您最近一次月经的第一天。',
+    step3Title: '您的周期多长？', step3Desc: '大多数人是21-35天。',
+    step3bTitle: '您的月经持续多少天？', step3bDesc: '大多数持续3-7天。',
+    nextBtn: '下一步 →', saveBtn: '保存 →',
+    navHome: '首页', navCalendar: '日历', navSymptoms: '症状', navSettings: '设置',
+    quickLog: '快速记录', flow: '经量', mood: '心情', pain: '疼痛', energy: '精力',
+    todaysTips: '今日建议', nextPeriod: '下次月经', ovulation: '排卵', days: '天',
+    periodStarted: '🩸 月经已开始', periodLogged: '✓ 今日已记录',
+    logSymptoms: '记录症状', date: '日期', notes: '备注', saveSymptoms: '保存症状',
+    settings: '设置', theme: '主题', supportDesc: 'CycleSync 永久免费。如果它对您有帮助，请支持我们 ☕',
+    period: '月经', fertile: '排卵窗口', day: '天',
+    flowNone: '无', flowLight: '少量', flowMedium: '中等', flowHeavy: '量多',
+    moodGreat: '😀 非常好', moodGood: '🙂 好', moodOkay: '😐 一般', moodLow: '😔 不好', moodBad: '😩 很差',
+    energyHigh: '⚡⚡⚡ 充沛', energyMedium: '⚡⚡ 一般', energyLow: '⚡ 不足', energyNone: '✖️ 无',
+    headache: '头痛', cramps: '痛经', backPain: '腰痛', bloating: '腹胀',
+    breastTenderness: '乳房胀痛', acne: '痤疮', insomnia: '失眠', cravings: '食欲增加',
+    phaseMenstrual: '月经期', phaseFollicular: '卵泡期', phaseOvulation: '排卵期', phaseLuteal: '黄体期',
+    tipsM: ['需要时请好好休息', '保持水分充足，注意保暖', '富含铁质的食物有助于补充流失的铁'],
+    tipsF: ['能量正在上升 — 适合开始新项目', '专注于创意工作', '非常适合社交活动'],
+    tipsO: ['能量达到顶峰 — 适合体育活动', '沟通能力增强', '适合重要会议或演示'],
+    tipsL: ['专注于细节工作', '自我护理很重要', '注意情绪变化'],
+    savedToast: '症状已记录！', periodToast: '月经已记录 🩸'
+  },
   it: {
     welcomeTitle: 'Benvenuta su CycleSync', welcomeDesc: 'Configuriamo il tuo ciclo per previsioni accurate.',
     startBtn: 'Inizia', step2Title: 'Quando è iniziato il tuo ultimo ciclo?',
@@ -342,7 +368,8 @@ const LANGS = [
   {code:'bn', flag:'🇧🇩', label:'BN'},
   {code:'ja', flag:'🇯🇵', label:'JA'},
   {code:'ko', flag:'🇰🇷', label:'KO'},
-  {code:'it', flag:'🇮🇹', label:'IT'}
+  {code:'it', flag:'🇮🇹', label:'IT'},
+  {code:'zh', flag:'', label:'中文(简体)'}
 ];
 
 // ===== CYCLE ENGINE =====
@@ -878,12 +905,7 @@ function checkiOSInstall() {
   }
 }
 
-// ===== SERVICE WORKER =====
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('sw.js').catch(function(e) { console.log('SW:', e); });
-  });
-}
+// Service worker registered in index.html
 
 // ===== INIT =====
 function initApp() {
