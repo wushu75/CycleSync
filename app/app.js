@@ -39,21 +39,7 @@ const T = {
     tipsF: ['Energy levels rising — great for new projects', 'Focus on creative work', 'Social activities are energising'],
     tipsO: ['Peak energy — great for physical activities', 'Communication skills enhanced', 'Good time for important meetings'],
     tipsL: ['Focus on detail-oriented tasks', 'Self-care is important', 'Be mindful of mood changes'],
-    savedToast: 'Symptoms logged!', periodToast: 'Period logged for today 🩸',
-    notifTitle: '🔔 Never miss your period',
-    notifDesc: 'Get a reminder 3 days before your next period. Private — everything stays on your device.',
-    notifEnable: 'Enable reminders',
-    notifLater: 'Maybe later',
-    notifEnabled: '✅ Reminders on',
-    notifDisabled: 'Enable reminders',
-    notifSettingsTitle: 'Reminders',
-    notifPeriod: 'Period approaching',
-    notifOvulation: 'Ovulation reminder',
-    notifDaily: 'Daily log reminder',
-    notifTime: 'Reminder time',
-    notifSaved: 'Reminder settings saved ✅',
-    notifDenied: 'Notifications blocked. Enable in browser settings.',
-    notifPermission: 'Allow notifications to get reminders'
+    savedToast: 'Symptoms logged!', periodToast: 'Period logged for today 🩸'
   },
   ru: {
     welcomeTitle: 'Добро пожаловать в CycleSync', welcomeDesc: 'Давайте настроим ваш цикл для точных предсказаний.',
@@ -79,21 +65,7 @@ const T = {
     tipsF: ['Уровень энергии растёт — время для новых проектов', 'Сосредоточьтесь на творческой работе', 'Отличное время для общения'],
     tipsO: ['Пиковый уровень энергии', 'Коммуникативные навыки обострены', 'Хорошее время для важных встреч'],
     tipsL: ['Сосредоточьтесь на детальных задачах', 'Уход за собой важен', 'Следите за настроением'],
-    savedToast: 'Симптомы записаны!', periodToast: 'Месячные записаны 🩸',
-    notifTitle: '🔔 Не пропустите месячные',
-    notifDesc: 'Получите напоминание за 3 дня до месячных. Приватно — всё хранится на вашем устройстве.',
-    notifEnable: 'Включить напоминания',
-    notifLater: 'Позже',
-    notifEnabled: '✅ Напоминания включены',
-    notifDisabled: 'Включить напоминания',
-    notifSettingsTitle: 'Напоминания',
-    notifPeriod: 'Приближение месячных',
-    notifOvulation: 'Напоминание об овуляции',
-    notifDaily: 'Ежедневное напоминание',
-    notifTime: 'Время напоминания',
-    notifSaved: 'Настройки сохранены ✅',
-    notifDenied: 'Уведомления заблокированы. Включите в настройках браузера.',
-    notifPermission: 'Разрешите уведомления для напоминаний'
+    savedToast: 'Симптомы записаны!', periodToast: 'Месячные записаны 🩸'
   },
   es: {
     welcomeTitle: 'Bienvenida a CycleSync', welcomeDesc: 'Configuremos tu ciclo para darte predicciones precisas.',
@@ -119,21 +91,7 @@ const T = {
     tipsF: ['Tu energía sube — ideal para nuevos proyectos', 'Enfócate en trabajo creativo', 'Gran momento para socializar'],
     tipsO: ['Pico de energía — ideal para actividad física', 'Habilidades comunicativas mejoradas', 'Buen momento para reuniones importantes'],
     tipsL: ['Enfócate en tareas detalladas', 'El autocuidado es importante', 'Sé consciente de los cambios de humor'],
-    savedToast: '¡Síntomas guardados!', periodToast: 'Menstruación registrada 🩸',
-    notifTitle: '🔔 No te pierdas tu período',
-    notifDesc: 'Recibe un aviso 3 días antes. Privado — todo queda en tu dispositivo.',
-    notifEnable: 'Activar recordatorios',
-    notifLater: 'Quizás luego',
-    notifEnabled: '✅ Recordatorios activados',
-    notifDisabled: 'Activar recordatorios',
-    notifSettingsTitle: 'Recordatorios',
-    notifPeriod: 'Período próximo',
-    notifOvulation: 'Recordatorio ovulación',
-    notifDaily: 'Recordatorio diario',
-    notifTime: 'Hora del recordatorio',
-    notifSaved: 'Configuración guardada ✅',
-    notifDenied: 'Notificaciones bloqueadas. Actívalas en configuración del navegador.',
-    notifPermission: 'Permite notificaciones para recibir recordatorios'
+    savedToast: '¡Síntomas guardados!', periodToast: 'Menstruación registrada 🩸'
   },
   pt: {
     welcomeTitle: 'Bem-vinda ao CycleSync', welcomeDesc: 'Vamos configurar seu ciclo para previsões precisas.',
@@ -160,21 +118,6 @@ const T = {
     tipsO: ['Pico de energia — ótimo para atividade física', 'Habilidades de comunicação aprimoradas', 'Bom momento para reuniões importantes'],
     tipsL: ['Foque em tarefas detalhadas', 'O autocuidado é importante', 'Esteja atenta às mudanças de humor'],
     savedToast: 'Sintomas salvos!', periodToast: 'Menstruação registrada 🩸'
-
-    notifTitle: '🔔 Nunca perca sua menstruação',
-    notifDesc: 'Receba um aviso 3 dias antes. Privado — tudo fica no seu dispositivo.',
-    notifEnable: 'Ativar lembretes',
-    notifLater: 'Talvez depois',
-    notifEnabled: '✅ Lembretes ativados',
-    notifDisabled: 'Ativar lembretes',
-    notifSettingsTitle: 'Lembretes',
-    notifPeriod: 'Menstruação próxima',
-    notifOvulation: 'Lembrete ovulação',
-    notifDaily: 'Lembrete diário',
-    notifTime: 'Horário do lembrete',
-    notifSaved: 'Configurações salvas ✅',
-    notifDenied: 'Notificações bloqueadas. Ative nas configurações do navegador.',
-    notifPermission: 'Permita notificações para receber lembretes'
   },
   fr: {
     welcomeTitle: 'Bienvenue sur CycleSync', welcomeDesc: 'Configurons votre cycle pour des prédictions précises.',
@@ -964,139 +907,6 @@ function checkiOSInstall() {
 
 // Service worker registered in index.html
 
-// ===== NOTIFICATIONS =====
-function getNotifSettings() {
-  try { return JSON.parse(localStorage.getItem('cyclesync_notif') || 'null'); } catch { return null; }
-}
-function saveNotifSettings(s) {
-  localStorage.setItem('cyclesync_notif', JSON.stringify(s));
-}
-
-function requestNotifications() {
-  if (!('Notification' in window) || !navigator.serviceWorker) {
-    showToast(t('notifDenied'));
-    return;
-  }
-  Notification.requestPermission().then(function(permission) {
-    if (permission === 'granted') {
-      var settings = getNotifSettings() || {};
-      settings.enabled = true;
-      settings.notifPeriod = true;
-      settings.notifOvulation = true;
-      settings.notifDaily = false;
-      settings.notifHour = 9;
-      settings.notifMin = 0;
-      saveNotifSettings(settings);
-      scheduleAllNotifications();
-      showToast(t('notifEnabled'));
-      updateNotifUI();
-      hideNotifPrompt();
-    } else {
-      showToast(t('notifDenied'));
-    }
-  });
-}
-
-function scheduleAllNotifications() {
-  var settings = getNotifSettings();
-  if (!settings || !settings.enabled) return;
-  if (!navigator.serviceWorker || !navigator.serviceWorker.controller) return;
-
-  var data = getData();
-  if (!data) return;
-
-  var phase = calcPhase(data);
-
-  navigator.serviceWorker.controller.postMessage({
-    type: 'SCHEDULE_NOTIFICATIONS',
-    payload: {
-      enabled: true,
-      lang: getLang(),
-      nextPeriod: data.nextPeriod || null,
-      nextOvulation: data.nextOvulation || null,
-      notifPeriod: settings.notifPeriod !== false,
-      notifOvulation: settings.notifOvulation !== false,
-      notifDaily: settings.notifDaily === true,
-      notifHour: settings.notifHour || 9,
-      notifMin: settings.notifMin || 0
-    }
-  });
-}
-
-function cancelNotifications() {
-  if (!navigator.serviceWorker || !navigator.serviceWorker.controller) return;
-  navigator.serviceWorker.controller.postMessage({ type: 'CANCEL_NOTIFICATIONS' });
-}
-
-function updateNotifUI() {
-  var settings = getNotifSettings();
-  var enabled = settings && settings.enabled && Notification.permission === 'granted';
-
-  // Update settings button
-  var btn = document.getElementById('notif-toggle-btn');
-  if (btn) {
-    btn.textContent = enabled ? t('notifEnabled') : t('notifDisabled');
-    btn.style.background = enabled ? '#4caf50' : 'var(--rose)';
-  }
-
-  // Update toggles
-  var periodToggle = document.getElementById('notif-period-toggle');
-  var ovulToggle = document.getElementById('notif-ovul-toggle');
-  var dailyToggle = document.getElementById('notif-daily-toggle');
-  var timeInput = document.getElementById('notif-time-input');
-  var notifSection = document.getElementById('notif-settings-section');
-
-  if (notifSection) notifSection.style.display = enabled ? 'block' : 'none';
-  if (settings) {
-    if (periodToggle) periodToggle.checked = settings.notifPeriod !== false;
-    if (ovulToggle) ovulToggle.checked = settings.notifOvulation !== false;
-    if (dailyToggle) dailyToggle.checked = settings.notifDaily === true;
-    if (timeInput) {
-      var h = String(settings.notifHour || 9).padStart(2, '0');
-      var m = String(settings.notifMin || 0).padStart(2, '0');
-      timeInput.value = h + ':' + m;
-    }
-  }
-}
-
-function saveNotifPrefs() {
-  var settings = getNotifSettings() || {};
-  var periodToggle = document.getElementById('notif-period-toggle');
-  var ovulToggle = document.getElementById('notif-ovul-toggle');
-  var dailyToggle = document.getElementById('notif-daily-toggle');
-  var timeInput = document.getElementById('notif-time-input');
-
-  if (periodToggle) settings.notifPeriod = periodToggle.checked;
-  if (ovulToggle) settings.notifOvulation = ovulToggle.checked;
-  if (dailyToggle) settings.notifDaily = dailyToggle.checked;
-  if (timeInput && timeInput.value) {
-    var parts = timeInput.value.split(':');
-    settings.notifHour = parseInt(parts[0]) || 9;
-    settings.notifMin = parseInt(parts[1]) || 0;
-  }
-  saveNotifSettings(settings);
-  scheduleAllNotifications();
-  showToast(t('notifSaved'));
-}
-
-function hideNotifPrompt() {
-  var prompt = document.getElementById('notif-prompt');
-  if (prompt) prompt.style.display = 'none';
-  localStorage.setItem('notif_prompt_dismissed', '1');
-}
-
-function showNotifPromptIfNeeded() {
-  var dismissed = localStorage.getItem('notif_prompt_dismissed');
-  var settings = getNotifSettings();
-  var alreadyEnabled = settings && settings.enabled && Notification.permission === 'granted';
-  if (!dismissed && !alreadyEnabled && 'Notification' in window) {
-    setTimeout(function() {
-      var prompt = document.getElementById('notif-prompt');
-      if (prompt) prompt.style.display = 'block';
-    }, 5000);
-  }
-}
-
 // ===== INIT =====
 function initApp() {
   applyLanguage();
@@ -1106,9 +916,6 @@ function initApp() {
   renderCalendar();
   var savedTheme = localStorage.getItem('cyclesync_theme');
   if (savedTheme) applyTheme(savedTheme);
-  updateNotifUI();
-  scheduleAllNotifications();
-  showNotifPromptIfNeeded();
 }
 
 window.addEventListener('DOMContentLoaded', function() {
