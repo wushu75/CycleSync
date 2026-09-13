@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cyclesync-v2';
+const CACHE_NAME = 'cyclesync-v5';
 
 const ASSETS = [
   '/CycleSync/app/',
