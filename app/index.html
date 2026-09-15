@@ -589,16 +589,16 @@
     </div>
 
     <div class="settings-section">
-      <div class="settings-title">Language</div>
+      <div class="settings-title" id="lbl-lang-title">Language</div>
       <div class="lang-grid" id="lang-grid"></div>
     </div>
 
     <div class="settings-section">
       <div class="settings-title" id="lbl-theme">Theme</div>
       <div class="theme-grid">
-        <button class="theme-btn active" onclick="setTheme('default', this)">Default</button>
-        <button class="theme-btn" onclick="setTheme('dark', this)">Dark</button>
-        <button class="theme-btn" onclick="setTheme('calm', this)">Calm</button>
+        <button class="theme-btn active" onclick="setTheme('default', this)" id="lbl-theme-default">Default</button>
+        <button class="theme-btn" onclick="setTheme('dark', this)" id="lbl-theme-dark">Dark</button>
+        <button class="theme-btn" onclick="setTheme('calm', this)" id="lbl-theme-calm">Calm</button>
       </div>
     </div>
 
@@ -614,27 +614,27 @@
     <div class="settings-section">
       <button id="notif-enable-btn" onclick="requestNotifPermission()"
         style="width:100%; padding:14px; border:none; border-radius:12px; background:#FF6B8B; color:white; font-size:15px; font-weight:600; cursor:pointer;">
-        Enable reminders
+        <span id="lbl-notif-btn">Enable reminders</span>
       </button>
     </div>
 
     <div id="notif-detail" style="display:none;">
       <div class="settings-section">
-        <div class="settings-title">Reminder preferences</div>
+        <div class="settings-title" id="lbl-notif-prefs">Reminder preferences</div>
         <div class="notif-row">
-          <span>Period approaching (3 days before)</span>
+          <span id="lbl-notif-period">Period approaching (3 days before)</span>
           <label class="notif-toggle"><input type="checkbox" id="notif-period-chk" checked onchange="saveNotifPrefs()"><span class="notif-slider"></span></label>
         </div>
         <div class="notif-row">
-          <span>Ovulation reminder</span>
+          <span id="lbl-notif-ovul">Ovulation reminder</span>
           <label class="notif-toggle"><input type="checkbox" id="notif-ovul-chk" checked onchange="saveNotifPrefs()"><span class="notif-slider"></span></label>
         </div>
         <div class="notif-row">
-          <span>Daily log reminder</span>
+          <span id="lbl-notif-daily">Daily log reminder</span>
           <label class="notif-toggle"><input type="checkbox" id="notif-daily-chk" onchange="saveNotifPrefs()"><span class="notif-slider"></span></label>
         </div>
         <div class="notif-row">
-          <span>Reminder time</span>
+          <span id="lbl-notif-time">Reminder time</span>
           <input type="time" id="notif-time-inp" value="09:00" onchange="saveNotifPrefs()"
             style="border:1px solid #eee; border-radius:8px; padding:4px 8px; font-size:14px; background:white; color:#333;">
         </div>

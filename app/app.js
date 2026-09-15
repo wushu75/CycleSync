@@ -39,7 +39,27 @@ const T = {
     tipsF: ['Energy levels rising — great for new projects', 'Focus on creative work', 'Social activities are energising'],
     tipsO: ['Peak energy — great for physical activities', 'Communication skills enhanced', 'Good time for important meetings'],
     tipsL: ['Focus on detail-oriented tasks', 'Self-care is important', 'Be mindful of mood changes'],
-    savedToast: 'Symptoms logged!', periodToast: 'Period logged for today 🩸'
+    savedToast: 'Symptoms logged!', periodToast: 'Period logged for today 🩸',
+    langTitle: 'Language',
+    themeTitle: 'Theme',
+    themeDefault: 'Default',
+    themeDark: 'Dark',
+    themeCalm: 'Calm',
+    sizeTitle: 'Window Size',
+    sizeSmall: 'Small',
+    sizeMedium: 'Medium',
+    sizeLarge: 'Large',
+    notifBtn: 'Enable reminders',
+    notifBtnOn: 'Reminders on',
+    notifPrefs: 'Reminder preferences',
+    notifPeriod: 'Period approaching (3 days before)',
+    notifOvul: 'Ovulation reminder',
+    notifDaily: 'Daily log reminder',
+    notifTime: 'Reminder time',
+    notifEnable: 'Enable reminders',
+    notifLater: 'Later',
+    notifPromptTitle: 'Never miss your period',
+    notifPromptDesc: 'Get a reminder 3 days before. Private — stays on your device.'
   },
   ru: {
     welcomeTitle: 'Добро пожаловать в CycleSync', welcomeDesc: 'Давайте настроим ваш цикл для точных предсказаний.',
@@ -65,7 +85,27 @@ const T = {
     tipsF: ['Уровень энергии растёт — время для новых проектов', 'Сосредоточьтесь на творческой работе', 'Отличное время для общения'],
     tipsO: ['Пиковый уровень энергии', 'Коммуникативные навыки обострены', 'Хорошее время для важных встреч'],
     tipsL: ['Сосредоточьтесь на детальных задачах', 'Уход за собой важен', 'Следите за настроением'],
-    savedToast: 'Симптомы записаны!', periodToast: 'Месячные записаны 🩸'
+    savedToast: 'Симптомы записаны!', periodToast: 'Месячные записаны 🩸',
+    langTitle: 'Язык',
+    themeTitle: 'Тема',
+    themeDefault: 'По умолчанию',
+    themeDark: 'Тёмная',
+    themeCalm: 'Спокойная',
+    sizeTitle: 'Размер окна',
+    sizeSmall: 'Маленький',
+    sizeMedium: 'Средний',
+    sizeLarge: 'Большой',
+    notifBtn: 'Включить напоминания',
+    notifBtnOn: 'Напоминания включены',
+    notifPrefs: 'Настройки',
+    notifPeriod: 'Месячные через 3 дня',
+    notifOvul: 'Напоминание об овуляции',
+    notifDaily: 'Ежедневное',
+    notifTime: 'Время',
+    notifEnable: 'Включить',
+    notifLater: 'Позже',
+    notifPromptTitle: 'Не пропустите месячные',
+    notifPromptDesc: 'Напоминание за 3 дня.'
   },
   es: {
     welcomeTitle: 'Bienvenida a CycleSync', welcomeDesc: 'Configuremos tu ciclo para darte predicciones precisas.',
@@ -91,7 +131,27 @@ const T = {
     tipsF: ['Tu energía sube — ideal para nuevos proyectos', 'Enfócate en trabajo creativo', 'Gran momento para socializar'],
     tipsO: ['Pico de energía — ideal para actividad física', 'Habilidades comunicativas mejoradas', 'Buen momento para reuniones importantes'],
     tipsL: ['Enfócate en tareas detalladas', 'El autocuidado es importante', 'Sé consciente de los cambios de humor'],
-    savedToast: '¡Síntomas guardados!', periodToast: 'Menstruación registrada 🩸'
+    savedToast: '¡Síntomas guardados!', periodToast: 'Menstruación registrada 🩸',
+    langTitle: 'Idioma',
+    themeTitle: 'Tema',
+    themeDefault: 'Predeterminado',
+    themeDark: 'Oscuro',
+    themeCalm: 'Calmado',
+    sizeTitle: 'Tamaño ventana',
+    sizeSmall: 'Pequeño',
+    sizeMedium: 'Mediano',
+    sizeLarge: 'Grande',
+    notifBtn: 'Activar recordatorios',
+    notifBtnOn: 'Recordatorios activos',
+    notifPrefs: 'Preferencias',
+    notifPeriod: 'Período próximo (3 días antes)',
+    notifOvul: 'Recordatorio ovulación',
+    notifDaily: 'Recordatorio diario',
+    notifTime: 'Hora del recordatorio',
+    notifEnable: 'Activar',
+    notifLater: 'Luego',
+    notifPromptTitle: 'No te pierdas tu período',
+    notifPromptDesc: 'Aviso 3 días antes. Privado.'
   },
   pt: {
     welcomeTitle: 'Bem-vinda ao CycleSync', welcomeDesc: 'Vamos configurar seu ciclo para previsões precisas.',
@@ -117,7 +177,27 @@ const T = {
     tipsF: ['Energia aumentando — ótimo para novos projetos', 'Foque em trabalho criativo', 'Ótimo para atividades sociais'],
     tipsO: ['Pico de energia — ótimo para atividade física', 'Habilidades de comunicação aprimoradas', 'Bom momento para reuniões importantes'],
     tipsL: ['Foque em tarefas detalhadas', 'O autocuidado é importante', 'Esteja atenta às mudanças de humor'],
-    savedToast: 'Sintomas salvos!', periodToast: 'Menstruação registrada 🩸'
+    savedToast: 'Sintomas salvos!', periodToast: 'Menstruação registrada 🩸',
+    langTitle: 'Idioma',
+    themeTitle: 'Tema',
+    themeDefault: 'Padrão',
+    themeDark: 'Escuro',
+    themeCalm: 'Calmo',
+    sizeTitle: 'Tamanho janela',
+    sizeSmall: 'Pequeno',
+    sizeMedium: 'Médio',
+    sizeLarge: 'Grande',
+    notifBtn: 'Ativar lembretes',
+    notifBtnOn: 'Lembretes ativos',
+    notifPrefs: 'Preferências',
+    notifPeriod: 'Menstruação próxima (3 dias antes)',
+    notifOvul: 'Lembrete ovulação',
+    notifDaily: 'Lembrete diário',
+    notifTime: 'Horário do lembrete',
+    notifEnable: 'Ativar',
+    notifLater: 'Depois',
+    notifPromptTitle: 'Nunca perca sua menstruação',
+    notifPromptDesc: 'Aviso 3 dias antes. Privado.'
   },
   fr: {
     welcomeTitle: 'Bienvenue sur CycleSync', welcomeDesc: 'Configurons votre cycle pour des prédictions précises.',
@@ -143,7 +223,27 @@ const T = {
     tipsF: ["L'énergie monte — idéal pour de nouveaux projets", 'Concentrez-vous sur le travail créatif', 'Idéal pour les activités sociales'],
     tipsO: ["Pic d'énergie — idéal pour l'activité physique", 'Compétences de communication améliorées', 'Bon moment pour les réunions importantes'],
     tipsL: ['Concentrez-vous sur les tâches détaillées', "L'autosoins est important", "Soyez attentive aux changements d'humeur"],
-    savedToast: 'Symptômes enregistrés!', periodToast: 'Règles enregistrées 🩸'
+    savedToast: 'Symptômes enregistrés!', periodToast: 'Règles enregistrées 🩸',
+    langTitle: 'Langue',
+    themeTitle: 'Thème',
+    themeDefault: 'Défaut',
+    themeDark: 'Sombre',
+    themeCalm: 'Calme',
+    sizeTitle: 'Taille fenêtre',
+    sizeSmall: 'Petit',
+    sizeMedium: 'Moyen',
+    sizeLarge: 'Grand',
+    notifBtn: 'Activer les rappels',
+    notifBtnOn: 'Rappels activés',
+    notifPrefs: 'Préférences',
+    notifPeriod: 'Règles proches (3 jours avant)',
+    notifOvul: 'Rappel ovulation',
+    notifDaily: 'Rappel quotidien',
+    notifTime: 'Heure du rappel',
+    notifEnable: 'Activer',
+    notifLater: 'Plus tard',
+    notifPromptTitle: 'Ne manquez pas vos règles',
+    notifPromptDesc: 'Rappel 3 jours avant. Privé.'
   },
   de: {
     welcomeTitle: 'Willkommen bei CycleSync', welcomeDesc: 'Richten wir Ihren Zyklus für genaue Vorhersagen ein.',
@@ -169,7 +269,27 @@ const T = {
     tipsF: ['Energie steigt — gut für neue Projekte', 'Fokus auf kreative Arbeit', 'Ideal für soziale Aktivitäten'],
     tipsO: ['Energie-Höhepunkt — gut für Sport', 'Kommunikationsfähigkeiten verbessert', 'Gut für wichtige Meetings'],
     tipsL: ['Fokus auf detailorientierte Aufgaben', 'Selbstfürsorge ist wichtig', 'Achten Sie auf Stimmungsveränderungen'],
-    savedToast: 'Symptome gespeichert!', periodToast: 'Periode erfasst 🩸'
+    savedToast: 'Symptome gespeichert!', periodToast: 'Periode erfasst 🩸',
+    langTitle: 'Sprache',
+    themeTitle: 'Design',
+    themeDefault: 'Standard',
+    themeDark: 'Dunkel',
+    themeCalm: 'Ruhig',
+    sizeTitle: 'Fenstergröße',
+    sizeSmall: 'Klein',
+    sizeMedium: 'Mittel',
+    sizeLarge: 'Groß',
+    notifBtn: 'Erinnerungen aktivieren',
+    notifBtnOn: 'Erinnerungen aktiv',
+    notifPrefs: 'Einstellungen',
+    notifPeriod: 'Periode naht (3 Tage vorher)',
+    notifOvul: 'Eisprung-Erinnerung',
+    notifDaily: 'Tägliche Erinnerung',
+    notifTime: 'Erinnerungszeit',
+    notifEnable: 'Aktivieren',
+    notifLater: 'Später',
+    notifPromptTitle: 'Verpassen Sie Ihre Periode nicht',
+    notifPromptDesc: 'Erinnerung 3 Tage vorher. Privat.'
   },
   hi: {
     welcomeTitle: 'CycleSync में आपका स्वागत है', welcomeDesc: 'आपके चक्र को सटीक भविष्यवाणियों के लिए सेट करते हैं।',
@@ -195,7 +315,27 @@ const T = {
     tipsF: ['ऊर्जा बढ़ रही है — नए प्रोजेक्ट के लिए अच्छा समय', 'रचनात्मक काम पर ध्यान दें', 'सामाजिक गतिविधियों के लिए अच्छा समय'],
     tipsO: ['चरम ऊर्जा — शारीरिक गतिविधियों के लिए अच्छा', 'संचार कौशल बेहतर है', 'महत्वपूर्ण बैठकों के लिए अच्छा समय'],
     tipsL: ['विस्तृत कार्यों पर ध्यान दें', 'स्व-देखभाल महत्वपूर्ण है', 'मूड में बदलाव का ध्यान रखें'],
-    savedToast: 'लक्षण दर्ज किए!', periodToast: 'माहवारी दर्ज की 🩸'
+    savedToast: 'लक्षण दर्ज किए!', periodToast: 'माहवारी दर्ज की 🩸',
+    langTitle: 'भाषा',
+    themeTitle: 'थीम',
+    themeDefault: 'डिफ़ॉल्ट',
+    themeDark: 'डार्क',
+    themeCalm: 'शांत',
+    sizeTitle: 'विंडो आकार',
+    sizeSmall: 'छोटा',
+    sizeMedium: 'मध्यम',
+    sizeLarge: 'बड़ा',
+    notifBtn: 'रिमाइंडर चालू करें',
+    notifBtnOn: 'रिमाइंडर चालू',
+    notifPrefs: 'रिमाइंडर सेटिंग',
+    notifPeriod: 'माहवारी 3 दिन पहले',
+    notifOvul: 'ओवुलेशन रिमाइंडर',
+    notifDaily: 'दैनिक रिमाइंडर',
+    notifTime: 'रिमाइंडर समय',
+    notifEnable: 'चालू करें',
+    notifLater: 'बाद में',
+    notifPromptTitle: 'माहवारी मिस न करें',
+    notifPromptDesc: '3 दिन पहले रिमाइंडर।'
   },
   id: {
     welcomeTitle: 'Selamat datang di CycleSync', welcomeDesc: 'Mari atur siklus Anda untuk prediksi yang akurat.',
@@ -221,7 +361,27 @@ const T = {
     tipsF: ['Energi meningkat — bagus untuk proyek baru', 'Fokus pada pekerjaan kreatif', 'Waktu yang baik untuk bersosialisasi'],
     tipsO: ['Energi puncak — bagus untuk aktivitas fisik', 'Kemampuan komunikasi meningkat', 'Waktu yang baik untuk rapat penting'],
     tipsL: ['Fokus pada tugas yang detail', 'Perawatan diri itu penting', 'Perhatikan perubahan suasana hati'],
-    savedToast: 'Gejala disimpan!', periodToast: 'Haid dicatat 🩸'
+    savedToast: 'Gejala disimpan!', periodToast: 'Haid dicatat 🩸',
+    langTitle: 'Bahasa',
+    themeTitle: 'Tema',
+    themeDefault: 'Default',
+    themeDark: 'Gelap',
+    themeCalm: 'Tenang',
+    sizeTitle: 'Ukuran jendela',
+    sizeSmall: 'Kecil',
+    sizeMedium: 'Sedang',
+    sizeLarge: 'Besar',
+    notifBtn: 'Aktifkan pengingat',
+    notifBtnOn: 'Pengingat aktif',
+    notifPrefs: 'Preferensi',
+    notifPeriod: 'Haid mendekat (3 hari sebelum)',
+    notifOvul: 'Pengingat ovulasi',
+    notifDaily: 'Pengingat harian',
+    notifTime: 'Waktu pengingat',
+    notifEnable: 'Aktifkan',
+    notifLater: 'Nanti',
+    notifPromptTitle: 'Jangan lewatkan haid Anda',
+    notifPromptDesc: 'Pengingat 3 hari sebelum. Privat.'
   },
   bn: {
     welcomeTitle: 'CycleSync-এ স্বাগতম', welcomeDesc: 'সঠিক পূর্বাভাসের জন্য আপনার চক্র সেট করি।',
@@ -247,7 +407,27 @@ const T = {
     tipsF: ['শক্তি বাড়ছে — নতুন প্রকল্পের জন্য ভালো', 'সৃজনশীল কাজে মনোযোগ দিন', 'সামাজিক কার্যকলাপের জন্য ভালো সময়'],
     tipsO: ['সর্বোচ্চ শক্তি — শারীরিক কার্যকলাপের জন্য ভালো', 'যোগাযোগ দক্ষতা উন্নত', 'গুরুত্বপূর্ণ মিটিংয়ের জন্য ভালো সময়'],
     tipsL: ['বিস্তারিত কাজে মনোযোগ দিন', 'স্বাস্থ্যসেবা গুরুত্বপূর্ণ', 'মেজাজের পরিবর্তনে সচেতন থাকুন'],
-    savedToast: 'উপসর্গ সংরক্ষিত!', periodToast: 'মাসিক দর্ज করা হয়েছে 🩸'
+    savedToast: 'উপসর্গ সংরক্ষিত!', periodToast: 'মাসিক দর্ज করা হয়েছে 🩸',
+    langTitle: 'ভাষা',
+    themeTitle: 'থিম',
+    themeDefault: 'ডিফার্ল্ট',
+    themeDark: 'ডার্ক',
+    themeCalm: 'শান্ত',
+    sizeTitle: 'বিন্দো আকার',
+    sizeSmall: 'ছোট',
+    sizeMedium: 'মাঝারি',
+    sizeLarge: 'বড়',
+    notifBtn: 'রিমাইন্ডার চালু',
+    notifBtnOn: 'রিমাইন্ডার চালু আছে',
+    notifPrefs: 'রিমাইন্ডার সেটিং',
+    notifPeriod: 'মাসিক 3 দিন আগে',
+    notifOvul: 'ওভুলেশন রিমাইন্ডার',
+    notifDaily: 'দৈনিক রিমাইন্ডার',
+    notifTime: 'রিমাইন্ডার সময়',
+    notifEnable: 'চালু করুন',
+    notifLater: 'পরে',
+    notifPromptTitle: 'মাসিক মিস করবেন না',
+    notifPromptDesc: '3 দিন আগে রিমাইন্ডার।'
   },
   ja: {
     welcomeTitle: 'CycleSyncへようこそ', welcomeDesc: '正確な予測のためにサイクルを設定しましょう。',
@@ -273,7 +453,27 @@ const T = {
     tipsF: ['エネルギーが上昇中 — 新しいプロジェクトに最適', 'クリエイティブな作業に集中して', '社交活動に最適な時期'],
     tipsO: ['エネルギーのピーク — 運動に最適', 'コミュニケーション能力が向上', '重要な会議に最適な時期'],
     tipsL: ['詳細作業に集中して', 'セルフケアが大切', '気分の変化に注意して'],
-    savedToast: '症状を記録しました！', periodToast: '生理を記録しました 🩸'
+    savedToast: '症状を記録しました！', periodToast: '生理を記録しました 🩸',
+    langTitle: '言語',
+    themeTitle: 'テーマ',
+    themeDefault: 'デフォルト',
+    themeDark: 'ダーク',
+    themeCalm: 'カーム',
+    sizeTitle: 'ウィンドウサイズ',
+    sizeSmall: '小',
+    sizeMedium: '中',
+    sizeLarge: '大',
+    notifBtn: 'リマインダーを有効に',
+    notifBtnOn: 'リマインダーオン',
+    notifPrefs: 'リマインダー設定',
+    notifPeriod: '生理ぉ3日前',
+    notifOvul: '排卵リマインダー',
+    notifDaily: '毎日のリマインダー',
+    notifTime: 'リマインダー時刻',
+    notifEnable: '有効にする',
+    notifLater: '後で',
+    notifPromptTitle: '生理を見逃さないで',
+    notifPromptDesc: '3日前にお知らせ。プライベート。'
   },
   ko: {
     welcomeTitle: 'CycleSync에 오신 것을 환영합니다', welcomeDesc: '정확한 예측을 위해 사이클을 설정해 드릴게요.',
@@ -299,7 +499,27 @@ const T = {
     tipsF: ['에너지 상승 중 — 새 프로젝트에 최적', '창의적인 작업에 집중하세요', '사교 활동에 좋은 시기'],
     tipsO: ['에너지 최고점 — 운동에 최적', '소통 능력이 향상됩니다', '중요한 미팅에 좋은 시기'],
     tipsL: ['세부 작업에 집중하세요', '자기 관리가 중요합니다', '기분 변화에 주의하세요'],
-    savedToast: '증상이 기록되었습니다!', periodToast: '생리가 기록되었습니다 🩸'
+    savedToast: '증상이 기록되었습니다!', periodToast: '생리가 기록되었습니다 🩸',
+    langTitle: '언어',
+    themeTitle: '테마',
+    themeDefault: '기본',
+    themeDark: '다크',
+    themeCalm: '평온',
+    sizeTitle: '창 크기',
+    sizeSmall: '작음',
+    sizeMedium: '중간',
+    sizeLarge: '큼',
+    notifBtn: '알림 활성화',
+    notifBtnOn: '알림 켜짐',
+    notifPrefs: '알림 설정',
+    notifPeriod: '생리 예정 (3일 전)',
+    notifOvul: '배란 알림',
+    notifDaily: '매일 알림',
+    notifTime: '알림 시간',
+    notifEnable: '활성화',
+    notifLater: '나중에',
+    notifPromptTitle: '생리를 놓치지 마세요',
+    notifPromptDesc: '3일 전 알림. 비공개.'
   },
   zh: {
     welcomeTitle: '欢迎使用 CycleSync', welcomeDesc: '让我们设置您的周期，以便给您准确的预测。',
@@ -325,7 +545,27 @@ const T = {
     tipsF: ['能量正在上升 — 适合开始新项目', '专注于创意工作', '非常适合社交活动'],
     tipsO: ['能量达到顶峰 — 适合体育活动', '沟通能力增强', '适合重要会议或演示'],
     tipsL: ['专注于细节工作', '自我护理很重要', '注意情绪变化'],
-    savedToast: '症状已记录！', periodToast: '月经已记录 🩸'
+    savedToast: '症状已记录！', periodToast: '月经已记录 🩸',
+    langTitle: '语言',
+    themeTitle: '主题',
+    themeDefault: '默认',
+    themeDark: '深色',
+    themeCalm: '平静',
+    sizeTitle: '窗口大小',
+    sizeSmall: '小',
+    sizeMedium: '中',
+    sizeLarge: '大',
+    notifBtn: '开启提醒',
+    notifBtnOn: '提醒已开启',
+    notifPrefs: '提醒设置',
+    notifPeriod: '月经即将到来（3天前）',
+    notifOvul: '排卵提醒',
+    notifDaily: '每日提醒',
+    notifTime: '提醒时间',
+    notifEnable: '开启',
+    notifLater: '稍后',
+    notifPromptTitle: '不要错过月经',
+    notifPromptDesc: '3天前提醒。私密。'
   },
   it: {
     welcomeTitle: 'Benvenuta su CycleSync', welcomeDesc: 'Configuriamo il tuo ciclo per previsioni accurate.',
@@ -351,7 +591,27 @@ const T = {
     tipsF: ["L'energia aumenta — ottimo per nuovi progetti", 'Concentrati sul lavoro creativo', 'Ottimo per le attività sociali'],
     tipsO: ["Picco di energia — ottimo per l'attività fisica", 'Capacità comunicative migliorate', 'Buon momento per riunioni importanti'],
     tipsL: ['Concentrati sui compiti dettagliati', "L'autocura è importante", "Sii consapevole dei cambiamenti d'umore"],
-    savedToast: 'Sintomi salvati!', periodToast: 'Ciclo registrato 🩸'
+    savedToast: 'Sintomi salvati!', periodToast: 'Ciclo registrato 🩸',
+    langTitle: 'Lingua',
+    themeTitle: 'Tema',
+    themeDefault: 'Default',
+    themeDark: 'Scuro',
+    themeCalm: 'Calmo',
+    sizeTitle: 'Dimensione finestra',
+    sizeSmall: 'Piccolo',
+    sizeMedium: 'Medio',
+    sizeLarge: 'Grande',
+    notifBtn: 'Attiva promemoria',
+    notifBtnOn: 'Promemoria attivi',
+    notifPrefs: 'Preferenze',
+    notifPeriod: 'Ciclo in arrivo (3 giorni prima)',
+    notifOvul: 'Promemoria ovulazione',
+    notifDaily: 'Promemoria giornaliero',
+    notifTime: 'Orario promemoria',
+    notifEnable: 'Attiva',
+    notifLater: 'Dopo',
+    notifPromptTitle: 'Non perdere il tuo ciclo',
+    notifPromptDesc: 'Promemoria 3 giorni prima. Privato.'
   }
 };
 
@@ -509,6 +769,36 @@ function applyLanguage() {
   // Settings
   setText('lbl-settings', tr.settings);
   setText('lbl-support-desc', tr.supportDesc);
+
+  // Settings labels
+  setText('lbl-lang-title', tr.langTitle);
+  setText('lbl-theme', tr.themeTitle);
+  setText('lbl-theme-default', tr.themeDefault);
+  setText('lbl-theme-dark', tr.themeDark);
+  setText('lbl-theme-calm', tr.themeCalm);
+  setText('lbl-size', tr.sizeTitle);
+  setText('lbl-small', tr.sizeSmall);
+  setText('lbl-medium', tr.sizeMedium);
+  setText('lbl-large', tr.sizeLarge);
+
+  // Notification labels
+  setText('lbl-notif-btn', tr.notifBtn);
+  setText('lbl-notif-prefs', tr.notifPrefs);
+  setText('lbl-notif-period', tr.notifPeriod);
+  setText('lbl-notif-ovul', tr.notifOvul);
+  setText('lbl-notif-daily', tr.notifDaily);
+  setText('lbl-notif-time', tr.notifTime);
+  setText('lbl-notif-enable', tr.notifEnable);
+
+  // Update notif button if already enabled
+  var notifBtn = document.getElementById('notif-enable-btn');
+  if (notifBtn) {
+    var ns = getNotifSettings && getNotifSettings();
+    var isOn = ns && ns.enabled && Notification.permission === 'granted';
+    var span = document.getElementById('lbl-notif-btn');
+    if (span) span.textContent = isOn ? tr.notifBtnOn : tr.notifBtn;
+    notifBtn.style.background = isOn ? '#4caf50' : '#FF6B8B';
+  }
 
   // Update stepper displays
   document.getElementById('cycle-display').textContent = cycleVal + ' ' + tr.days;
@@ -979,7 +1269,9 @@ function renderNotifSettings() {
     var btn = document.getElementById('notif-enable-btn');
     var section = document.getElementById('notif-detail');
     if (btn) {
-      btn.textContent = enabled ? 'Reminders on' : 'Enable reminders';
+      var tr2 = (typeof T !== 'undefined') ? (T[getLang()] || T['en']) : null;
+      var span2 = document.getElementById('lbl-notif-btn');
+      if (span2 && tr2) span2.textContent = enabled ? tr2.notifBtnOn : tr2.notifBtn;
       btn.style.background = enabled ? '#4caf50' : '#FF6B8B';
     }
     if (section) section.style.display = enabled ? 'block' : 'none';
