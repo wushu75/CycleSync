@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://wushu75.github.io/CycleSync/sitemap.xml
+
+# Crawl important pages
+Allow: /CycleSync/
+Allow: /CycleSync/app/
+
+# Block unnecessary files
+Disallow: /CycleSync/_locales/
+Disallow: /CycleSync/images/icon16.png

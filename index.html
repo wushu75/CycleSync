@@ -6,8 +6,8 @@
 
   <!-- Primary SEO -->
   <title>CycleSync — Free Period & Cycle Tracker Chrome Extension | No Account Needed</title>
-  <meta name="description" content="CycleSync is a free Chrome extension for menstrual cycle tracking. Track your period, predict ovulation, log symptoms and get daily tips — all privately in your browser. No account, no app needed." />
-  <meta name="keywords" content="period tracker Chrome extension, menstrual cycle tracker, free cycle tracking, ovulation predictor, period predictor, cycle sync, menstrual health, PCOS tracker, symptom logging, fertility tracker, browser period tracker, private period tracker" />
+  <meta name="description" content="CycleSync is a free Chrome and Edge extension for tracking your period, cycle phases, symptoms and fertile window. No account, subscription or server-stored data required. Private period tracker that stores data locally. Available in 13 languages." />
+  <meta name="keywords" content="private period tracker, period tracker without an account, menstrual cycle tracker for Chrome, period tracker that stores data locally, cycle tracking without an app, free menstrual cycle tracker, cycle tracking for privacy-conscious users, how menstrual cycle tracking works, menstrual cycle tracker Edge, period tracker Microsoft Edge, private cycle tracker browser extension, PCOS tracker no account, ovulation predictor Chrome" />
   <meta name="author" content="CycleSync" />
   <link rel="canonical" href="https://wushu75.github.io/CycleSync/" />
 
@@ -21,7 +21,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CycleSync — Free Period & Cycle Tracker Chrome Extension" />
-  <meta name="twitter:description" content="Track your menstrual cycle privately in your browser. No account, no app, no data sharing. Free Chrome extension available in 13 languages including Simplified Chinese. Used in 10+ countries." />
+  <meta name="twitter:description" content="Private Menstrual Cycle Tracker for Chrome and Edge. No account, no server, no data sharing. Free extension in 13 languages. Period tracker that stores data locally on your device." />
   <meta name="twitter:image" content="https://wushu75.github.io/CycleSync/images/og-image.png" />
 
   <!-- Schema.org Structured Data -->
@@ -54,6 +54,46 @@
 
   <!-- Robots -->
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CycleSync",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Chrome, Edge, iOS, Android",
+    "description": "Private menstrual cycle tracker for Chrome and Edge. No account, no server, no data sharing. Free period tracker that stores data locally in your browser.",
+    "url": "https://wushu75.github.io/CycleSync/",
+    "downloadUrl": "https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Tony Momoh",
+      "url": "https://tonymomoh.co.uk/"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "1"
+    },
+    "featureList": [
+      "Private period tracker without an account",
+      "Menstrual cycle tracker for Chrome and Edge",
+      "Period tracker that stores data locally",
+      "Cycle tracking without an app",
+      "Free menstrual cycle tracker",
+      "13 languages supported",
+      "Offline capable PWA",
+      "iCal calendar export"
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -402,7 +442,7 @@
 const SITE_TRANSLATIONS = {
   en: {
     flag: '🇬🇧', name: 'English',
-    heroBadge: '✨ Free Chrome Extension',
+    heroBadge: '✨ Free on Chrome & Edge',
     heroTitle: 'Live in <em>rhythm</em><br/>with your body',
     heroSub: 'CycleSync is a free Chrome extension that brings menstrual cycle tracking right into your browser — track your period, predict ovulation, log symptoms, and feel truly in sync. No account needed.',
     heroNote: 'No account needed.', heroNoteText: 'Works on every device.',
@@ -488,7 +528,7 @@ const SITE_TRANSLATIONS = {
   },
   ru: {
     flag: '🇷🇺', name: 'Русский',
-    heroBadge: '✨ Бесплатное расширение Chrome',
+    heroBadge: '✨ Бесплатно для Chrome и Edge',
     heroTitle: 'Живите в <em>ритме</em><br/>своего тела',
     heroSub: 'CycleSync — бесплатное расширение Chrome для отслеживания менструального цикла прямо в браузере. Без аккаунта. Без передачи данных.',
     heroNote: 'Аккаунт не нужен.', heroNoteText: 'Работает на любом устройстве.',
@@ -832,7 +872,7 @@ const SITE_TRANSLATIONS = {
   },
   de: {
     flag: '🇩🇪', name: 'Deutsch',
-    heroBadge: '✨ Kostenlose Chrome-Erweiterung',
+    heroBadge: '✨ Kostenlos für Chrome und Edge',
     heroTitle: 'Leben Sie im <em>Rhythmus</em><br/>Ihres Körpers',
     heroSub: 'CycleSync ist eine kostenlose Chrome-Erweiterung, die die Verfolgung des Menstruationszyklus direkt in Ihren Browser bringt. Ohne Konto. Ohne Datenweitergabe.',
     heroNote: 'Kein Konto erforderlich.', heroNoteText: 'Funktioniert auf jedem Gerät.',
@@ -918,7 +958,7 @@ const SITE_TRANSLATIONS = {
   },
   hi: {
     flag: '🇮🇳', name: 'हिन्दी',
-    heroBadge: '✨ मुफ्त Chrome एक्सटेंशन',
+    heroBadge: '✨ Chrome और Edge के लिए मुफ्त',
     heroTitle: 'अपने शरीर के <em>ताल</em><br/>में जीएं',
     heroSub: 'CycleSync एक मुफ्त Chrome एक्सटेंशन है जो मासिक धर्म चक्र ट्रैकिंग को सीधे आपके ब्राउज़र में लाता है। कोई खाता नहीं। कोई डेटा साझाकरण नहीं।',
     heroNote: 'कोई खाता नहीं चाहिए।', heroNoteText: 'हर डिवाइस पर काम करता है।',
@@ -1004,7 +1044,7 @@ const SITE_TRANSLATIONS = {
   },
   id: {
     flag: '🇮🇩', name: 'Indonesia',
-    heroBadge: '✨ Ekstensi Chrome Gratis',
+    heroBadge: '✨ Gratis untuk Chrome dan Edge',
     heroTitle: 'Hiduplah dalam <em>irama</em><br/>tubuh Anda',
     heroSub: 'CycleSync adalah ekstensi Chrome gratis yang membawa pelacakan siklus menstruasi langsung ke browser Anda. Tanpa akun. Tanpa berbagi data.',
     heroNote: 'Tanpa akun diperlukan.', heroNoteText: 'Bekerja di semua perangkat.',
@@ -1090,7 +1130,7 @@ const SITE_TRANSLATIONS = {
   },
   bn: {
     flag: '🇧🇩', name: 'বাংলা',
-    heroBadge: '✨ বিনামূল্যে Chrome এক্সটেনশন',
+    heroBadge: '✨ Chrome ও Edge-এ বিনামূল্যে',
     heroTitle: 'আপনার শরীরের <em>ছন্দে</em><br/>বেঁচে থাকুন',
     heroSub: 'CycleSync একটি বিনামূল্যের Chrome এক্সটেনশন যা মাসিক চক্র ট্র্যাকিং সরাসরি আপনার ব্রাউজারে নিয়ে আসে। কোনো অ্যাকাউন্ট নেই। কোনো ডেটা শেয়ার নেই।',
     heroNote: 'কোনো অ্যাকাউন্ট লাগবে না।', heroNoteText: 'যেকোনো ডিভাইসে কাজ করে।',
@@ -1176,7 +1216,7 @@ const SITE_TRANSLATIONS = {
   },
   ja: {
     flag: '🇯🇵', name: '日本語',
-    heroBadge: '✨ 無料Chrome拡張機能',
+    heroBadge: '✨ ChromeとEdgeで無料',
     heroTitle: '体の<em>リズム</em>に<br/>合わせて生きる',
     heroSub: 'CycleSyncは生理周期の追跡をブラウザで直接行える無料のChrome拡張機能です。アカウント不要。データ共有なし。',
     heroNote: 'アカウント不要。', heroNoteText: 'あらゆるデバイスで動作します。',
@@ -1262,7 +1302,7 @@ const SITE_TRANSLATIONS = {
   },
   ko: {
     flag: '🇰🇷', name: '한국어',
-    heroBadge: '✨ 무료 Chrome 확장 프로그램',
+    heroBadge: '✨ Chrome 및 Edge 무료',
     heroTitle: '몸의 <em>리듬</em>에<br/>맞춰 살아가세요',
     heroSub: 'CycleSync는 생리 주기 추적을 브라우저에서 직접 할 수 있는 무료 Chrome 확장 프로그램입니다. 계정 불필요. 데이터 공유 없음.',
     heroNote: '계정이 필요 없습니다.', heroNoteText: '모든 기기에서 작동합니다.',
@@ -1348,7 +1388,7 @@ const SITE_TRANSLATIONS = {
   },
   it: {
     flag: '🇮🇹', name: 'Italiano',
-    heroBadge: '✨ Estensione Chrome gratuita',
+    heroBadge: '✨ Gratis per Chrome ed Edge',
     heroTitle: 'Vivi nel <em>ritmo</em><br/>del tuo corpo',
     heroSub: "CycleSync è un'estensione Chrome gratuita che porta il monitoraggio del ciclo mestruale direttamente nel tuo browser. Senza account. Senza condivisione dei dati.",
     heroNote: 'Nessun account richiesto.', heroNoteText: 'Funziona su qualsiasi dispositivo.',
@@ -1434,7 +1474,7 @@ const SITE_TRANSLATIONS = {
   },
   zh: {
     flag: '🇨🇳', name: '中文(简体)',
-    heroBadge: '✨ 免费Chrome扩展程序',
+    heroBadge: '✨ Chrome和Edge免费使用',
     heroTitle: '与您的身体<em>节奏</em><br/>同步生活',
     heroSub: 'CycleSync是一款免费的Chrome扩展程序，将月经周期追踪直接带入您的浏览器。无需账户。不共享数据。',
     heroNote: '无需账户。', heroNoteText: '适用于所有设备。',
@@ -1707,6 +1747,7 @@ window.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
     <a href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" class="nav-cta chrome-cta" target="_blank" rel="noopener">Add to Chrome &mdash; Free</a>
+  <a href="https://microsoftedge.microsoft.com/addons/detail/cyclesync-%E2%80%94-menstrual-cyc/eogbdgceflibienfibgkjaabagnehheh" class="nav-cta edge-cta" target="_blank" rel="noopener" style="background:#0078d4; border-color:#0078d4; margin-left:8px;">Edge &mdash; Free</a>
   </div>
 </nav>
 
@@ -1715,11 +1756,12 @@ window.addEventListener('DOMContentLoaded', function() {
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
   <div class="hero-inner">
-    <div class="hero-badge" id="hero-badge">&#10024; Free Chrome Extension</div>
+    <div class="hero-badge" id="hero-badge">&#10024; Free on Chrome &amp; Edge</div>
     <h1 class="hero-title" id="hero-title">Live in <em>rhythm</em><br/>with your body</h1>
     <p class="hero-subtitle" id="hero-sub">CycleSync is a free Chrome extension that brings menstrual cycle tracking right into your browser &mdash; track your period, predict ovulation, log symptoms, and feel truly in sync. No account needed.</p>
     <div class="hero-actions">
       <a href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" class="btn-primary chrome-cta" target="_blank" rel="noopener">Add to Chrome &mdash; It's Free</a>
+      <a href="https://microsoftedge.microsoft.com/addons/detail/cyclesync-%E2%80%94-menstrual-cyc/eogbdgceflibienfibgkjaabagnehheh" class="btn-primary edge-cta" target="_blank" rel="noopener" style="background:#0078d4; border-color:#0078d4;">🌐 Add to Edge &mdash; Free</a>
       <a href="https://wushu75.github.io/CycleSync/app/" class="btn-primary pwa-cta" target="_blank" rel="noopener" style="background:white; color:#f4607a; border:2px solid #f4607a; box-shadow:none;">📱 Use on Mobile &mdash; Free PWA</a>
       <span class="hero-note" id="hero-note"><strong id="hero-note-strong">No account needed.</strong> <span id="hero-note-text">Works on every device.</span></span>
     </div>
@@ -1741,6 +1783,21 @@ window.addEventListener('DOMContentLoaded', function() {
       <div class="preview-divider"></div>
       <div class="preview-live"><div class="preview-dot"></div> Live tracking</div>
     </div>
+  </div>
+</section>
+
+<section style="padding:24px 48px; background:white; border-bottom:1px solid rgba(192,132,176,0.1);">
+  <div style="max-width:760px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap;">
+    <span style="font-size:13px; color:#a8849e; font-weight:500; text-transform:uppercase; letter-spacing:1px;">Available on</span>
+    <a href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px; padding:8px 16px; background:#f9f9f9; border:1px solid #eee; border-radius:10px; text-decoration:none; color:#333; font-size:13px; font-weight:500;">
+      <span style="font-size:18px;">🌐</span> Google Chrome
+    </a>
+    <a href="https://microsoftedge.microsoft.com/addons/detail/cyclesync-%E2%80%94-menstrual-cyc/eogbdgceflibienfibgkjaabagnehheh" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px; padding:8px 16px; background:#f0f6ff; border:1px solid #cce0ff; border-radius:10px; text-decoration:none; color:#0078d4; font-size:13px; font-weight:500;">
+      <span style="font-size:18px;">🌐</span> Microsoft Edge
+    </a>
+    <a href="https://wushu75.github.io/CycleSync/app/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px; padding:8px 16px; background:#fff4f6; border:1px solid #ffd0da; border-radius:10px; text-decoration:none; color:#f4607a; font-size:13px; font-weight:500;">
+      <span style="font-size:18px;">📱</span> Mobile PWA
+    </a>
   </div>
 </section>
 
@@ -1850,6 +1907,7 @@ window.addEventListener('DOMContentLoaded', function() {
     <p class="cta-subtitle" id="cta-sub">Join women who use CycleSync to understand their bodies and plan their lives with clarity &mdash; all from their browser.</p>
     <div class="cta-actions">
       <a href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" class="btn-primary chrome-cta" target="_blank" rel="noopener">Add to Chrome &mdash; It's Free</a>
+      <a href="https://microsoftedge.microsoft.com/addons/detail/cyclesync-%E2%80%94-menstrual-cyc/eogbdgceflibienfibgkjaabagnehheh" class="edge-cta" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:14px 32px; background:#0078d4; border:2px solid #0078d4; border-radius:50px; font-size:15px; font-weight:600; color:white; text-decoration:none; transition:all 0.3s;">🌐 Add to Edge &mdash; Free</a>
       <a href="https://wushu75.github.io/CycleSync/app/" target="_blank" rel="noopener" class="pwa-cta" style="display:inline-flex; align-items:center; gap:8px; padding:14px 32px; background:white; border:2px solid #f4607a; border-radius:50px; font-size:15px; font-weight:600; color:#f4607a; text-decoration:none; transition:all 0.3s;">📱 Mobile PWA &mdash; All 13 Languages</a>
       <a href="https://ko-fi.com/cyclesync" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:12px 28px; background:white; border:1px solid rgba(192,132,176,0.3); border-radius:50px; font-size:14px; color:#7c3f6e; text-decoration:none; transition:all 0.3s;">☕ Support CycleSync on Ko-fi</a>
       <div class="cta-perks">
@@ -1858,6 +1916,24 @@ window.addEventListener('DOMContentLoaded', function() {
         <span class="perk"><span class="perk-check">&#10003;</span> Private by design</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- SEO content section -->
+<section style="padding:48px 48px 32px; background:white; border-bottom:1px solid rgba(192,132,176,0.1);">
+  <div style="max-width:760px; margin:0 auto;">
+    <h2 style="font-size:22px; font-weight:700; color:#2d1f2a; margin-bottom:12px;">Private Menstrual Cycle Tracker for Chrome and Edge</h2>
+    <p style="font-size:15px; color:#6b4e63; line-height:1.7; margin-bottom:20px;">CycleSync is a free Chrome and Edge extension for tracking your period, cycle phases, symptoms and fertile window. No account, subscription or server-stored data required.</p>
+    <ul style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:8px; list-style:none; padding:0; margin:0;">
+      <li style="font-size:14px; color:#6b4e63; padding:6px 0; display:flex; align-items:center; gap:8px;"><span style="color:#f4607a;">✓</span> Private period tracker</li>
+      <li style="font-size:14px; color:#6b4e63; padding:6px 0; display:flex; align-items:center; gap:8px;"><span style="color:#f4607a;">✓</span> Period tracker without an account</li>
+      <li style="font-size:14px; color:#6b4e63; padding:6px 0; display:flex; align-items:center; gap:8px;"><span style="color:#f4607a;">✓</span> Menstrual cycle tracker for Chrome and Edge</li>
+      <li style="font-size:14px; color:#6b4e63; padding:6px 0; display:flex; align-items:center; gap:8px;"><span style="color:#f4607a;">✓</span> Period tracker that stores data locally</li>
+      <li style="font-size:14px; color:#6b4e63; padding:6px 0; display:flex; align-items:center; gap:8px;"><span style="color:#f4607a;">✓</span> Cycle tracking without an app</li>
+      <li style="font-size:14px; color:#6b4e63; padding:6px 0; display:flex; align-items:center; gap:8px;"><span style="color:#f4607a;">✓</span> Free menstrual cycle tracker</li>
+      <li style="font-size:14px; color:#6b4e63; padding:6px 0; display:flex; align-items:center; gap:8px;"><span style="color:#f4607a;">✓</span> Cycle tracking for privacy-conscious users</li>
+      <li style="font-size:14px; color:#6b4e63; padding:6px 0; display:flex; align-items:center; gap:8px;"><span style="color:#f4607a;">✓</span> How menstrual cycle tracking works</li>
+    </ul>
   </div>
 </section>
 
@@ -2145,7 +2221,7 @@ window.addEventListener('DOMContentLoaded', function() {
 <footer>
   <a href="#" class="footer-logo">Cycle<span>Sync</span></a>
   <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; justify-content:center;">
-    <p class="footer-note" id="footer-note">&copy; 2026 CycleSync. Made with care.</p>
+    <p class="footer-note" id="footer-note">&copy; 2026 CycleSync. Made with care. Built by <a href="https://tonymomoh.co.uk/" target="_blank" rel="noopener" style="color:#f4607a; text-decoration:none; font-weight:500;">tonymomoh</a></p>
     <a href="https://ko-fi.com/cyclesync" target="_blank" rel="noopener" style="font-size:13px; color:#f4607a; text-decoration:none;" id="footer-kofi">☕ Support on Ko-fi</a>
   </div>
 </footer>
