@@ -907,6 +907,134 @@ function checkiOSInstall() {
 
 // Service worker registered in index.html
 
+// ===== NOTIFICATIONS =====
+function getNotifSettings() {
+  try { return JSON.parse(localStorage.getItem('cs_notif') || 'null'); } catch(e) { return null; }
+}
+function saveNotifSettings(s) {
+  try { localStorage.setItem('cs_notif', JSON.stringify(s)); } catch(e) {}
+}
+
+function requestNotifPermission() {
+  if (!('Notification' in window)) {
+    showToast('Notifications not supported on this browser.');
+    return;
+  }
+  Notification.requestPermission().then(function(permission) {
+    if (permission === 'granted') {
+      var s = getNotifSettings() || {};
+      s.enabled = true;
+      s.notifPeriod = true;
+      s.notifOvulation = true;
+      s.notifDaily = false;
+      s.hour = 9;
+      s.min = 0;
+      saveNotifSettings(s);
+      scheduleNotifs();
+      showToast('Reminders enabled');
+      renderNotifSettings();
+      hideNotifPrompt();
+    } else {
+      showToast('Notifications blocked. Enable in browser settings.');
+    }
+  });
+}
+
+function scheduleNotifs() {
+  try {
+    var s = getNotifSettings();
+    if (!s || !s.enabled) return;
+    if (!navigator.serviceWorker || !navigator.serviceWorker.controller) return;
+    var data = getData();
+    if (!data) return;
+    var info = getPhaseInfo(data);
+    navigator.serviceWorker.controller.postMessage({
+      type: 'SCHEDULE_NOTIFICATIONS',
+      payload: {
+        enabled: true,
+        lang: getLang(),
+        nextPeriod: info.nextPeriodDate ? info.nextPeriodDate.toISOString() : null,
+        nextOvulation: info.ovulationDate ? info.ovulationDate.toISOString() : null,
+        notifPeriod: s.notifPeriod !== false,
+        notifOvulation: s.notifOvulation !== false,
+        notifDaily: s.notifDaily === true,
+        hour: s.hour || 9,
+        min: s.min || 0
+      }
+    });
+  } catch(e) { console.log('scheduleNotifs error:', e); }
+}
+
+function cancelNotifs() {
+  try {
+    if (!navigator.serviceWorker || !navigator.serviceWorker.controller) return;
+    navigator.serviceWorker.controller.postMessage({ type: 'CANCEL_NOTIFICATIONS' });
+  } catch(e) {}
+}
+
+function renderNotifSettings() {
+  try {
+    var s = getNotifSettings();
+    var enabled = s && s.enabled && Notification.permission === 'granted';
+    var btn = document.getElementById('notif-enable-btn');
+    var section = document.getElementById('notif-detail');
+    if (btn) {
+      btn.textContent = enabled ? 'Reminders on' : 'Enable reminders';
+      btn.style.background = enabled ? '#4caf50' : '#FF6B8B';
+    }
+    if (section) section.style.display = enabled ? 'block' : 'none';
+    if (s && enabled) {
+      var pt = document.getElementById('notif-period-chk');
+      var ot = document.getElementById('notif-ovul-chk');
+      var dt = document.getElementById('notif-daily-chk');
+      var ti = document.getElementById('notif-time-inp');
+      if (pt) pt.checked = s.notifPeriod !== false;
+      if (ot) ot.checked = s.notifOvulation !== false;
+      if (dt) dt.checked = s.notifDaily === true;
+      if (ti) ti.value = String(s.hour || 9).padStart(2,'0') + ':' + String(s.min || 0).padStart(2,'0');
+    }
+  } catch(e) { console.log('renderNotifSettings error:', e); }
+}
+
+function saveNotifPrefs() {
+  try {
+    var s = getNotifSettings() || {};
+    var pt = document.getElementById('notif-period-chk');
+    var ot = document.getElementById('notif-ovul-chk');
+    var dt = document.getElementById('notif-daily-chk');
+    var ti = document.getElementById('notif-time-inp');
+    if (pt) s.notifPeriod = pt.checked;
+    if (ot) s.notifOvulation = ot.checked;
+    if (dt) s.notifDaily = dt.checked;
+    if (ti && ti.value) {
+      var parts = ti.value.split(':');
+      s.hour = parseInt(parts[0]) || 9;
+      s.min = parseInt(parts[1]) || 0;
+    }
+    saveNotifSettings(s);
+    scheduleNotifs();
+    showToast('Settings saved');
+  } catch(e) { console.log('saveNotifPrefs error:', e); }
+}
+
+function showNotifPrompt() {
+  var dismissed = localStorage.getItem('notif_dismissed');
+  var s = getNotifSettings();
+  var alreadyOn = s && s.enabled && Notification.permission === 'granted';
+  if (!dismissed && !alreadyOn && 'Notification' in window) {
+    setTimeout(function() {
+      var p = document.getElementById('notif-prompt');
+      if (p) p.style.display = 'flex';
+    }, 5000);
+  }
+}
+
+function hideNotifPrompt() {
+  var p = document.getElementById('notif-prompt');
+  if (p) p.style.display = 'none';
+  localStorage.setItem('notif_dismissed', '1');
+}
+
 // ===== INIT =====
 function initApp() {
   applyLanguage();
@@ -916,6 +1044,12 @@ function initApp() {
   renderCalendar();
   var savedTheme = localStorage.getItem('cyclesync_theme');
   if (savedTheme) applyTheme(savedTheme);
+  // Notifications deferred so they never block app load
+  setTimeout(function() {
+    try { renderNotifSettings(); } catch(e) {}
+    try { scheduleNotifs(); } catch(e) {}
+    try { showNotifPrompt(); } catch(e) {}
+  }, 3000);
 }
 
 window.addEventListener('DOMContentLoaded', function() {
