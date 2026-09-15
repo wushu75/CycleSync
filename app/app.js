@@ -59,7 +59,9 @@ const T = {
     notifEnable: 'Enable reminders',
     notifLater: 'Later',
     notifPromptTitle: 'Never miss your period',
-    notifPromptDesc: 'Get a reminder 3 days before. Private — stays on your device.'
+    notifPromptDesc: 'Get a reminder 3 days before. Private — stays on your device.',
+    shareMsg: 'CycleSync tracks my cycle privately in my browser — no account, no data sharing, completely free. Works on iPhone and Android too: https://cyclesync.app/app',
+    shareBtnLabel: 'Share with friends'
   },
   ru: {
     welcomeTitle: 'Добро пожаловать в CycleSync', welcomeDesc: 'Давайте настроим ваш цикл для точных предсказаний.',
@@ -105,7 +107,9 @@ const T = {
     notifEnable: 'Включить',
     notifLater: 'Позже',
     notifPromptTitle: 'Не пропустите месячные',
-    notifPromptDesc: 'Напоминание за 3 дня.'
+    notifPromptDesc: 'Напоминание за 3 дня.',
+    shareMsg: 'CycleSync трекает мой цикл приватно — без аккаунта, бесплатно: https://cyclesync.app/app',
+    shareBtnLabel: 'Поделиться'
   },
   es: {
     welcomeTitle: 'Bienvenida a CycleSync', welcomeDesc: 'Configuremos tu ciclo para darte predicciones precisas.',
@@ -151,7 +155,9 @@ const T = {
     notifEnable: 'Activar',
     notifLater: 'Luego',
     notifPromptTitle: 'No te pierdas tu período',
-    notifPromptDesc: 'Aviso 3 días antes. Privado.'
+    notifPromptDesc: 'Aviso 3 días antes. Privado.',
+    shareMsg: 'CycleSync rastrea mi ciclo de forma privada — sin cuenta, sin compartir datos, gratis: https://cyclesync.app/app',
+    shareBtnLabel: 'Compartir con amigas'
   },
   pt: {
     welcomeTitle: 'Bem-vinda ao CycleSync', welcomeDesc: 'Vamos configurar seu ciclo para previsões precisas.',
@@ -197,7 +203,9 @@ const T = {
     notifEnable: 'Ativar',
     notifLater: 'Depois',
     notifPromptTitle: 'Nunca perca sua menstruação',
-    notifPromptDesc: 'Aviso 3 dias antes. Privado.'
+    notifPromptDesc: 'Aviso 3 dias antes. Privado.',
+    shareMsg: 'CycleSync rastreia meu ciclo de forma privada — sem conta, sem compartilhar dados, grátis: https://cyclesync.app/app',
+    shareBtnLabel: 'Compartilhar com amigas'
   },
   fr: {
     welcomeTitle: 'Bienvenue sur CycleSync', welcomeDesc: 'Configurons votre cycle pour des prédictions précises.',
@@ -243,7 +251,9 @@ const T = {
     notifEnable: 'Activer',
     notifLater: 'Plus tard',
     notifPromptTitle: 'Ne manquez pas vos règles',
-    notifPromptDesc: 'Rappel 3 jours avant. Privé.'
+    notifPromptDesc: 'Rappel 3 jours avant. Privé.',
+    shareMsg: 'CycleSync suit mon cycle privément — sans compte, sans partage de données, gratuit: https://cyclesync.app/app',
+    shareBtnLabel: 'Partager avec des amies'
   },
   de: {
     welcomeTitle: 'Willkommen bei CycleSync', welcomeDesc: 'Richten wir Ihren Zyklus für genaue Vorhersagen ein.',
@@ -289,7 +299,9 @@ const T = {
     notifEnable: 'Aktivieren',
     notifLater: 'Später',
     notifPromptTitle: 'Verpassen Sie Ihre Periode nicht',
-    notifPromptDesc: 'Erinnerung 3 Tage vorher. Privat.'
+    notifPromptDesc: 'Erinnerung 3 Tage vorher. Privat.',
+    shareMsg: 'CycleSync verfolgt meinen Zyklus privat — ohne Konto, ohne Datenweitergabe, kostenlos: https://cyclesync.app/app',
+    shareBtnLabel: 'Mit Freundinnen teilen'
   },
   hi: {
     welcomeTitle: 'CycleSync में आपका स्वागत है', welcomeDesc: 'आपके चक्र को सटीक भविष्यवाणियों के लिए सेट करते हैं।',
@@ -335,7 +347,9 @@ const T = {
     notifEnable: 'चालू करें',
     notifLater: 'बाद में',
     notifPromptTitle: 'माहवारी मिस न करें',
-    notifPromptDesc: '3 दिन पहले रिमाइंडर।'
+    notifPromptDesc: '3 दिन पहले रिमाइंडर।',
+    shareMsg: 'CycleSync मेरे चक्र को ब्राउज़र में प्राइवेटली ट्रैक करता है — मुफ़्त, कोई खाता नहीं: https://cyclesync.app/app',
+    shareBtnLabel: 'सहेलियों के साथ शेयर करें'
   },
   id: {
     welcomeTitle: 'Selamat datang di CycleSync', welcomeDesc: 'Mari atur siklus Anda untuk prediksi yang akurat.',
@@ -381,7 +395,9 @@ const T = {
     notifEnable: 'Aktifkan',
     notifLater: 'Nanti',
     notifPromptTitle: 'Jangan lewatkan haid Anda',
-    notifPromptDesc: 'Pengingat 3 hari sebelum. Privat.'
+    notifPromptDesc: 'Pengingat 3 hari sebelum. Privat.',
+    shareMsg: 'CycleSync melacak siklus saya secara pribadi — tanpa akun, tanpa berbagi data, gratis: https://cyclesync.app/app',
+    shareBtnLabel: 'Bagikan ke teman'
   },
   bn: {
     welcomeTitle: 'CycleSync-এ স্বাগতম', welcomeDesc: 'সঠিক পূর্বাভাসের জন্য আপনার চক্র সেট করি।',
@@ -427,7 +443,9 @@ const T = {
     notifEnable: 'চালু করুন',
     notifLater: 'পরে',
     notifPromptTitle: 'মাসিক মিস করবেন না',
-    notifPromptDesc: '3 দিন আগে রিমাইন্ডার।'
+    notifPromptDesc: '3 দিন আগে রিমাইন্ডার।',
+    shareMsg: 'CycleSync আমার চক্র ব্যক্তিগতভাবে ট্র্যাক করে — কোনো অ্যাকাউন্ট নেই, বিনামূল্যে: https://cyclesync.app/app',
+    shareBtnLabel: 'বন্ধুদের সাথে শেয়ার করুন'
   },
   ja: {
     welcomeTitle: 'CycleSyncへようこそ', welcomeDesc: '正確な予測のためにサイクルを設定しましょう。',
@@ -473,7 +491,9 @@ const T = {
     notifEnable: '有効にする',
     notifLater: '後で',
     notifPromptTitle: '生理を見逃さないで',
-    notifPromptDesc: '3日前にお知らせ。プライベート。'
+    notifPromptDesc: '3日前にお知らせ。プライベート。',
+    shareMsg: 'CycleSyncはブラウザでプライベートに生理周期を記録できます—無料: https://cyclesync.app/app',
+    shareBtnLabel: '友達にシェア'
   },
   ko: {
     welcomeTitle: 'CycleSync에 오신 것을 환영합니다', welcomeDesc: '정확한 예측을 위해 사이클을 설정해 드릴게요.',
@@ -519,7 +539,9 @@ const T = {
     notifEnable: '활성화',
     notifLater: '나중에',
     notifPromptTitle: '생리를 놓치지 마세요',
-    notifPromptDesc: '3일 전 알림. 비공개.'
+    notifPromptDesc: '3일 전 알림. 비공개.',
+    shareMsg: 'CycleSync는 브라우저에서 생리 주기를 비공개로 추적합니다 — 무료: https://cyclesync.app/app',
+    shareBtnLabel: '친구와 공유'
   },
   zh: {
     welcomeTitle: '欢迎使用 CycleSync', welcomeDesc: '让我们设置您的周期，以便给您准确的预测。',
@@ -565,7 +587,9 @@ const T = {
     notifEnable: '开启',
     notifLater: '稍后',
     notifPromptTitle: '不要错过月经',
-    notifPromptDesc: '3天前提醒。私密。'
+    notifPromptDesc: '3天前提醒。私密。',
+    shareMsg: 'CycleSync在浏览器中私密追踪我的周期—无需账户，完全免费: https://cyclesync.app/app',
+    shareBtnLabel: '分享给朋友'
   },
   it: {
     welcomeTitle: 'Benvenuta su CycleSync', welcomeDesc: 'Configuriamo il tuo ciclo per previsioni accurate.',
@@ -611,7 +635,9 @@ const T = {
     notifEnable: 'Attiva',
     notifLater: 'Dopo',
     notifPromptTitle: 'Non perdere il tuo ciclo',
-    notifPromptDesc: 'Promemoria 3 giorni prima. Privato.'
+    notifPromptDesc: 'Promemoria 3 giorni prima. Privato.',
+    shareMsg: 'CycleSync traccia il mio ciclo privatamente — senza account, gratis: https://cyclesync.app/app',
+    shareBtnLabel: 'Condividi con le amiche'
   }
 };
 
@@ -789,6 +815,7 @@ function applyLanguage() {
   setText('lbl-notif-daily', tr.notifDaily);
   setText('lbl-notif-time', tr.notifTime);
   setText('lbl-notif-enable', tr.notifEnable);
+  setText('lbl-share-btn', tr.shareBtnLabel || 'Share with friends');
 
   // Update notif button if already enabled
   var notifBtn = document.getElementById('notif-enable-btn');
@@ -1325,6 +1352,36 @@ function hideNotifPrompt() {
   var p = document.getElementById('notif-prompt');
   if (p) p.style.display = 'none';
   localStorage.setItem('notif_dismissed', '1');
+}
+
+// ===== SHARE =====
+function shareApp() {
+  var lang = getLang();
+  var tr = T[lang] || T['en'];
+  var msg = (tr.shareMsg) ? tr.shareMsg : "CycleSync tracks my cycle privately in my browser. No account, no data sharing, free. iPhone and Android: https://cyclesync.app/app";
+
+  if (navigator.share) {
+    navigator.share({
+      title: 'CycleSync',
+      text: msg,
+      url: 'https://cyclesync.app/app'
+    }).catch(function(e) {
+      if (e.name !== 'AbortError') copyShareLink();
+    });
+  } else {
+    copyShareLink();
+  }
+}
+
+function copyShareLink() {
+  var url = 'https://cyclesync.app/app';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function() {
+      showToast('Link copied!');
+    });
+  } else {
+    showToast('Visit: ' + url);
+  }
 }
 
 // ===== INIT =====
