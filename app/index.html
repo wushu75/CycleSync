@@ -378,6 +378,27 @@
     /* ===== PAGE HEADER ===== */
     .page-header { padding: 20px 20px 8px; }
     .page-title { font-size: 24px; font-weight: 600; color: var(--plum); }
+
+    /* ===== ARABIC RTL ===== */
+    [dir="rtl"] body {
+      font-family: 'Cairo', 'Geeza Pro', 'Arabic UI Text', sans-serif;
+    }
+    [dir="rtl"] .bottom-nav { flex-direction: row-reverse; }
+    [dir="rtl"] .nav-btn { flex-direction: column; }
+    [dir="rtl"] .card-row { flex-direction: row-reverse; }
+    [dir="rtl"] .settings-row { flex-direction: row-reverse; }
+    [dir="rtl"] .section-title { text-align: right; }
+    [dir="rtl"] .tip-card { direction: rtl; text-align: right; }
+    [dir="rtl"] .symptom-chip { direction: rtl; }
+    [dir="rtl"] .lang-btn-grid { direction: rtl; }
+    [dir="rtl"] .card-label { text-align: right; }
+    [dir="rtl"] .card-val { text-align: right; }
+    [dir="rtl"] .hero-card { direction: rtl; }
+    [dir="rtl"] .notif-row { flex-direction: row-reverse; }
+    [dir="rtl"] input, [dir="rtl"] select { text-align: right; direction: rtl; }
+    [dir="rtl"] .ob-content { direction: rtl; text-align: right; }
+    [dir="rtl"] .support-card { direction: rtl; text-align: right; }
+    [dir="rtl"] #share-btn { flex-direction: row-reverse; }
   </style>
 </head>
 <body>

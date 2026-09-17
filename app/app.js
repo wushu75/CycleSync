@@ -638,6 +638,38 @@ const T = {
     notifPromptDesc: 'Promemoria 3 giorni prima. Privato.',
     shareMsg: 'CycleSync traccia il mio ciclo privatamente — senza account, gratis: https://cyclesync.app/app',
     shareBtnLabel: 'Condividi con le amiche'
+  },
+  ar: {
+    phase: 'دورة', day: 'يوم', days: 'أيام',
+    nextPeriod: 'الدورة القادمة', ovulation: 'التبويض',
+    periodStart: 'بدأت الدورة', home: 'الرئيسية',
+    calendar: 'التقويم', symptoms: 'الأعراض', settings: 'الإعدادات',
+    phaseMenstrual: 'الحيض', phaseFollicular: 'الجريبية',
+    phaseOvulation: 'التبويض', phaseLuteal: 'الجسم الأصفر',
+    todaysTips: 'نصائح اليوم',
+    logSymptoms: 'تسجيل الأعراض', saveSymptoms: 'حفظ',
+    flow: 'التدفق', mood: 'المزاج', energy: 'الطاقة', pain: 'الألم',
+    flowNone: 'لا شيء', flowLight: 'خفيف', flowMedium: 'متوسط', flowHeavy: 'غزير',
+    moodGreat: '☺️ رائع', moodGood: '🙂 جيد', moodOkay: '😐 عادي', moodLow: '😔 منخفض', moodBad: '😩 سيء',
+    energyHigh: '⚡⚡⚡ عالية', energyMedium: '⚡⚡ متوسطة', energyLow: '⚡ منخفضة', energyNone: '✖️ لا شيء',
+    symptomHeadache: 'صداع', symptomCramps: 'تقلصات', symptomBackPain: 'آلام الظهر',
+    symptomBloating: 'انتفاخ', symptomBreastTenderness: 'تحسس الثدي',
+    symptomAcne: 'حب الشباب', symptomInsomnia: 'أرق', symptomCravings: 'اشتهاء زائد',
+    theme: 'السمة', themeDefault: 'افتراضي', themeDark: 'داكن', themeCalm: 'هادئ',
+    language: 'اللغة', windowSize: 'حجم النافذة',
+    sizeSmall: 'صغير', sizeMedium: 'متوسط', sizeLarge: 'كبير',
+    supportDesc: 'CycleSync مجاني للأبد. إذا كان مفيداً، ادعمنا ☉',
+    savedToast: 'تم حفظ الأعراض!', periodToast: 'تم تسجيل الدورة 🧸',
+    langTitle: 'اللغة', themeTitle: 'السمة',
+    themeDefault: 'افتراضي', themeDark: 'داكن', themeCalm: 'هادئ',
+    sizeTitle: 'حجم النافذة',
+    notifBtn: 'تفعيل التذكيرات', notifBtnOn: 'التذكيرات مفعلة',
+    notifPrefs: 'إعدادات التذكير', notifPeriod: 'اقتراب الدورة (3 أيام قبل)',
+    notifOvul: 'تذكير التبويض', notifDaily: 'تذكير يومي', notifTime: 'وقت التذكير',
+    notifEnable: 'تفعيل', notifLater: 'لاحقاً',
+    notifPromptTitle: 'لا تفوتي دورتك', notifPromptDesc: 'تذكير قبل 3 أيام. خصوصي تماماً.',
+    shareMsg: 'CycleSync يتتبع دورتي بخصوصية تامة — بدون حساب، بدون مشاركة بيانات، مجاني تماماً: https://cyclesync.app/app',
+    shareBtnLabel: 'شاركي مع الصديقات'
   }
 };
 
@@ -655,7 +687,8 @@ const LANGS = [
   {code:'ja', flag:'🇯🇵', label:'JA'},
   {code:'ko', flag:'🇰🇷', label:'KO'},
   {code:'it', flag:'🇮🇹', label:'IT'},
-  {code:'zh', flag:'', label:'中文(简体)'}
+  {code:'zh', flag:'', label:'中文(简体)'},
+  {code:'ar', flag:'🇸🇦', label:'عربي'}
 ];
 
 // ===== CYCLE ENGINE =====
@@ -741,6 +774,17 @@ function t(key) {
 function applyLanguage() {
   var lang = getLang();
   var tr = T[lang] || T['en'];
+
+  // RTL for Arabic
+  if (lang === 'ar') {
+    document.documentElement.dir = 'rtl';
+    document.documentElement.lang = 'ar';
+    document.body.style.fontFamily = "'Cairo','Geeza Pro','Arabic UI Text',sans-serif";
+  } else {
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = lang;
+    document.body.style.fontFamily = '';
+  }
   document.documentElement.lang = lang;
 
   // Onboarding
