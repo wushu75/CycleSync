@@ -399,6 +399,12 @@
     [dir="rtl"] .ob-content { direction: rtl; text-align: right; }
     [dir="rtl"] .support-card { direction: rtl; text-align: right; }
     [dir="rtl"] #share-btn { flex-direction: row-reverse; }
+
+    #upgrade-modal { -webkit-tap-highlight-color: transparent; }
+    #upgrade-modal > div { animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    #pro-key-input::placeholder { color: #c084b0; }
+    #pro-key-input:focus { border-color: #f4607a; box-shadow: 0 0 0 2px rgba(244,96,122,0.15); }
   </style>
 </head>
 <body>
@@ -672,6 +678,13 @@
     </div>
 
     <div class="settings-section">
+      <button id="upgrade-btn" onclick="showUpgradeModal()"
+        style="width:100%; padding:14px; border:none; border-radius:12px; background:linear-gradient(135deg,#f4607a,#c084b0); color:white; font-size:15px; font-weight:700; cursor:pointer; margin-bottom:0;">
+        Upgrade to Pro
+      </button>
+    </div>
+
+    <div class="settings-section">
       <div class="support-card">
         <p id="lbl-support-desc">CycleSync is free and always will be. If it's been helpful, a small coffee goes a long way ☕</p>
         <a href="https://ko-fi.com/cyclesync" target="_blank" class="kofi-btn">☕ Buy us a coffee</a>
@@ -694,6 +707,66 @@
         style="padding:12px 16px; border:1px solid #ddd; border-radius:12px; background:white; color:#6b4e63; font-size:14px; cursor:pointer;" id="lbl-notif-later">
         Later
       </button>
+    </div>
+  </div>
+
+  <!-- Upgrade Modal -->
+  <div id="upgrade-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:flex-end; justify-content:center;">
+    <div style="background:white; border-radius:28px 28px 0 0; padding:32px 24px 40px; width:100%; max-width:480px; position:relative;">
+      
+      <button onclick="hideUpgradeModal()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:22px; cursor:pointer; color:#999;">✕</button>
+      
+      <div style="text-align:center; margin-bottom:24px;">
+        <div style="font-size:36px; margin-bottom:8px;">🌸</div>
+        <h2 id="upgrade-modal-title" style="font-size:22px; font-weight:700; color:#2d1f2a; margin-bottom:6px;">CycleSync Pro</h2>
+        <p id="upgrade-modal-desc" style="font-size:14px; color:#6b4e63; line-height:1.5;">Unlock your full cycle history, mood patterns and personalised insights.</p>
+      </div>
+
+      <div style="background:#fdf8ff; border-radius:16px; padding:16px; margin-bottom:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f0e4f5;">
+          <span style="font-size:14px; color:#3d2a3a;">Full symptom history</span>
+          <span style="color:#f4607a; font-weight:600;">✓</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f0e4f5;">
+          <span style="font-size:14px; color:#3d2a3a;">Cycle insights &amp; mood charts</span>
+          <span style="color:#f4607a; font-weight:600;">✓</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f0e4f5;">
+          <span style="font-size:14px; color:#3d2a3a;">Custom reminder time</span>
+          <span style="color:#f4607a; font-weight:600;">✓</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f0e4f5;">
+          <span style="font-size:14px; color:#3d2a3a;">Dark &amp; Calm themes</span>
+          <span style="color:#f4607a; font-weight:600;">✓</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0;">
+          <span style="font-size:14px; color:#3d2a3a;">CSV data export</span>
+          <span style="color:#f4607a; font-weight:600;">✓</span>
+        </div>
+      </div>
+
+      <button onclick="goToStripe()"
+        style="width:100%; padding:16px; border:none; border-radius:14px; background:linear-gradient(135deg,#f4607a,#c084b0); color:white; font-size:16px; font-weight:700; cursor:pointer; margin-bottom:12px;">
+        Get Pro — <span id="upgrade-price">$12.99/year</span>
+      </button>
+
+      <div style="text-align:center; margin-bottom:16px;">
+        <span style="font-size:12px; color:#a8849e;">Less than a coffee a month · Cancel anytime</span>
+      </div>
+
+      <div style="border-top:1px solid #f0e4f5; padding-top:16px;">
+        <p style="font-size:13px; color:#6b4e63; margin-bottom:8px; text-align:center;">Already have a licence key?</p>
+        <div style="display:flex; gap:8px;">
+          <input id="pro-key-input" type="text" placeholder="CS-2026-XXXX-XX"
+            style="flex:1; padding:10px 12px; border:1px solid #e0d0e8; border-radius:10px; font-size:14px; font-family:monospace; background:#fdf8ff; color:#2d1f2a; outline:none;"
+            onkeydown="if(event.key==='Enter') submitProKey()">
+          <button id="activate-key-btn" onclick="submitProKey()"
+            style="padding:10px 16px; border:none; border-radius:10px; background:#2d1f2a; color:white; font-size:14px; font-weight:600; cursor:pointer;">
+            Activate
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 

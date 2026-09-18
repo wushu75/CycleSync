@@ -40,6 +40,14 @@ const T = {
     tipsO: ['Peak energy — great for physical activities', 'Communication skills enhanced', 'Good time for important meetings'],
     tipsL: ['Focus on detail-oriented tasks', 'Self-care is important', 'Be mindful of mood changes'],
     savedToast: 'Symptoms logged!', periodToast: 'Period logged for today 🩸',
+    upgradeToPro: 'Upgrade to Pro',
+    proActive: 'CycleSync Pro Active',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'Unlock your full cycle history, mood patterns and personalised insights.',
+    proActivateBtn: 'Activate',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'Already have a licence key?',
+    proCoffeeMsg: 'Less than a coffee a month',
     langTitle: 'Language',
     themeTitle: 'Theme',
     themeDefault: 'Default',
@@ -88,6 +96,14 @@ const T = {
     tipsO: ['Пиковый уровень энергии', 'Коммуникативные навыки обострены', 'Хорошее время для важных встреч'],
     tipsL: ['Сосредоточьтесь на детальных задачах', 'Уход за собой важен', 'Следите за настроением'],
     savedToast: 'Симптомы записаны!', periodToast: 'Месячные записаны 🩸',
+    upgradeToPro: 'Перейти на Pro',
+    proActive: 'CycleSync Pro активен',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'Разблокируйте полную историю цикла и анализ настроения.',
+    proActivateBtn: 'Активировать',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'Уже есть лицензионный ключ?',
+    proCoffeeMsg: 'Меньше чашки кофе в месяц',
     langTitle: 'Язык',
     themeTitle: 'Тема',
     themeDefault: 'По умолчанию',
@@ -136,6 +152,14 @@ const T = {
     tipsO: ['Pico de energía — ideal para actividad física', 'Habilidades comunicativas mejoradas', 'Buen momento para reuniones importantes'],
     tipsL: ['Enfócate en tareas detalladas', 'El autocuidado es importante', 'Sé consciente de los cambios de humor'],
     savedToast: '¡Síntomas guardados!', periodToast: 'Menstruación registrada 🩸',
+    upgradeToPro: 'Actualizar a Pro',
+    proActive: 'CycleSync Pro activo',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'Desbloquea tu historial completo, patrones de ánimo e insights.',
+    proActivateBtn: 'Activar',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: '¿Ya tienes una clave de licencia?',
+    proCoffeeMsg: 'Menos de un café al mes',
     langTitle: 'Idioma',
     themeTitle: 'Tema',
     themeDefault: 'Predeterminado',
@@ -184,6 +208,14 @@ const T = {
     tipsO: ['Pico de energia — ótimo para atividade física', 'Habilidades de comunicação aprimoradas', 'Bom momento para reuniões importantes'],
     tipsL: ['Foque em tarefas detalhadas', 'O autocuidado é importante', 'Esteja atenta às mudanças de humor'],
     savedToast: 'Sintomas salvos!', periodToast: 'Menstruação registrada 🩸',
+    upgradeToPro: 'Atualizar para Pro',
+    proActive: 'CycleSync Pro ativo',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'Desbloqueie seu histórico completo, padrões de humor e insights.',
+    proActivateBtn: 'Ativar',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'Já tem uma chave de licença?',
+    proCoffeeMsg: 'Menos de um café por mês',
     langTitle: 'Idioma',
     themeTitle: 'Tema',
     themeDefault: 'Padrão',
@@ -232,6 +264,14 @@ const T = {
     tipsO: ["Pic d'énergie — idéal pour l'activité physique", 'Compétences de communication améliorées', 'Bon moment pour les réunions importantes'],
     tipsL: ['Concentrez-vous sur les tâches détaillées', "L'autosoins est important", "Soyez attentive aux changements d'humeur"],
     savedToast: 'Symptômes enregistrés!', periodToast: 'Règles enregistrées 🩸',
+    upgradeToPro: 'Passer à Pro',
+    proActive: 'CycleSync Pro actif',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'Débloquez votre historique complet, les schémas d\'humeur et les insights.',
+    proActivateBtn: 'Activer',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'Vous avez déjà une clé de licence?',
+    proCoffeeMsg: 'Moins d\'un café par mois',
     langTitle: 'Langue',
     themeTitle: 'Thème',
     themeDefault: 'Défaut',
@@ -280,6 +320,14 @@ const T = {
     tipsO: ['Energie-Höhepunkt — gut für Sport', 'Kommunikationsfähigkeiten verbessert', 'Gut für wichtige Meetings'],
     tipsL: ['Fokus auf detailorientierte Aufgaben', 'Selbstfürsorge ist wichtig', 'Achten Sie auf Stimmungsveränderungen'],
     savedToast: 'Symptome gespeichert!', periodToast: 'Periode erfasst 🩸',
+    upgradeToPro: 'Auf Pro upgraden',
+    proActive: 'CycleSync Pro aktiv',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'Schalten Sie Ihren vollständigen Zyklus-Verlauf und Stimmungsanalyse frei.',
+    proActivateBtn: 'Aktivieren',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'Haben Sie bereits einen Lizenzschlüssel?',
+    proCoffeeMsg: 'Weniger als ein Kaffee pro Monat',
     langTitle: 'Sprache',
     themeTitle: 'Design',
     themeDefault: 'Standard',
@@ -328,6 +376,14 @@ const T = {
     tipsO: ['चरम ऊर्जा — शारीरिक गतिविधियों के लिए अच्छा', 'संचार कौशल बेहतर है', 'महत्वपूर्ण बैठकों के लिए अच्छा समय'],
     tipsL: ['विस्तृत कार्यों पर ध्यान दें', 'स्व-देखभाल महत्वपूर्ण है', 'मूड में बदलाव का ध्यान रखें'],
     savedToast: 'लक्षण दर्ज किए!', periodToast: 'माहवारी दर्ज की 🩸',
+    upgradeToPro: 'Pro में अपग्रेड करें',
+    proActive: 'CycleSync Pro सक्रिय',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'अपना पूरा चक्र इतिहास और मूड पैटर्न अनलॉक करें।',
+    proActivateBtn: 'सक्रिय करें',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'पहले से लाइसेंस की है?',
+    proCoffeeMsg: 'महीने में एक कॉफी से कम',
     langTitle: 'भाषा',
     themeTitle: 'थीम',
     themeDefault: 'डिफ़ॉल्ट',
@@ -376,6 +432,14 @@ const T = {
     tipsO: ['Energi puncak — bagus untuk aktivitas fisik', 'Kemampuan komunikasi meningkat', 'Waktu yang baik untuk rapat penting'],
     tipsL: ['Fokus pada tugas yang detail', 'Perawatan diri itu penting', 'Perhatikan perubahan suasana hati'],
     savedToast: 'Gejala disimpan!', periodToast: 'Haid dicatat 🩸',
+    upgradeToPro: 'Upgrade ke Pro',
+    proActive: 'CycleSync Pro aktif',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'Buka riwayat siklus lengkap dan pola suasana hati Anda.',
+    proActivateBtn: 'Aktifkan',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'Sudah punya kunci lisensi?',
+    proCoffeeMsg: 'Kurang dari secangkir kopi per bulan',
     langTitle: 'Bahasa',
     themeTitle: 'Tema',
     themeDefault: 'Default',
@@ -424,6 +488,14 @@ const T = {
     tipsO: ['সর্বোচ্চ শক্তি — শারীরিক কার্যকলাপের জন্য ভালো', 'যোগাযোগ দক্ষতা উন্নত', 'গুরুত্বপূর্ণ মিটিংয়ের জন্য ভালো সময়'],
     tipsL: ['বিস্তারিত কাজে মনোযোগ দিন', 'স্বাস্থ্যসেবা গুরুত্বপূর্ণ', 'মেজাজের পরিবর্তনে সচেতন থাকুন'],
     savedToast: 'উপসর্গ সংরক্ষিত!', periodToast: 'মাসিক দর্ज করা হয়েছে 🩸',
+    upgradeToPro: 'Pro-তে আপগ্রেড করুন',
+    proActive: 'CycleSync Pro সক্রিয়',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'আপনার সম্পূর্ণ চক্র ইতিহাস এবং মুড প্যাটার্ন আনলক করুন।',
+    proActivateBtn: 'সক্রিয় করুন',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'ইতিমধ্যে লাইসেন্স কী আছে?',
+    proCoffeeMsg: 'মাসে এক কাপ কফির চেয়ে কম',
     langTitle: 'ভাষা',
     themeTitle: 'থিম',
     themeDefault: 'ডিফার্ল্ট',
@@ -472,6 +544,14 @@ const T = {
     tipsO: ['エネルギーのピーク — 運動に最適', 'コミュニケーション能力が向上', '重要な会議に最適な時期'],
     tipsL: ['詳細作業に集中して', 'セルフケアが大切', '気分の変化に注意して'],
     savedToast: '症状を記録しました！', periodToast: '生理を記録しました 🩸',
+    upgradeToPro: 'Proにアップグレード',
+    proActive: 'CycleSync Pro 有効',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'サイクル履歴全体とムードパターンを解放しましょう。',
+    proActivateBtn: '有効化',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'すでにライセンスキーをお持ちですか？',
+    proCoffeeMsg: '月にコーヒー1杯以下',
     langTitle: '言語',
     themeTitle: 'テーマ',
     themeDefault: 'デフォルト',
@@ -520,6 +600,14 @@ const T = {
     tipsO: ['에너지 최고점 — 운동에 최적', '소통 능력이 향상됩니다', '중요한 미팅에 좋은 시기'],
     tipsL: ['세부 작업에 집중하세요', '자기 관리가 중요합니다', '기분 변화에 주의하세요'],
     savedToast: '증상이 기록되었습니다!', periodToast: '생리가 기록되었습니다 🩸',
+    upgradeToPro: 'Pro로 업그레이드',
+    proActive: 'CycleSync Pro 활성화됨',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: '전체 사이클 기록과 기분 패턴을 잠금 해제하세요.',
+    proActivateBtn: '활성화',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: '이미 라이센스 키가 있으신가요?',
+    proCoffeeMsg: '월 커피 한 잔 미만',
     langTitle: '언어',
     themeTitle: '테마',
     themeDefault: '기본',
@@ -568,6 +656,14 @@ const T = {
     tipsO: ['能量达到顶峰 — 适合体育活动', '沟通能力增强', '适合重要会议或演示'],
     tipsL: ['专注于细节工作', '自我护理很重要', '注意情绪变化'],
     savedToast: '症状已记录！', periodToast: '月经已记录 🩸',
+    upgradeToPro: '升级到Pro',
+    proActive: 'CycleSync Pro 已激活',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: '解锁完整的周期历史、情绪模式和个性化洞察。',
+    proActivateBtn: '激活',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: '已有许可证密钥？',
+    proCoffeeMsg: '每月不到一杯咖啡',
     langTitle: '语言',
     themeTitle: '主题',
     themeDefault: '默认',
@@ -616,6 +712,14 @@ const T = {
     tipsO: ["Picco di energia — ottimo per l'attività fisica", 'Capacità comunicative migliorate', 'Buon momento per riunioni importanti'],
     tipsL: ['Concentrati sui compiti dettagliati', "L'autocura è importante", "Sii consapevole dei cambiamenti d'umore"],
     savedToast: 'Sintomi salvati!', periodToast: 'Ciclo registrato 🩸',
+    upgradeToPro: 'Aggiorna a Pro',
+    proActive: 'CycleSync Pro attivo',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'Sblocca la cronologia completa del ciclo e i pattern dell\'umore.',
+    proActivateBtn: 'Attiva',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'Hai già una chiave di licenza?',
+    proCoffeeMsg: 'Meno di un caffè al mese',
     langTitle: 'Lingua',
     themeTitle: 'Tema',
     themeDefault: 'Default',
@@ -660,6 +764,14 @@ const T = {
     sizeSmall: 'صغير', sizeMedium: 'متوسط', sizeLarge: 'كبير',
     supportDesc: 'CycleSync مجاني للأبد. إذا كان مفيداً، ادعمنا ☉',
     savedToast: 'تم حفظ الأعراض!', periodToast: 'تم تسجيل الدورة 🧸',
+    upgradeToPro: 'الترقية إلى Pro',
+    proActive: 'CycleSync Pro مفعّل',
+    proModalTitle: 'CycleSync Pro',
+    proModalDesc: 'افتحي سجل دورتك الكامل وأنماط مزاجك.',
+    proActivateBtn: 'تفعيل',
+    proKeyPlaceholder: 'CS-2026-XXXX-XX',
+    proHaveKey: 'هل لديك مفتاح ترخيص؟',
+    proCoffeeMsg: 'أقل من قهوة شهرياً',
     langTitle: 'اللغة', themeTitle: 'السمة',
     themeDefault: 'افتراضي', themeDark: 'داكن', themeCalm: 'هادئ',
     sizeTitle: 'حجم النافذة',
@@ -860,6 +972,7 @@ function applyLanguage() {
   setText('lbl-notif-time', tr.notifTime);
   setText('lbl-notif-enable', tr.notifEnable);
   setText('lbl-share-btn', tr.shareBtnLabel || 'Share with friends');
+  try { updateProUI(); } catch(e) {}
 
   // Update notif button if already enabled
   var notifBtn = document.getElementById('notif-enable-btn');
@@ -1428,6 +1541,134 @@ function copyShareLink() {
   }
 }
 
+// ===== PREMIUM SYSTEM =====
+
+var STRIPE_LINKS = {
+  tier1: 'https://buy.stripe.com/aFaeVed7AaW6d4PfJa1B60g',
+  tier2: 'https://buy.stripe.com/eVqdRa3x02pA3ufeF61B60f',
+  tier3: 'https://buy.stripe.com/bJecN64B4e8i0i3dB21B60e',
+  tier4: 'https://buy.stripe.com/14AdRaffI3tE4yjdB21B60d'
+};
+
+function getCountryTier() {
+  try {
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    var lang = navigator.language || '';
+    if (tz.includes('Asia/Kolkata') || tz.includes('Asia/Dhaka') ||
+        tz.includes('Asia/Karachi') || tz.includes('Asia/Colombo')) return 'tier4';
+    if (tz.includes('America/Sao_Paulo') || tz.includes('Europe/Moscow') ||
+        tz.includes('Asia/Jakarta') || tz.includes('America/Argentina') ||
+        tz.includes('America/Mexico') || tz.includes('Europe/Bucharest') ||
+        tz.includes('Africa/Cairo') || tz.includes('Africa/Casablanca') ||
+        tz.includes('Asia/Riyadh') || tz.includes('Asia/Kuwait')) return 'tier3';
+    if (tz.includes('Europe/London') || tz.includes('Europe/Paris') ||
+        tz.includes('Asia/Seoul') || tz.includes('Europe/Rome') ||
+        tz.includes('Europe/Madrid')) return 'tier2';
+    if (lang.startsWith('hi') || lang.startsWith('bn') ||
+        lang.startsWith('ur') || lang.startsWith('si')) return 'tier4';
+    if (lang.startsWith('pt-BR') || lang.startsWith('id') ||
+        lang.startsWith('ru') || lang.startsWith('ar')) return 'tier3';
+    if (lang.startsWith('en-GB') || lang.startsWith('fr') ||
+        lang.startsWith('ko') || lang.startsWith('it')) return 'tier2';
+    return 'tier1';
+  } catch(e) { return 'tier1'; }
+}
+
+function getTierPrice(tier) {
+  var prices = { tier1: '$12.99', tier2: '$9.99', tier3: '$4.99', tier4: '$1.99' };
+  return prices[tier] || '$12.99';
+}
+
+function getProStatus() {
+  try {
+    var key = localStorage.getItem('cs_pro_key');
+    return key && isValidKey(key);
+  } catch(e) { return false; }
+}
+
+function isValidKey(key) {
+  if (!key) return false;
+  return /^CS-20[0-9]{2}-[A-Z0-9]{4}-[A-Z0-9]{2}$/.test(key.toUpperCase().trim());
+}
+
+function activatePro(key) {
+  var cleaned = key.toUpperCase().trim();
+  if (isValidKey(cleaned)) {
+    localStorage.setItem('cs_pro_key', cleaned);
+    showToast('CycleSync Pro activated!');
+    updateProUI();
+    hideUpgradeModal();
+    return true;
+  } else {
+    showToast('Invalid key. Please check and try again.');
+    return false;
+  }
+}
+
+function updateProUI() {
+  var isPro = getProStatus();
+  var tr = T[getLang()] || T['en'];
+
+  var upgradeBtn = document.getElementById('upgrade-btn');
+  if (upgradeBtn) {
+    upgradeBtn.textContent = isPro
+      ? (tr.proActive || 'CycleSync Pro Active')
+      : (tr.upgradeToPro || 'Upgrade to Pro');
+    upgradeBtn.style.background = isPro
+      ? '#4caf50'
+      : 'linear-gradient(135deg,#f4607a,#c084b0)';
+  }
+
+  var proBadge = document.getElementById('pro-badge');
+  if (proBadge) {
+    proBadge.style.display = isPro ? 'inline-flex' : 'none';
+    proBadge.style.alignItems = 'center';
+  }
+
+  var upgradeTitle = document.getElementById('upgrade-modal-title');
+  if (upgradeTitle) upgradeTitle.textContent = tr.proModalTitle || 'CycleSync Pro';
+
+  var upgradeDesc = document.getElementById('upgrade-modal-desc');
+  if (upgradeDesc) upgradeDesc.textContent = tr.proModalDesc || 'Unlock your full cycle history, mood patterns and personalised insights.';
+
+  var activateBtn = document.getElementById('activate-key-btn');
+  if (activateBtn) activateBtn.textContent = tr.proActivateBtn || 'Activate';
+
+  var keyInput = document.getElementById('pro-key-input');
+  if (keyInput) keyInput.placeholder = tr.proKeyPlaceholder || 'CS-2026-XXXX-XX';
+
+  document.querySelectorAll('.pro-lock-overlay').forEach(function(el) {
+    el.style.display = isPro ? 'none' : 'flex';
+  });
+}
+
+function showUpgradeModal() {
+  var modal = document.getElementById('upgrade-modal');
+  if (modal) modal.style.display = 'flex';
+  var tier = getCountryTier();
+  var price = getTierPrice(tier);
+  var priceEl = document.getElementById('upgrade-price');
+  if (priceEl) priceEl.textContent = price + '/year';
+}
+
+function hideUpgradeModal() {
+  var modal = document.getElementById('upgrade-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+function goToStripe() {
+  var tier = getCountryTier();
+  var link = STRIPE_LINKS[tier];
+  window.open(link, '_blank');
+}
+
+function submitProKey() {
+  var input = document.getElementById('pro-key-input');
+  if (!input || !input.value.trim()) return;
+  activatePro(input.value);
+}
+
+
 // ===== INIT =====
 function initApp() {
   applyLanguage();
@@ -1437,6 +1678,8 @@ function initApp() {
   renderCalendar();
   var savedTheme = localStorage.getItem('cyclesync_theme');
   if (savedTheme) applyTheme(savedTheme);
+  // Run Pro UI immediately on load
+  try { updateProUI(); } catch(e) {}
   // Notifications deferred so they never block app load
   setTimeout(function() {
     try { renderNotifSettings(); } catch(e) {}
