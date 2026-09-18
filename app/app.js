@@ -1544,10 +1544,10 @@ function copyShareLink() {
 // ===== PREMIUM SYSTEM =====
 
 var STRIPE_LINKS = {
-  tier1: 'https://buy.stripe.com/aFaeVed7AaW6d4PfJa1B60g',
-  tier2: 'https://buy.stripe.com/eVqdRa3x02pA3ufeF61B60f',
-  tier3: 'https://buy.stripe.com/bJecN64B4e8i0i3dB21B60e',
-  tier4: 'https://buy.stripe.com/14AdRaffI3tE4yjdB21B60d'
+  tier1: 'https://buy.stripe.com/14AdRaffI3tE4yjdB21B60d',
+  tier2: 'https://buy.stripe.com/bJecN64B4e8i0i3dB21B60e',
+  tier3: 'https://buy.stripe.com/eVqdRa3x02pA3ufeF61B60f',
+  tier4: 'https://buy.stripe.com/aFaeVed7AaW6d4PfJa1B60g'
 };
 
 function getCountryTier() {
