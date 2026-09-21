@@ -633,8 +633,8 @@
       <div class="settings-title" id="lbl-theme">Theme</div>
       <div class="theme-grid">
         <button class="theme-btn active" onclick="setTheme('default', this)" id="lbl-theme-default">Default</button>
-        <button class="theme-btn" onclick="setTheme('dark', this)" id="lbl-theme-dark">Dark</button>
-        <button class="theme-btn" onclick="setTheme('calm', this)" id="lbl-theme-calm">Calm</button>
+        <button class="theme-btn" onclick="setTheme('dark', this)" id="lbl-theme-dark">Dark 🔒</button>
+        <button class="theme-btn" onclick="setTheme('calm', this)" id="lbl-theme-calm">Calm 🔒</button>
       </div>
     </div>
 
@@ -674,6 +674,18 @@
           <input type="time" id="notif-time-inp" value="09:00" onchange="saveNotifPrefs()"
             style="border:1px solid #eee; border-radius:8px; padding:4px 8px; font-size:14px; background:white; color:#333;">
         </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-title">Your Data</div>
+      <div onclick="showHistory()" role="button"
+        style="width:100%; padding:12px; border-radius:10px; background:var(--card); border:1px solid var(--border); color:var(--text); font-size:14px; font-weight:500; cursor:pointer; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; box-sizing:border-box;">
+        <span>📋 Symptom History</span><span style="color:var(--rose);">Pro →</span>
+      </div>
+      <div onclick="exportCSV()" role="button"
+        style="width:100%; padding:12px; border-radius:10px; background:var(--card); border:1px solid var(--border); color:var(--text); font-size:14px; font-weight:500; cursor:pointer; display:flex; justify-content:space-between; align-items:center; box-sizing:border-box;">
+        <span>📥 Export to CSV</span><span style="color:var(--rose);">Pro →</span>
       </div>
     </div>
 
@@ -767,6 +779,17 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- History Screen -->
+  <div class="screen" id="screen-history">
+    <div style="padding:20px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+        <button onclick="showScreen('settings')" style="background:none; border:none; font-size:22px; cursor:pointer; color:var(--text);">←</button>
+        <h2 style="font-size:18px; font-weight:700; color:var(--text); margin:0;">Symptom History</h2>
+      </div>
+      <div id="history-list"></div>
     </div>
   </div>
 

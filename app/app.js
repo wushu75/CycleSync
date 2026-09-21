@@ -1300,6 +1300,11 @@ function saveSymptoms() {
 
 // ===== SETTINGS =====
 function setTheme(theme, btn) {
+  // Dark and Calm are Pro features
+  if ((theme === 'dark' || theme === 'calm') && !getProStatus()) {
+    showUpgradeModal();
+    return;
+  }
   document.querySelectorAll('.theme-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
   localStorage.setItem('cyclesync_theme', theme);
@@ -1509,6 +1514,90 @@ function hideNotifPrompt() {
   var p = document.getElementById('notif-prompt');
   if (p) p.style.display = 'none';
   localStorage.setItem('notif_dismissed', '1');
+}
+
+// ===== SYMPTOM HISTORY =====
+function showHistory() {
+  if (!getProStatus()) {
+    showUpgradeModal();
+    return;
+  }
+  var data = getData();
+  var container = document.getElementById('history-list');
+  if (!container) return;
+  container.innerHTML = '';
+
+  if (!data || !data.symptoms || Object.keys(data.symptoms).length === 0) {
+    container.innerHTML = '<p style="text-align:center; color:var(--text-light); padding:20px;">No symptoms logged yet.</p>';
+    return;
+  }
+
+  // Sort by date descending
+  var dates = Object.keys(data.symptoms).sort(function(a, b) { return b.localeCompare(a); });
+  
+  dates.forEach(function(dateKey) {
+    var entry = data.symptoms[dateKey];
+    var card = document.createElement('div');
+    card.style.cssText = 'background:var(--card); border-radius:12px; padding:14px; margin-bottom:10px; border:1px solid var(--border);';
+    
+    var date = new Date(dateKey);
+    var dateStr = date.toLocaleDateString(undefined, { weekday:'short', month:'short', day:'numeric' });
+    
+    var details = [];
+    if (entry.flow && entry.flow !== 'none') details.push('Flow: ' + entry.flow);
+    if (entry.mood) details.push('Mood: ' + entry.mood);
+    if (entry.energy) details.push('Energy: ' + entry.energy);
+    if (entry.notes) details.push(entry.notes);
+
+    card.innerHTML = '<div style="font-weight:600; color:var(--text); margin-bottom:6px;">' + dateStr + '</div>' +
+      '<div style="font-size:13px; color:var(--text-light);">' + (details.join(' · ') || 'Logged') + '</div>';
+    container.appendChild(card);
+  });
+  showScreen('history');
+}
+
+// ===== CSV EXPORT =====
+function exportCSV() {
+  if (!getProStatus()) {
+    showUpgradeModal();
+    return;
+  }
+  var data = getData();
+  if (!data || !data.symptoms || Object.keys(data.symptoms).length === 0) {
+    showToast('No data to export yet.');
+    return;
+  }
+
+  var rows = ['Date,Flow,Mood,Energy,Headache,Cramps,Back Pain,Bloating,Acne,Insomnia,Cravings,Notes'];
+  var dates = Object.keys(data.symptoms).sort();
+
+  dates.forEach(function(dateKey) {
+    var e = data.symptoms[dateKey];
+    rows.push([
+      dateKey,
+      e.flow || '',
+      e.mood || '',
+      e.energy || '',
+      e.headache ? 'yes' : '',
+      e.cramps ? 'yes' : '',
+      e.backPain ? 'yes' : '',
+      e.bloating ? 'yes' : '',
+      e.acne ? 'yes' : '',
+      e.insomnia ? 'yes' : '',
+      e.cravings ? 'yes' : '',
+      (e.notes || '').replace(/,/g, ';')
+    ].join(','));
+  });
+
+  var csv = rows.join('\n');
+  var blob = new Blob([csv], { type: 'text/csv' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'cyclesync-data.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Data exported!');
 }
 
 // ===== SHARE =====
