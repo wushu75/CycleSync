@@ -1,0 +1,377 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How CycleSync Was Born — Tony Momoh</title>
+<meta name="description" content="I sketched the idea on 24 March 2025. One designer, a dog, two sisters, and a conviction that women deserved something better. This is how CycleSync came to life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --rose: #f4607a;
+    --rose-light: #fde8ec;
+    --mauve: #c084b0;
+    --mauve-light: #f3e6f0;
+    --plum: #7c3f6e;
+    --cream: #fdf8f5;
+    --text: #2d1f2a;
+    --text-mid: #6b4e63;
+    --text-light: #a8849e;
+    --rule: #e8d4e4;
+    --highlight-bg: #fdf0f8;
+    color-scheme: light;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { color-scheme: light; }
+
+  body {
+    background: var(--cream) !important;
+    color: var(--text) !important;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0;
+    padding: 0 24px;
+  }
+
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .site-logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--plum);
+    text-decoration: none;
+  }
+  .site-logo span { color: var(--rose); }
+  .site-nav a {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .site-nav a:hover { color: var(--plum); }
+
+  article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 56px 0 96px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mauve);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 24px;
+    color: var(--plum);
+  }
+
+  .standfirst {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--text-mid);
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 48px;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+  }
+
+  .meta-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--mauve-light);
+    border: 2px solid var(--mauve);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    color: var(--plum);
+    flex-shrink: 0;
+  }
+  .meta-text strong { display: block; color: var(--text); font-weight: 600; font-size: 0.85rem; }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin: 52px 0 14px;
+    color: var(--plum);
+  }
+
+  p { margin: 0 0 22px; color: var(--text); }
+  strong { color: var(--text); }
+  a { color: var(--plum); }
+
+  blockquote {
+    margin: 36px 0;
+    padding: 0 0 0 28px;
+    border-left: 2px solid var(--mauve);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-mid);
+  }
+
+  .highlight-box {
+    background: var(--highlight-bg);
+    border-left: 3px solid var(--mauve);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 28px 0;
+    font-size: 0.93rem;
+    color: var(--text);
+  }
+  .highlight-box strong {
+    display: block; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--plum); margin-bottom: 6px;
+  }
+
+  /* Version timeline */
+  .version-timeline {
+    margin: 36px 0;
+    padding: 0;
+    list-style: none;
+  }
+  .version-timeline li {
+    display: flex;
+    gap: 18px;
+    padding-bottom: 28px;
+    position: relative;
+  }
+  .version-timeline li::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 28px;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+  }
+  .version-timeline li:last-child::before { display: none; }
+  .version-dot {
+    width: 38px; height: 38px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--mauve-light);
+    border: 2px solid var(--mauve);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700; color: var(--plum);
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+  .version-body { padding-top: 6px; }
+  .version-body strong { display: block; color: var(--plum); font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
+  .version-body span { font-size: 0.88rem; color: var(--text-mid); }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--rose-light) 0%, var(--mauve-light) 100%);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  .cta-section h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.45rem; margin: 0 0 10px; color: var(--plum); }
+  .cta-section p { color: var(--text-mid); margin-bottom: 22px; font-size: 0.93rem; }
+  .cta-btn {
+    display: inline-block; background: var(--rose); color: #fff;
+    font-family: 'DM Sans', system-ui, sans-serif; font-weight: 600; font-size: 0.9rem;
+    padding: 13px 26px; border-radius: 100px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover { background: #d44d67; transform: translateY(-2px); color: #fff; }
+
+  .related-posts { margin-top: 72px; padding-top: 36px; border-top: 1px solid var(--rule); }
+  .related-posts h3 { font-size: 0.74rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 20px; }
+  .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .related-card { background: var(--mauve-light); border: 1px solid var(--rule); border-radius: 12px; padding: 22px; text-decoration: none; display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .eyebrow { margin-bottom: 8px; }
+  .related-card h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; margin: 0 0 6px; color: var(--plum); }
+  .related-card p { font-size: 0.84rem; color: var(--text-mid); margin: 0; }
+
+  footer {
+    border-top: 1px solid var(--rule); padding: 28px 0;
+    text-align: center; font-size: 0.8rem; color: var(--text-light);
+    max-width: 700px; margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 0 16px; }
+    article { padding: 36px 0 64px; }
+    .cta-section { padding: 24px 18px; }
+    .related-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-logo" href="https://getcyclesync.com/">Cycle<span>Sync</span></a>
+  <nav class="site-nav">
+    <a href="https://getcyclesync.com/">← Home</a>
+  </nav>
+</header>
+
+<article>
+  <span class="eyebrow">Origin Story</span>
+  <h1>I sketched an idea. Then I built it — alone, from scratch, one version at a time.</h1>
+  <p class="standfirst">On 24 March 2025, CycleSync didn't exist. Eighteen months later it runs on Chrome, Edge, and mobile in 14 languages. This is what happened in between.</p>
+
+  <div class="meta">
+    <div class="meta-avatar">T</div>
+    <div class="meta-text">
+      <strong>Tony Momoh</strong>
+      Creator of CycleSync · October 2026
+    </div>
+  </div>
+
+  <p>It started the way most things I've built start — with a sketch. Not a business plan, not a pitch deck. Just an idea scribbled down: what if a period tracker lived in your browser, stored nothing on a server, and asked for nothing in return?</p>
+
+  <p>I've been in tech since the early 90s. I can read code. I understand branding, UX, product. I've worn every hat at some point. But CycleSync wasn't a calculated product decision. It was curiosity with conviction behind it.</p>
+
+  <h2>Version 1.0 — simple, basic, a beginning</h2>
+
+  <p>The first version was bare. A period tracker. That was it. No languages, no themes, no PWA, no Edge version. Just the core idea working in a browser extension — your data on your device, no account, no server.</p>
+
+  <p>I tested it myself. Then I sent it to my sisters. I have sisters, and when you're building something for women, the people closest to you become your first honest critics. They used it. They told me what felt off. I fixed it and built more.</p>
+
+  <blockquote>"What if we made it pink?" That thought came from understanding the people I was building for — not from a trend report or a focus group.</blockquote>
+
+  <p>I'm a designer. Colour isn't decoration to me — it's communication. Pink, lavender, rose, cream. These weren't arbitrary choices. They were the result of actually thinking about who opens this extension and what feeling it should give them. Something warm. Something theirs. Not clinical, not cold, not corporate.</p>
+
+  <p>Playing with the palette was genuinely enjoyable. That's when I knew the project had become something more than a proof of concept.</p>
+
+  <h2>The dog walks and the debug sessions</h2>
+
+  <p>I have a dog. Every day, between builds, I'd take her out. Those walks became part of the process — stepping away from the screen, letting an idea settle, coming back with fresh eyes. Some of the best decisions about CycleSync happened on those walks. What to add. What to cut. Whether a feature was actually useful or just interesting to build.</p>
+
+  <p>Then back to testing. Reading through the code, hunting for bugs, fixing what broke. No team to hand it off to. No QA department. Just me, the extension, and the question: does this work the way a real person would use it?</p>
+
+  <div class="highlight-box">
+    <strong>Everything, done by one person</strong>
+    The idea. The name. The branding. The UX. The code. The copy. The testing. The translations. The Chrome Store listing. The Edge submission. The PWA. The landing page. The blog. All of it — solo, from 24 March 2025 to today.
+  </div>
+
+  <h2>From 1.0 to 1.2.2 — what grew with each version</h2>
+
+  <ul class="version-timeline">
+    <li>
+      <div class="version-dot">1.0</div>
+      <div class="version-body">
+        <strong>The beginning — 24 March 2025</strong>
+        <span>Basic period tracker. English only. The idea proven to itself.</span>
+      </div>
+    </li>
+    <li>
+      <div class="version-dot">1.0.7</div>
+      <div class="version-body">
+        <strong>Colour, character, and feeling</strong>
+        <span>The rose and lavender palette takes shape. CycleSync starts to look like something worth using.</span>
+      </div>
+    </li>
+    <li>
+      <div class="version-dot">1.1.0</div>
+      <div class="version-body">
+        <strong>Languages — the world opens up</strong>
+        <span>A user in Russia wrote to say privacy mattered to her. That message changed everything. Languages followed — Russian, Arabic, Portuguese, German, Spanish, and more.</span>
+      </div>
+    </li>
+    <li>
+      <div class="version-dot">1.2.0</div>
+      <div class="version-body">
+        <strong>Edge, PWA, and getting serious</strong>
+        <span>Chrome extension, Microsoft Edge extension, and a mobile PWA. Three platforms, zero app stores, one codebase.</span>
+      </div>
+    </li>
+    <li>
+      <div class="version-dot">1.2.2</div>
+      <div class="version-body">
+        <strong>14 languages · getcyclesync.com · the blog</strong>
+        <span>A proper domain. A proper blog. Users in Algeria, India, UAE, Brazil, the US, the UK. The flywheel turning on its own.</span>
+      </div>
+    </li>
+  </ul>
+
+  <h2>The moment it stopped feeling like a side project</h2>
+
+  <p>There wasn't one single moment. It was cumulative. A stranger in Russia installing it and writing to say it mattered. Algeria appearing in the install data without any effort on my part. chatgpt.com sending traffic because users were recommending CycleSync to each other through an AI assistant. A 26% install conversion rate on the Chrome Store — five times the industry average.</p>
+
+  <p>Each of those things, on its own, is just a data point. Together they say something: the problem is real, the solution is right, and people are finding it.</p>
+
+  <h2>Why local-first was never a compromise</h2>
+
+  <p>Some people ask whether storing data locally — rather than in the cloud — limits what CycleSync can do. It doesn't. It defines what CycleSync <em>is</em>. Every other period tracking app made the same architectural choice: put the data on a server. CycleSync made the opposite choice, deliberately, on day one.</p>
+
+  <p>Your period data never leaves your device. There is no CycleSync database of your health records. If we were ever served with a legal request for user data, we would have nothing to hand over — not because we deleted it, but because we never had it. That's not a limitation. That's the product.</p>
+
+  <h2>What's next</h2>
+
+  <p>The Ramadan blog post is coming in January 2027 — a guide for Muslim women on tracking their cycle during the holy month. The money comparison post is coming too, because Flo charges £13 a month and CycleSync is free. And the Pro tier is already live for users who want to support the project and unlock more features.</p>
+
+  <p>But the core of it — a private, local-first period tracker that belongs to the woman using it — that doesn't change. That was the sketch on 24 March 2025, and it's still the product today.</p>
+
+  <div class="cta-section">
+    <h3>Try CycleSync — it's free, private, and yours.</h3>
+    <p>No account. No server. No data sharing. Available on Chrome, Edge, and as a mobile app.</p>
+    <a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Add to Chrome — Free</a>
+  </div>
+
+  <div class="related-posts">
+    <h3>More from the CycleSync blog</h3>
+    <div class="related-grid">
+      <a class="related-card" href="/blog/privacy-period-tracking.html">
+        <span class="eyebrow">Privacy</span>
+        <h4>Why period tracking privacy matters more than you think</h4>
+        <p>Your menstrual data is more sensitive than your bank account. Here's why it matters who holds it.</p>
+      </a>
+      <div class="related-card">
+        <span class="eyebrow">Coming January 2027</span>
+        <h4>Period tracking during Ramadan</h4>
+        <p>How to use your cycle data to plan fasting days and track with confidence during the holy month.</p>
+      </div>
+    </div>
+  </div>
+
+</article>
+
+<footer>
+  © 2026 CycleSync · <a href="https://getcyclesync.com/" style="color:var(--text-light);">getcyclesync.com</a> · Built by <a href="https://tonymomoh.co.uk/" target="_blank" rel="noopener" style="color:var(--rose); text-decoration:none; font-weight:500;">Tony Momoh</a>
+</footer>
+
+</body>
+</html>
+
+</body></html>
