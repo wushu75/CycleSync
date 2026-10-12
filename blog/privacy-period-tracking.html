@@ -1,0 +1,621 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Why Period Tracking Privacy Matters</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap">
+
+<style>
+  :root {
+    --rose: #f4607a;
+    --rose-light: #fde8ec;
+    --mauve: #c084b0;
+    --mauve-light: #f3e6f0;
+    --plum: #7c3f6e;
+    --bg: #fdf8f5;
+    --bg-card: #ffffff;
+    --fg: #2d1020;
+    --fg-muted: #6b4460;
+    --fg-light: #9a7a8e;
+    --rule: #e8d4e4;
+    --highlight-bg: #fdf0f8;
+    --warning-bg: #fff4ed;
+    --warning-border: #e8874a;
+    --warning-fg: #8b3a0f;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --measure: 700px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #150e12; --bg-card: #1e1419; --fg: #f5ede8; --fg-muted: #c4a0b8;
+      --fg-light: #9a7a8e; --plum: #d4a0c4; --rule: #2e1e28;
+      --highlight-bg: #1e1020; --warning-bg: #1e1208;
+      --warning-border: #b05e28; --warning-fg: #f0a070;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #150e12; --bg-card: #1e1419; --fg: #f5ede8; --fg-muted: #c4a0b8;
+    --fg-light: #9a7a8e; --plum: #d4a0c4; --rule: #2e1e28;
+    --highlight-bg: #1e1020; --warning-bg: #1e1208;
+    --warning-border: #b05e28; --warning-fg: #f0a070;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0;
+    padding-inline: 24px;
+    padding-block: 0;
+  }
+
+  /* RTL support */
+  body[dir="rtl"] { font-family: 'DM Sans', 'Arial', system-ui, sans-serif; }
+  body[dir="rtl"] blockquote { padding: 0 28px 0 0; border-left: none; border-right: 2px solid var(--mauve); }
+  body[dir="rtl"] .warning-box,
+  body[dir="rtl"] .highlight-box { border-left: none; border-right: 3px solid; border-radius: 8px 0 0 8px; }
+  body[dir="rtl"] .warning-box { border-color: var(--warning-border); }
+  body[dir="rtl"] .highlight-box { border-color: var(--mauve); }
+
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    padding-block: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--measure);
+    margin-inline: auto;
+  }
+
+  .site-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--plum);
+    text-decoration: none;
+  }
+  .site-logo span { color: var(--rose); }
+
+  .site-nav { display: flex; align-items: center; gap: 16px; }
+  .site-nav a {
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .site-nav a:hover { color: var(--plum); }
+
+  /* Language switcher */
+  .lang-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-width: var(--measure);
+    margin: 20px auto 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    color: var(--fg-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .lang-btn:hover { border-color: var(--mauve); color: var(--plum); }
+  .lang-btn.active {
+    background: var(--mauve-light);
+    border-color: var(--mauve);
+    color: var(--plum);
+    font-weight: 600;
+  }
+
+  article {
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding-block: 56px 96px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mauve);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0 0 24px;
+    color: var(--fg);
+  }
+
+  .standfirst {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--fg-muted);
+    margin-bottom: 40px;
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-block: 20px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 48px;
+    font-size: 0.82rem;
+    color: var(--fg-muted);
+  }
+
+  .meta-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--mauve-light);
+    border: 2px solid var(--mauve);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--plum);
+    flex-shrink: 0;
+  }
+
+  .meta-text strong { display: block; color: var(--fg); font-weight: 600; font-size: 0.85rem; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin: 52px 0 14px;
+    text-wrap: balance;
+    color: var(--fg);
+  }
+
+  p { margin: 0 0 22px; }
+  a { color: var(--plum); }
+
+  .warning-box {
+    background: var(--warning-bg);
+    border-left: 3px solid var(--warning-border);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 28px 0;
+    font-size: 0.93rem;
+    color: var(--warning-fg);
+  }
+  .warning-box strong {
+    display: block; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; opacity: 0.8;
+  }
+
+  .highlight-box {
+    background: var(--highlight-bg);
+    border-left: 3px solid var(--mauve);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 28px 0;
+    font-size: 0.93rem;
+  }
+  .highlight-box strong {
+    display: block; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--plum); margin-bottom: 6px;
+  }
+
+  blockquote {
+    margin: 36px 0;
+    padding: 0 0 0 28px;
+    border-left: 2px solid var(--mauve);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--fg-muted);
+  }
+
+  .comparison-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 0.88rem; display: block; overflow-x: auto; }
+  .comparison-table th {
+    background: var(--mauve-light); color: var(--plum);
+    font-weight: 600; text-align: left; padding: 11px 14px;
+    font-size: 0.76rem; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .comparison-table td { padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table tr:hover td { background: var(--rose-light); }
+  .tick { color: #3a9e5f; } .cross { color: #c0392b; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--rose-light) 0%, var(--mauve-light) 100%);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  .cta-section h3 { font-family: var(--font-display); font-size: 1.45rem; margin: 0 0 10px; color: var(--fg); }
+  .cta-section p { color: var(--fg-muted); margin-bottom: 22px; font-size: 0.93rem; }
+  .cta-btn {
+    display: inline-block; background: var(--rose); color: #fff;
+    font-family: var(--font-body); font-weight: 600; font-size: 0.9rem;
+    padding: 13px 26px; border-radius: 100px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover { background: #d44d67; transform: translateY(-2px); }
+
+  .related-posts { margin-top: 72px; padding-top: 36px; border-top: 1px solid var(--rule); }
+  .related-posts h3 { font-size: 0.74rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 20px; }
+  .related-card { background: var(--mauve-light); border: 1px solid var(--rule); border-radius: 12px; padding: 22px; }
+  .related-card h4 { font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 8px; color: var(--fg); }
+  .related-card p { font-size: 0.86rem; color: var(--fg-muted); margin: 0; }
+
+  footer {
+    border-top: 1px solid var(--rule); padding-block: 28px;
+    text-align: center; font-size: 0.8rem; color: var(--fg-muted);
+    max-width: var(--measure); margin-inline: auto;
+  }
+
+  /* Hide all language sections by default */
+  .lang-section { display: none; }
+  .lang-section.visible { display: block; }
+
+  @media (max-width: 600px) {
+    body { padding-inline: 16px; }
+    article { padding-block: 36px 64px; }
+    .cta-section { padding: 24px 18px; }
+    h1 { font-size: 1.7rem; }
+    .lang-switcher { gap: 5px; }
+  }
+</style>
+
+<header class="site-header">
+  <a class="site-logo" href="https://getcyclesync.com/">Cycle<span>Sync</span></a>
+  <nav class="site-nav">
+    <a href="https://getcyclesync.com/">← Home</a>
+  </nav>
+</header>
+
+<div class="lang-switcher" role="group" aria-label="Choose language">
+  <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
+  <button class="lang-btn" data-lang="ar">🇦🇪 العربية</button>
+  <button class="lang-btn" data-lang="pt">🇧🇷 Português</button>
+  <button class="lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+  <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+  <button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
+  <button class="lang-btn" data-lang="hu">🇭🇺 Magyar</button>
+  <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+  <button class="lang-btn" data-lang="hi">🇮🇳 हिन्दी</button>
+  <button class="lang-btn" data-lang="id">🇮🇩 Indonesia</button>
+  <button class="lang-btn" data-lang="bn">🇧🇩 বাংলা</button>
+  <button class="lang-btn" data-lang="ja">🇯🇵 日本語</button>
+  <button class="lang-btn" data-lang="ko">🇰🇷 한국어</button>
+  <button class="lang-btn" data-lang="it">🇮🇹 Italiano</button>
+  <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+</div>
+
+<article>
+
+  <!-- ENGLISH -->
+  <div class="lang-section visible" id="lang-en">
+    <span class="eyebrow">Privacy &amp; Health Data</span>
+    <h1>Your period data is more sensitive than your bank account. Here's why it matters who holds it.</h1>
+    <p class="standfirst">Most period tracking apps store your most intimate health information on their servers. After 2022, the world learned exactly why that's a problem — and why we built CycleSync differently.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Creator of CycleSync · October 2026</div></div>
+    <p>In June 2022, something changed. Within days of a major legal ruling in the United States, privacy researchers and journalists started asking a question that millions of women hadn't thought to ask: <em>where exactly does your period tracking app store your data?</em></p>
+    <p>The answer, for most apps, was: on their servers. In the US. Subject to US law. And potentially subject to legal requests from government bodies.</p>
+    <p>Flo, Clue, Natural Cycles, Period Tracker — these apps had collectively gathered the menstrual cycle data of hundreds of millions of women. Suddenly, that data wasn't just a health record. It was potential evidence.</p>
+    <div class="warning-box"><strong>What was at risk</strong>Period tracking data can reveal pregnancy, pregnancy loss, and fertility treatment. In jurisdictions where reproductive healthcare is restricted, that data could be subpoenaed, sold, or leaked — and used against the very women who trusted these apps with their health.</div>
+    <h2>The problem isn't the app. It's the architecture.</h2>
+    <p>Most period apps are built the same way: your data lives on their servers. That's not necessarily malicious — it makes syncing easy and enables AI-powered insights. But it means you are not in control of your own data. The company is.</p>
+    <p>When Flo Health settled with the FTC in 2021 for sharing user health data with Facebook and Google, they were doing what most app companies do: monetising data to fund the product. The difference is that period data is uniquely sensitive — and their users had no idea.</p>
+    <blockquote>"I thought it was just an app on my phone. I didn't realise I was handing over my entire reproductive health history to a company I'd never heard of."</blockquote>
+    <h2>Local-first: what it means and why it changes everything</h2>
+    <p>CycleSync was built on a different principle: <strong>your data never leaves your device.</strong> Everything you log is stored locally in your browser. It doesn't touch our servers. It doesn't pass through any third-party API.</p>
+    <p>There is no CycleSync database of your health records, because we never receive your health records.</p>
+    <div class="highlight-box"><strong>What local-first means in practice</strong>If CycleSync were shut down tomorrow, your data would still be there — in your browser, under your control. If we were ever served with a legal request for user health data, we would have nothing to hand over. Not because we deleted it. Because we never had it.</div>
+    <h2>How CycleSync compares</h2>
+    <div style="overflow-x:auto"><table class="comparison-table"><thead><tr><th>Feature</th><th>CycleSync</th><th>Flo</th><th>Clue</th></tr></thead><tbody>
+    <tr><td>Data stored locally</td><td><span class="tick">✓</span> Always</td><td><span class="cross">✗</span> Server</td><td><span class="cross">✗</span> Server</td></tr>
+    <tr><td>No account required</td><td><span class="tick">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+    <tr><td>Data shareable with advertisers</td><td><span class="tick">✓</span> Never possible</td><td><span class="cross">✗</span> Has occurred</td><td><span class="cross">✗</span> Policy dependent</td></tr>
+    <tr><td>Works offline</td><td><span class="tick">✓</span> Fully offline</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span> Limited</td></tr>
+    <tr><td>Government data requests</td><td><span class="tick">✓</span> Nothing to hand over</td><td><span class="cross">✗</span> Data on servers</td><td><span class="cross">✗</span> Data on servers</td></tr>
+    </tbody></table></div>
+    <h2>Why I built it this way</h2>
+    <p>I'm a UX designer. When I started building CycleSync, I could have stored data in the cloud, built a backend, grown a database of health records. I chose not to — because the women using this app are trusting it with something deeply personal.</p>
+    <p>The feedback that meant the most came from a user in Russia — someone I'll never meet, who wrote to say it mattered that their data stayed on their own device. That message changed how I thought about what I was building.</p>
+    <h2>Privacy shouldn't be a premium feature</h2>
+    <p>Some apps offer a "privacy mode" as a paid upgrade. Privacy isn't a feature — it's a right. CycleSync's free tier is private. The Pro tier adds features, not privacy. Your data stays local regardless of what you pay.</p>
+    <div class="cta-section"><h3>Track privately. Always.</h3><p>Your data stays on your device — no account needed, no server, no data sharing.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Add CycleSync to Chrome — it's free</a></div>
+    <div class="related-posts"><h3>More from the CycleSync blog</h3><div class="related-card"><span class="eyebrow">Coming soon</span><h4>Period tracking during Ramadan: what every Muslim woman should know</h4><p>How to use your cycle data to plan fasting days and track with confidence during the holy month.</p></div></div>
+  </div>
+
+  <!-- ARABIC -->
+  <div class="lang-section" id="lang-ar">
+    <span class="eyebrow">الخصوصية والبيانات الصحية</span>
+    <h1>بيانات دورتك الشهرية أكثر حساسية من بيانات حسابك البنكي — وهذا هو السبب</h1>
+    <p class="standfirst">معظم تطبيقات تتبع الدورة الشهرية تخزّن معلوماتك الصحية الأكثر خصوصية على خوادمها. بعد عام 2022، أدرك العالم سبب خطورة ذلك — ولهذا بنينا CycleSync بطريقة مختلفة.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>مؤسس CycleSync · أكتوبر 2026</div></div>
+    <p>في يونيو 2022، تغيّر كل شيء. خلال أيام من حكم قانوني مهم في الولايات المتحدة، بدأ الباحثون في الخصوصية والصحفيون بطرح سؤال لم تفكر فيه ملايين النساء: <em>أين بالضبط يخزّن تطبيق تتبع دورتك بياناتك؟</em></p>
+    <p>الإجابة بالنسبة لمعظم التطبيقات كانت: على خوادمها. في الولايات المتحدة. خاضعة للقانون الأمريكي. وربما لطلبات قانونية من الجهات الحكومية.</p>
+    <div class="warning-box"><strong>ما كان في خطر</strong>بيانات تتبع الدورة الشهرية يمكن أن تكشف عن الحمل وفقدانه والعلاج للخصوبة. في البلدان التي تُقيّد الرعاية الصحية الإنجابية، يمكن استخدام هذه البيانات ضد النساء اللواتي وثقن بهذه التطبيقات.</div>
+    <h2>المشكلة ليست في التطبيق — بل في طريقة بنائه</h2>
+    <p>CycleSync مبني على مبدأ مختلف: <strong>بياناتك لا تغادر جهازك أبداً.</strong> كل ما تسجلينه يُخزَّن محلياً في متصفحك. لا يصل إلى خوادمنا. لا يمر عبر أي طرف ثالث.</p>
+    <p>لا توجد قاعدة بيانات في CycleSync تحتوي على سجلاتك الصحية، لأننا لا نستقبلها أصلاً.</p>
+    <div class="highlight-box"><strong>ماذا يعني ذلك عملياً</strong>حتى لو أغلقنا CycleSync غداً، ستبقى بياناتك في متصفحك تحت سيطرتك الكاملة. إذا طُلب منا قانونياً تسليم بيانات المستخدمين، لن يكون لدينا شيء نسلّمه — ليس لأننا حذفناها، بل لأننا لم نمتلكها أبداً.</div>
+    <h2>الخصوصية ليست ميزة مدفوعة</h2>
+    <p>CycleSync مجاني وخاص. النسخة Pro تضيف مميزات إضافية — ليس الخصوصية. بياناتك تبقى على جهازك بغض النظر عما تدفعينه.</p>
+    <div class="cta-section"><h3>تتبعي دورتك بخصوصية تامة</h3><p>بياناتك على جهازك فقط — لا حساب، لا خادم، لا مشاركة بيانات.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">أضف CycleSync إلى Chrome — مجاناً</a></div>
+  </div>
+
+  <!-- PORTUGUESE -->
+  <div class="lang-section" id="lang-pt">
+    <span class="eyebrow">Privacidade e Dados de Saúde</span>
+    <h1>Seus dados menstruais são mais sensíveis do que os dados da sua conta bancária — e é por isso que importa quem os guarda.</h1>
+    <p class="standfirst">A maioria dos apps de rastreamento menstrual armazena suas informações de saúde mais íntimas em seus servidores. Em 2022, o mundo descobriu exatamente por que isso é um problema — e por que construímos o CycleSync de forma diferente.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Criador do CycleSync · Outubro 2026</div></div>
+    <p>Em junho de 2022, algo mudou. Dias após uma grande decisão judicial nos Estados Unidos, pesquisadores de privacidade começaram a fazer uma pergunta que milhões de mulheres nunca tinham pensado: <em>onde exatamente o seu app de rastreamento menstrual armazena seus dados?</em></p>
+    <p>A resposta, para a maioria dos apps, era: nos servidores deles. Nos EUA. Sujeitos à lei americana. E potencialmente sujeitos a solicitações legais de governos.</p>
+    <div class="warning-box"><strong>O que estava em risco</strong>Dados de rastreamento menstrual podem revelar gravidez, perda gestacional e tratamentos de fertilidade. Em países onde os direitos reprodutivos são restritos, esses dados poderiam ser usados contra as próprias mulheres que confiaram seus dados a esses apps.</div>
+    <h2>O problema não é o app. É a arquitetura.</h2>
+    <p>O CycleSync foi construído com base em um princípio diferente: <strong>seus dados nunca saem do seu dispositivo.</strong> Tudo que você registra fica armazenado localmente no seu navegador. Não toca nos nossos servidores. Não passa por nenhuma API de terceiros.</p>
+    <div class="highlight-box"><strong>O que "local-first" significa na prática</strong>Se o CycleSync fosse desligado amanhã, seus dados ainda estariam lá — no seu navegador, sob seu controle. Se recebêssemos uma solicitação legal por dados de usuários, não teríamos nada a entregar. Não porque apagamos. Porque nunca tivemos.</div>
+    <h2>Privacidade não deveria ser um recurso premium</h2>
+    <p>O plano gratuito do CycleSync é privado. O plano Pro adiciona recursos, não privacidade. Seus dados ficam locais independentemente do que você paga.</p>
+    <div class="cta-section"><h3>Rastreie com privacidade. Sempre.</h3><p>Seus dados ficam no seu dispositivo — sem conta, sem servidor, sem compartilhamento.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Adicionar CycleSync ao Chrome — é grátis</a></div>
+  </div>
+
+  <!-- GERMAN -->
+  <div class="lang-section" id="lang-de">
+    <span class="eyebrow">Datenschutz &amp; Gesundheitsdaten</span>
+    <h1>Deine Zyklus-Daten sind sensibler als deine Bankdaten — hier ist, warum es wichtig ist, wer sie besitzt.</h1>
+    <p class="standfirst">Die meisten Zyklus-Apps speichern deine intimsten Gesundheitsinformationen auf ihren Servern. 2022 erfuhr die Welt genau, warum das ein Problem ist — und warum wir CycleSync anders gebaut haben.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Gründer von CycleSync · Oktober 2026</div></div>
+    <p>Im Juni 2022 änderte sich etwas. Datenschutzforscher und Journalisten begannen, eine Frage zu stellen, die sich Millionen von Frauen nie gestellt hatten: <em>Wo genau speichert deine Zyklus-App eigentlich deine Daten?</em></p>
+    <p>Die Antwort für die meisten Apps lautete: auf ihren Servern. In den USA. Unterliegen dem US-Recht. Und potenziell behördlichen Datenanfragen.</p>
+    <div class="warning-box"><strong>Was auf dem Spiel stand</strong>Zyklusdaten können Schwangerschaften, Fehlgeburten und Fruchtbarkeitsbehandlungen offenbaren. In Ländern mit eingeschränkten Reproduktionsrechten könnten diese Daten gegen die Frauen verwendet werden, die den Apps vertraut haben.</div>
+    <h2>Das Problem ist nicht die App — es ist die Architektur.</h2>
+    <p>CycleSync wurde nach einem anderen Prinzip gebaut: <strong>Deine Daten verlassen dein Gerät niemals.</strong> Alles, was du protokollierst, wird lokal in deinem Browser gespeichert. Es berührt unsere Server nicht. Es geht durch keine Drittanbieter-API.</p>
+    <div class="highlight-box"><strong>Was „Local-first" in der Praxis bedeutet</strong>Wenn CycleSync morgen abgeschaltet würde, wären deine Daten immer noch da — in deinem Browser, unter deiner Kontrolle. Wenn wir eine rechtliche Anfrage nach Nutzerdaten erhalten würden, hätten wir nichts zu übergeben. Nicht weil wir es gelöscht haben. Weil wir es nie hatten.</div>
+    <h2>Datenschutz sollte kein Premium-Feature sein</h2>
+    <p>Der kostenlose Tarif von CycleSync ist privat. Der Pro-Tarif fügt Funktionen hinzu — keine Privatsphäre. Deine Daten bleiben lokal, egal was du zahlst.</p>
+    <div class="cta-section"><h3>Verfolge privat. Immer.</h3><p>Deine Daten bleiben auf deinem Gerät — kein Konto, kein Server, keine Datenweitergabe.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">CycleSync zu Chrome hinzufügen — kostenlos</a></div>
+  </div>
+
+  <!-- SPANISH -->
+  <div class="lang-section" id="lang-es">
+    <span class="eyebrow">Privacidad y Datos de Salud</span>
+    <h1>Tus datos menstruales son más sensibles que los de tu cuenta bancaria — y esto es por qué importa quién los guarda.</h1>
+    <p class="standfirst">La mayoría de las apps de seguimiento menstrual almacenan tu información de salud más íntima en sus servidores. En 2022, el mundo descubrió exactamente por qué eso es un problema — y por qué construimos CycleSync de manera diferente.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Creador de CycleSync · Octubre 2026</div></div>
+    <p>En junio de 2022, algo cambió. Investigadores de privacidad comenzaron a hacer una pregunta que millones de mujeres nunca se habían planteado: <em>¿Dónde exactamente almacena tus datos tu app de seguimiento menstrual?</em></p>
+    <p>La respuesta para la mayoría de las apps era: en sus servidores. En EE.UU. Sujetos a la ley estadounidense. Y potencialmente a solicitudes legales de organismos gubernamentales.</p>
+    <div class="warning-box"><strong>Qué estaba en riesgo</strong>Los datos de seguimiento menstrual pueden revelar embarazos, pérdidas gestacionales y tratamientos de fertilidad. En países donde los derechos reproductivos están restringidos, esos datos podrían usarse contra las mujeres que confiaron en estas apps.</div>
+    <h2>El problema no es la app — es la arquitectura.</h2>
+    <p>CycleSync fue construido con un principio diferente: <strong>tus datos nunca abandonan tu dispositivo.</strong> Todo lo que registras se almacena localmente en tu navegador. No toca nuestros servidores. No pasa por ninguna API de terceros.</p>
+    <div class="highlight-box"><strong>Qué significa "local-first" en la práctica</strong>Si CycleSync cerrara mañana, tus datos seguirían ahí — en tu navegador, bajo tu control. Si recibiéramos una solicitud legal de datos de usuarios, no tendríamos nada que entregar. No porque los borramos. Porque nunca los tuvimos.</div>
+    <h2>La privacidad no debería ser una función premium</h2>
+    <p>El plan gratuito de CycleSync es privado. El plan Pro añade funciones, no privacidad. Tus datos permanecen locales independientemente de lo que pagues.</p>
+    <div class="cta-section"><h3>Rastrea con privacidad. Siempre.</h3><p>Tus datos se quedan en tu dispositivo — sin cuenta, sin servidor, sin compartir datos.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Añadir CycleSync a Chrome — es gratis</a></div>
+  </div>
+
+  <!-- RUSSIAN -->
+  <div class="lang-section" id="lang-ru">
+    <span class="eyebrow">Конфиденциальность и данные о здоровье</span>
+    <h1>Данные о вашем цикле более чувствительны, чем данные банковского счёта — и вот почему важно, кто ими владеет.</h1>
+    <p class="standfirst">Большинство приложений для отслеживания цикла хранят ваши интимные данные о здоровье на своих серверах. В 2022 году мир узнал, почему это опасно — и почему мы создали CycleSync иначе.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Создатель CycleSync · Октябрь 2026</div></div>
+    <p>В июне 2022 года всё изменилось. Исследователи конфиденциальности начали задавать вопрос, о котором миллионы женщин никогда не задумывались: <em>где именно ваше приложение хранит ваши данные?</em></p>
+    <p>Ответ для большинства приложений был: на их серверах. В США. Подчиняясь американскому законодательству. И потенциально подлежащие юридическим запросам со стороны государственных органов.</p>
+    <div class="warning-box"><strong>Что было под угрозой</strong>Данные о менструальном цикле могут раскрыть информацию о беременности, её потере и лечении бесплодия. В странах, где репродуктивные права ограничены, эти данные могут быть использованы против женщин, которые доверяли этим приложениям.</div>
+    <h2>Проблема не в приложении — в архитектуре.</h2>
+    <p>CycleSync построен на другом принципе: <strong>ваши данные никогда не покидают ваше устройство.</strong> Всё, что вы записываете, хранится локально в вашем браузере. Не касается наших серверов. Не проходит через сторонние API.</p>
+    <div class="highlight-box"><strong>Что означает «local-first» на практике</strong>Если CycleSync завтра закроется, ваши данные останутся там — в вашем браузере, под вашим контролем. Если мы получим юридический запрос на данные пользователей, нам нечего будет передать. Не потому что удалили. Потому что никогда не имели.</div>
+    <h2>Конфиденциальность не должна быть платной функцией</h2>
+    <p>Бесплатный план CycleSync — приватный. Про-план добавляет функции, не конфиденциальность. Ваши данные остаются локальными независимо от того, что вы платите.</p>
+    <div class="cta-section"><h3>Отслеживайте конфиденциально. Всегда.</h3><p>Ваши данные остаются на вашем устройстве — без аккаунта, без сервера, без передачи данных.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Добавить CycleSync в Chrome — бесплатно</a></div>
+  </div>
+
+  <!-- HUNGARIAN -->
+  <div class="lang-section" id="lang-hu">
+    <span class="eyebrow">Adatvédelem és Egészségügyi Adatok</span>
+    <h1>A ciklusadataid érzékenyebbek a banki adataidnál — és ez az, miért fontos, hogy ki tárolja őket.</h1>
+    <p class="standfirst">A legtöbb cikluskövetők alkalmazás a legintimebb egészségügyi adataidat a saját szerverein tárolja. 2022-ben a világ megtudta, miért jelent ez problémát — és miért építettük a CycleSyncet másképpen.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>A CycleSync megalkotója · 2026. október</div></div>
+    <p>2022 júniusában valami megváltozott. Adatvédelmi kutatók elkezdtek feltenni egy kérdést, amelyre millió nő nem gondolt: <em>Pontosan hol tárolja a cikluskövetők alkalmazásod az adataidat?</em></p>
+    <p>A legtöbb alkalmazásnál a válasz az volt: a saját szerverein. Az Egyesült Államokban. Az amerikai jog hatálya alatt. És potenciálisan kormányzati jogi megkereséseknek kitéve.</p>
+    <div class="warning-box"><strong>Mi volt veszélyben</strong>A menstruációs adatok felfedhetik a terhességet, annak elvesztését és a termékenységi kezeléseket. Olyan országokban, ahol a reproduktív egészségügyi ellátás korlátozott, ezeket az adatokat felhasználhatják az érintett nők ellen.</div>
+    <h2>A probléma nem az alkalmazás — hanem az architektúra.</h2>
+    <p>A CycleSync más elvek alapján épült: <strong>az adataid soha nem hagyják el az eszközödet.</strong> Minden, amit feljegyzel, helyben tárolódik a böngésződben. Nem érinti a szervereinket. Nem halad át harmadik félen.</p>
+    <div class="highlight-box"><strong>Mit jelent a „helyi tárolás" a gyakorlatban</strong>Ha a CycleSync holnap bezárna, az adataid ott maradnának — a böngésződben, az irányításod alatt. Ha jogi megkeresést kapnánk a felhasználói adatokról, nem lenne mit átadnunk. Nem azért, mert töröltük. Hanem mert soha nem volt nálunk.</div>
+    <h2>Az adatvédelem nem lehet prémium funkció</h2>
+    <p>A CycleSync ingyenes csomagja privát. A Pro csomag funkciókat ad hozzá, nem adatvédelmet. Az adataid helyi maradnak, függetlenül attól, hogy mit fizetsz.</p>
+    <div class="cta-section"><h3>Kövesd privátban. Mindig.</h3><p>Az adataid az eszközödön maradnak — fiók, szerver és adatmegosztás nélkül.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">CycleSync hozzáadása Chrome-hoz — ingyenes</a></div>
+  </div>
+
+
+  <!-- FRENCH -->
+  <div class="lang-section" id="lang-fr">
+    <span class="eyebrow">Confidentialité et données de santé</span>
+    <h1>Vos données menstruelles sont plus sensibles que vos données bancaires — et voilà pourquoi ça compte, qui les détient.</h1>
+    <p class="standfirst">La plupart des applications de suivi du cycle stockent vos informations de santé les plus intimes sur leurs serveurs. En 2022, le monde a découvert exactement pourquoi c'est un problème — et pourquoi nous avons construit CycleSync différemment.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Créateur de CycleSync · Octobre 2026</div></div>
+    <p>En juin 2022, quelque chose a changé. Des chercheurs en confidentialité ont commencé à poser une question que des millions de femmes n'avaient jamais pensé à poser : <em>où exactement votre application stocke-t-elle vos données menstruelles ?</em></p>
+    <p>La réponse, pour la plupart des applications, était : sur leurs serveurs. Aux États-Unis. Soumises au droit américain. Et potentiellement à des demandes légales d'organismes gouvernementaux.</p>
+    <div class="warning-box"><strong>Ce qui était en jeu</strong>Les données de suivi menstruel peuvent révéler une grossesse, une fausse couche ou un traitement de fertilité. Dans les pays où les droits reproductifs sont restreints, ces données pourraient être utilisées contre les femmes qui faisaient confiance à ces applications.</div>
+    <h2>Le problème n'est pas l'application — c'est l'architecture.</h2>
+    <p>CycleSync a été construit sur un principe différent : <strong>vos données ne quittent jamais votre appareil.</strong> Tout ce que vous enregistrez est stocké localement dans votre navigateur. Cela ne touche pas nos serveurs. Cela ne passe par aucune API tierce.</p>
+    <div class="highlight-box"><strong>Ce que « local d'abord » signifie en pratique</strong>Si CycleSync était fermé demain, vos données seraient toujours là — dans votre navigateur, sous votre contrôle. Si nous recevions une demande légale de données utilisateurs, nous n'aurions rien à remettre. Pas parce que nous les avons supprimées. Parce que nous ne les avons jamais eues.</div>
+    <h2>La confidentialité ne devrait pas être une fonction premium</h2>
+    <p>Le plan gratuit de CycleSync est privé. Le plan Pro ajoute des fonctionnalités, pas de la confidentialité. Vos données restent locales, peu importe ce que vous payez.</p>
+    <div class="cta-section"><h3>Suivez en toute confidentialité. Toujours.</h3><p>Vos données restent sur votre appareil — sans compte, sans serveur, sans partage.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Ajouter CycleSync à Chrome — c'est gratuit</a></div>
+  </div>
+
+  <!-- HINDI -->
+  <div class="lang-section" id="lang-hi">
+    <span class="eyebrow">गोपनीयता और स्वास्थ्य डेटा</span>
+    <h1>आपके मासिक धर्म का डेटा आपके बैंक खाते से भी ज़्यादा संवेदनशील है — और इसीलिए यह मायने रखता है कि इसे कौन रखता है।</h1>
+    <p class="standfirst">अधिकांश पीरियड ट्रैकिंग ऐप्स आपकी सबसे निजी स्वास्थ्य जानकारी अपने सर्वर पर संग्रहीत करते हैं। 2022 के बाद दुनिया को पता चला कि यह क्यों खतरनाक है — और इसीलिए हमने CycleSync को अलग तरीके से बनाया।</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync के निर्माता · अक्टूबर 2026</div></div>
+    <p>जून 2022 में कुछ बदल गया। गोपनीयता शोधकर्ताओं ने एक सवाल पूछना शुरू किया जो लाखों महिलाओं ने कभी नहीं सोचा था: <em>आपका पीरियड ट्रैकिंग ऐप आपका डेटा वास्तव में कहाँ संग्रहीत करता है?</em></p>
+    <p>अधिकांश ऐप्स का जवाब था: उनके सर्वर पर। अमेरिका में। अमेरिकी कानून के तहत। और संभावित रूप से सरकारी कानूनी अनुरोधों के अधीन।</p>
+    <div class="warning-box"><strong>क्या खतरे में था</strong>मासिक धर्म डेटा गर्भावस्था, गर्भपात और प्रजनन उपचार को उजागर कर सकता है। जहाँ प्रजनन अधिकार प्रतिबंधित हैं, यह डेटा उन्हीं महिलाओं के खिलाफ इस्तेमाल हो सकता है जिन्होंने इन ऐप्स पर भरोसा किया।</div>
+    <h2>समस्या ऐप में नहीं — आर्किटेक्चर में है।</h2>
+    <p>CycleSync एक अलग सिद्धांत पर बना है: <strong>आपका डेटा कभी भी आपके डिवाइस से बाहर नहीं जाता।</strong> आप जो भी लॉग करते हैं वह आपके ब्राउज़र में स्थानीय रूप से संग्रहीत होता है। यह हमारे सर्वर को नहीं छूता। किसी थर्ड-पार्टी API से नहीं गुज़रता।</p>
+    <div class="highlight-box"><strong>व्यावहारिक रूप से इसका क्या अर्थ है</strong>अगर कल CycleSync बंद हो जाए, तो भी आपका डेटा वहीं रहेगा — आपके ब्राउज़र में, आपके नियंत्रण में। अगर हमें उपयोगकर्ता डेटा के लिए कानूनी अनुरोध मिले, तो हमारे पास देने के लिए कुछ नहीं होगा। इसलिए नहीं कि हमने डिलीट किया। बल्कि इसलिए कि हमारे पास कभी था ही नहीं।</div>
+    <h2>गोपनीयता प्रीमियम फीचर नहीं होनी चाहिए</h2>
+    <p>CycleSync का फ्री प्लान निजी है। Pro प्लान सुविधाएं जोड़ता है, गोपनीयता नहीं। आप चाहे कुछ भी भुगतान करें, आपका डेटा स्थानीय रहता है।</p>
+    <div class="cta-section"><h3>निजी तरीके से ट्रैक करें। हमेशा।</h3><p>आपका डेटा आपके डिवाइस पर रहता है — कोई अकाउंट नहीं, कोई सर्वर नहीं, कोई डेटा शेयरिंग नहीं।</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome में CycleSync जोड़ें — मुफ्त है</a></div>
+  </div>
+
+  <!-- INDONESIAN -->
+  <div class="lang-section" id="lang-id">
+    <span class="eyebrow">Privasi &amp; Data Kesehatan</span>
+    <h1>Data siklus menstruasi Anda lebih sensitif dari data rekening bank — inilah mengapa penting siapa yang menyimpannya.</h1>
+    <p class="standfirst">Sebagian besar aplikasi pelacak siklus menyimpan informasi kesehatan paling intim Anda di server mereka. Setelah 2022, dunia mengetahui dengan tepat mengapa itu masalah — dan mengapa kami membangun CycleSync secara berbeda.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Pencipta CycleSync · Oktober 2026</div></div>
+    <p>Pada Juni 2022, sesuatu berubah. Para peneliti privasi mulai mengajukan pertanyaan yang tidak pernah terpikirkan oleh jutaan perempuan: <em>Di mana sebenarnya aplikasi pelacak siklus Anda menyimpan data Anda?</em></p>
+    <p>Jawaban untuk sebagian besar aplikasi adalah: di server mereka. Di AS. Di bawah hukum AS. Dan berpotensi tunduk pada permintaan hukum dari badan pemerintah.</p>
+    <div class="warning-box"><strong>Apa yang berisiko</strong>Data pelacak menstruasi dapat mengungkapkan kehamilan, keguguran, dan perawatan kesuburan. Di negara-negara dengan hak reproduksi yang terbatas, data tersebut bisa digunakan melawan perempuan yang mempercayai aplikasi ini.</div>
+    <h2>Masalahnya bukan aplikasinya — tapi arsitekturnya.</h2>
+    <p>CycleSync dibangun berdasarkan prinsip yang berbeda: <strong>data Anda tidak pernah meninggalkan perangkat Anda.</strong> Semua yang Anda catat disimpan secara lokal di browser Anda. Tidak menyentuh server kami. Tidak melewati API pihak ketiga mana pun.</p>
+    <div class="highlight-box"><strong>Apa artinya "local-first" dalam praktik</strong>Jika CycleSync ditutup besok, data Anda masih akan ada di sana — di browser Anda, di bawah kendali Anda. Jika kami menerima permintaan hukum untuk data pengguna, kami tidak akan memiliki apa pun untuk diserahkan. Bukan karena kami menghapusnya. Tapi karena kami tidak pernah memilikinya.</div>
+    <h2>Privasi seharusnya bukan fitur premium</h2>
+    <p>Paket gratis CycleSync bersifat privat. Paket Pro menambah fitur, bukan privasi. Data Anda tetap lokal apapun yang Anda bayar.</p>
+    <div class="cta-section"><h3>Lacak dengan privat. Selalu.</h3><p>Data Anda tetap di perangkat Anda — tanpa akun, tanpa server, tanpa berbagi data.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Tambahkan CycleSync ke Chrome — gratis</a></div>
+  </div>
+
+  <!-- BENGALI -->
+  <div class="lang-section" id="lang-bn">
+    <span class="eyebrow">গোপনীয়তা ও স্বাস্থ্য ডেটা</span>
+    <h1>আপনার পিরিয়ড ডেটা ব্যাংক অ্যাকাউন্টের চেয়েও বেশি সংবেদনশীল — এবং এ কারণেই কে এটি রাখে তা গুরুত্বপূর্ণ।</h1>
+    <p class="standfirst">অধিকাংশ পিরিয়ড ট্র্যাকিং অ্যাপ আপনার সবচেয়ে ব্যক্তিগত স্বাস্থ্য তথ্য তাদের সার্ভারে সংরক্ষণ করে। ২০২২ সালের পরে বিশ্ব জানতে পেরেছে এটি কেন সমস্যা — এবং কেন আমরা CycleSync ভিন্নভাবে তৈরি করেছি।</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync-এর নির্মাতা · অক্টোবর ২০২৬</div></div>
+    <p>২০২২ সালের জুনে কিছু বদলে গেল। গোপনীয়তা গবেষকরা এমন একটি প্রশ্ন করতে শুরু করলেন যা লক্ষ লক্ষ নারী কখনো ভাবেননি: <em>আপনার পিরিয়ড ট্র্যাকিং অ্যাপ আসলে আপনার ডেটা কোথায় সংরক্ষণ করে?</em></p>
+    <p>অধিকাংশ অ্যাপের উত্তর ছিল: তাদের সার্ভারে। যুক্তরাষ্ট্রে। মার্কিন আইনের অধীনে। এবং সম্ভাব্যভাবে সরকারি আইনি অনুরোধের আওতায়।</p>
+    <div class="warning-box"><strong>কী ঝুঁকিতে ছিল</strong>মাসিক ট্র্যাকিং ডেটা গর্ভাবস্থা, গর্ভপাত এবং উর্বরতা চিকিৎসা প্রকাশ করতে পারে। যেখানে প্রজনন অধিকার সীমিত, সেখানে এই ডেটা সেই নারীদের বিরুদ্ধে ব্যবহার হতে পারে যারা এই অ্যাপগুলোকে বিশ্বাস করেছিলেন।</div>
+    <h2>সমস্যা অ্যাপে নয় — আর্কিটেকচারে।</h2>
+    <p>CycleSync একটি ভিন্ন নীতির উপর তৈরি: <strong>আপনার ডেটা কখনো আপনার ডিভাইস ছেড়ে যায় না।</strong> আপনি যা লগ করেন তা আপনার ব্রাউজারে স্থানীয়ভাবে সংরক্ষিত হয়। আমাদের সার্ভার স্পর্শ করে না। কোনো থার্ড-পার্টি API দিয়ে যায় না।</p>
+    <div class="highlight-box"><strong>বাস্তবে "local-first" মানে কী</strong>যদি কাল CycleSync বন্ধ হয়ে যায়, তবুও আপনার ডেটা থাকবে — আপনার ব্রাউজারে, আপনার নিয়ন্ত্রণে। আমরা যদি ব্যবহারকারীর ডেটার জন্য আইনি অনুরোধ পাই, আমাদের কাছে দেওয়ার মতো কিছু নেই। এই কারণে নয় যে আমরা মুছে ফেলেছি। কারণ আমাদের কাছে কখনো ছিলই না।</div>
+    <h2>গোপনীয়তা প্রিমিয়াম ফিচার হওয়া উচিত নয়</h2>
+    <p>CycleSync-এর ফ্রি প্ল্যান ব্যক্তিগত। Pro প্ল্যান ফিচার যোগ করে, গোপনীয়তা নয়। আপনি যাই পেমেন্ট করুন, আপনার ডেটা স্থানীয় থাকে।</p>
+    <div class="cta-section"><h3>ব্যক্তিগতভাবে ট্র্যাক করুন। সবসময়।</h3><p>আপনার ডেটা আপনার ডিভাইসে থাকে — কোনো অ্যাকাউন্ট নেই, কোনো সার্ভার নেই, কোনো শেয়ারিং নেই।</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome-এ CycleSync যোগ করুন — বিনামূল্যে</a></div>
+  </div>
+
+  <!-- JAPANESE -->
+  <div class="lang-section" id="lang-ja">
+    <span class="eyebrow">プライバシーと健康データ</span>
+    <h1>生理データは銀行口座の情報より繊細です — 誰が保管するかが重要な理由。</h1>
+    <p class="standfirst">多くの生理トラッキングアプリは、最も個人的な健康情報をサーバーに保存しています。2022年以降、それがなぜ問題なのかが世界に明らかになりました。だからCycleSyncは違う設計にしました。</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync 開発者 · 2026年10月</div></div>
+    <p>2022年6月、何かが変わりました。プライバシー研究者たちが、何百万人もの女性が考えたことのない質問をし始めました：<em>生理トラッキングアプリは、あなたのデータを実際にどこに保存しているのでしょうか？</em></p>
+    <p>ほとんどのアプリの答えは：自社サーバー。米国内。米国法に従って。そして政府機関からの法的要請に応じる可能性も。</p>
+    <div class="warning-box"><strong>何が危険にさらされていたか</strong>生理トラッキングデータは、妊娠、流産、不妊治療を明らかにする可能性があります。生殖医療が制限されている地域では、このデータはアプリを信頼した女性たちに不利に使われる可能性があります。</div>
+    <h2>問題はアプリではなく、設計思想です。</h2>
+    <p>CycleSyncは違う原則で作られています：<strong>あなたのデータはデバイスの外に出ません。</strong>ログしたすべての情報はブラウザにローカル保存されます。私たちのサーバーには届かず、第三者のAPIも通りません。</p>
+    <div class="highlight-box"><strong>「ローカルファースト」が実際に意味すること</strong>仮にCycleSyncが明日終了しても、データはそこにあります——あなたのブラウザの中、あなたのコントロール下に。ユーザーデータの法的要請を受けても、渡せるものは何もありません。削除したからではなく、最初から手元にないからです。</div>
+    <h2>プライバシーはプレミアム機能であってはならない</h2>
+    <p>CycleSyncの無料プランはプライベートです。Proプランは機能を追加するのであって、プライバシーを追加するのではありません。支払い額に関係なく、データはローカルに保たれます。</p>
+    <div class="cta-section"><h3>いつでもプライベートにトラッキング。</h3><p>データはあなたのデバイスに留まります — アカウント不要、サーバーなし、データ共有なし。</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">CycleSyncをChromeに追加 — 無料</a></div>
+  </div>
+
+  <!-- KOREAN -->
+  <div class="lang-section" id="lang-ko">
+    <span class="eyebrow">개인정보 보호 및 건강 데이터</span>
+    <h1>생리 데이터는 은행 계좌 정보보다 더 민감합니다 — 누가 보관하는지가 중요한 이유.</h1>
+    <p class="standfirst">대부분의 생리 추적 앱은 가장 개인적인 건강 정보를 서버에 저장합니다. 2022년 이후 세계는 그것이 왜 문제인지 알게 되었고 — 그래서 CycleSync를 다르게 만들었습니다.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync 개발자 · 2026년 10월</div></div>
+    <p>2022년 6월, 무언가 달라졌습니다. 프라이버시 연구자들이 수백만 명의 여성이 한 번도 떠올리지 못했던 질문을 하기 시작했습니다: <em>생리 추적 앱이 내 데이터를 실제로 어디에 저장하는 걸까?</em></p>
+    <p>대부분의 앱의 답은 이랬습니다: 자사 서버에. 미국에. 미국법 적용을 받으며. 정부 기관의 법적 요청에도 응해야 하는 환경에서.</p>
+    <div class="warning-box"><strong>무엇이 위험에 처했는가</strong>생리 데이터는 임신, 유산, 난임 치료를 드러낼 수 있습니다. 생식권이 제한된 나라에서는 이 데이터가 앱을 믿었던 바로 그 여성들에게 불리하게 사용될 수 있습니다.</div>
+    <h2>문제는 앱이 아니라 설계 방식입니다.</h2>
+    <p>CycleSync는 다른 원칙으로 만들어졌습니다: <strong>데이터가 절대 기기를 떠나지 않습니다.</strong> 기록한 모든 정보는 브라우저에 로컬로 저장됩니다. 서버에 닿지 않고, 어떤 서드파티 API도 거치지 않습니다.</p>
+    <div class="highlight-box"><strong>'로컬 우선'이 실제로 의미하는 것</strong>CycleSync가 내일 서비스를 종료해도 데이터는 그대로입니다 — 브라우저 안에, 사용자의 통제 아래. 법적으로 사용자 데이터 제출 요청을 받더라도 넘겨줄 것이 없습니다. 삭제했기 때문이 아니라, 처음부터 가진 적이 없기 때문입니다.</div>
+    <h2>프라이버시는 프리미엄 기능이어서는 안 됩니다</h2>
+    <p>CycleSync 무료 플랜은 비공개입니다. Pro 플랜은 기능을 추가하지, 프라이버시를 추가하지 않습니다. 얼마를 내든 데이터는 로컬에 남습니다.</p>
+    <div class="cta-section"><h3>항상 프라이빗하게 추적하세요.</h3><p>데이터는 기기에 보관됩니다 — 계정 불필요, 서버 없음, 데이터 공유 없음.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome에 CycleSync 추가 — 무료</a></div>
+  </div>
+
+  <!-- ITALIAN -->
+  <div class="lang-section" id="lang-it">
+    <span class="eyebrow">Privacy e dati sulla salute</span>
+    <h1>I tuoi dati mestruali sono più sensibili dei dati del tuo conto bancario — ed è per questo che conta chi li detiene.</h1>
+    <p class="standfirst">La maggior parte delle app di monitoraggio del ciclo archivia le tue informazioni sanitarie più intime sui propri server. Dopo il 2022, il mondo ha scoperto esattamente perché è un problema — e perché abbiamo costruito CycleSync in modo diverso.</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Creatore di CycleSync · Ottobre 2026</div></div>
+    <p>Nel giugno 2022, qualcosa è cambiato. I ricercatori della privacy hanno iniziato a fare una domanda che milioni di donne non avevano mai pensato di porsi: <em>dove esattamente la tua app di monitoraggio del ciclo archivia i tuoi dati?</em></p>
+    <p>La risposta, per la maggior parte delle app, era: sui loro server. Negli Stati Uniti. Soggetti alla legge americana. E potenzialmente a richieste legali da parte di enti governativi.</p>
+    <div class="warning-box"><strong>Cosa era a rischio</strong>I dati di monitoraggio mestruale possono rivelare gravidanze, perdite gestazionali e trattamenti per la fertilità. Nei paesi in cui i diritti riproduttivi sono limitati, questi dati potrebbero essere usati contro le stesse donne che si sono fidate di queste app.</div>
+    <h2>Il problema non è l'app — è l'architettura.</h2>
+    <p>CycleSync è stato costruito su un principio diverso: <strong>i tuoi dati non lasciano mai il tuo dispositivo.</strong> Tutto ciò che registri viene archiviato localmente nel tuo browser. Non tocca i nostri server. Non passa attraverso API di terze parti.</p>
+    <div class="highlight-box"><strong>Cosa significa "local-first" in pratica</strong>Se CycleSync venisse chiuso domani, i tuoi dati sarebbero ancora lì — nel tuo browser, sotto il tuo controllo. Se ricevessimo una richiesta legale di dati utente, non avremmo nulla da consegnare. Non perché li abbiamo cancellati. Perché non li abbiamo mai avuti.</div>
+    <h2>La privacy non dovrebbe essere una funzione premium</h2>
+    <p>Il piano gratuito di CycleSync è privato. Il piano Pro aggiunge funzionalità, non privacy. I tuoi dati rimangono locali indipendentemente da quanto paghi.</p>
+    <div class="cta-section"><h3>Monitora in modo privato. Sempre.</h3><p>I tuoi dati restano sul tuo dispositivo — nessun account, nessun server, nessuna condivisione.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Aggiungi CycleSync a Chrome — è gratis</a></div>
+  </div>
+
+  <!-- CHINESE SIMPLIFIED -->
+  <div class="lang-section" id="lang-zh">
+    <span class="eyebrow">隐私与健康数据</span>
+    <h1>你的经期数据比银行账户信息更敏感 — 这就是谁来保管它至关重要的原因。</h1>
+    <p class="standfirst">大多数经期追踪应用将你最私密的健康信息存储在他们的服务器上。2022年后，全世界都意识到这为何危险 — 这也是我们以不同方式构建CycleSync的原因。</p>
+    <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync 创始人 · 2026年10月</div></div>
+    <p>2022年6月，一切发生了改变。隐私研究人员开始提出一个数百万女性从未想过的问题：<em>你的经期追踪应用究竟把你的数据存储在哪里？</em></p>
+    <p>大多数应用的答案是：他们的服务器上。在美国。受美国法律约束。并且可能需要响应政府机构的法律请求。</p>
+    <div class="warning-box"><strong>什么处于风险之中</strong>经期追踪数据可能揭示怀孕、流产和生育治疗信息。在生殖权利受限的地区，这些数据可能被用来对付那些信任这些应用的女性。</div>
+    <h2>问题不在于应用本身，而在于架构设计。</h2>
+    <p>CycleSync基于不同的原则构建：<strong>你的数据永远不会离开你的设备。</strong>你记录的一切都存储在浏览器本地。不会触及我们的服务器。不经过任何第三方API。</p>
+    <div class="highlight-box"><strong>"本地优先"在实践中意味着什么</strong>即使CycleSync明天关闭，你的数据仍然在那里 — 在你的浏览器中，在你的掌控之下。如果我们收到用户数据的法律请求，我们没有任何东西可以交出。不是因为我们删除了数据，而是因为我们从未拥有过它。</div>
+    <h2>隐私不应该是付费功能</h2>
+    <p>CycleSync的免费版本就是私密的。Pro版本增加功能，而非隐私保护。无论你付多少钱，你的数据都保留在本地。</p>
+    <div class="cta-section"><h3>始终私密追踪。</h3><p>你的数据留在你的设备上 — 无需账号，无服务器，不共享数据。</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">将CycleSync添加到Chrome — 免费</a></div>
+  </div>
+
+</article>
+
+<footer>
+  © 2026 CycleSync · <a href="https://getcyclesync.com/">getcyclesync.com</a>
+</footer>
+
+<script>
+  const btns = document.querySelectorAll('.lang-btn');
+  const sections = document.querySelectorAll('.lang-section');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+
+      // Update buttons
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show correct section
+      sections.forEach(s => s.classList.remove('visible'));
+      document.getElementById('lang-' + lang).classList.add('visible');
+
+      // RTL for Arabic
+      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      // Scroll to top of article
+      document.querySelector('article').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body></html>
