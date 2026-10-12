@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,210 +8,55 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
   :root {
-    --rose: #f4607a;
-    --rose-light: #fde8ec;
-    --mauve: #c084b0;
-    --mauve-light: #f3e6f0;
-    --plum: #7c3f6e;
-    --cream: #fdf8f5;
-    --text: #2d1f2a;
-    --text-mid: #6b4e63;
-    --text-light: #a8849e;
-    --rule: #e8d4e4;
-    --highlight-bg: #fdf0f8;
+    --rose: #f4607a; --rose-light: #fde8ec; --mauve: #c084b0; --mauve-light: #f3e6f0;
+    --plum: #7c3f6e; --cream: #fdf8f5; --text: #2d1f2a; --text-mid: #6b4e63;
+    --text-light: #a8849e; --rule: #e8d4e4; --highlight-bg: #fdf0f8;
     color-scheme: light;
   }
-
   *, *::before, *::after { box-sizing: border-box; }
   html { color-scheme: light; }
-
-  body {
-    background: var(--cream) !important;
-    color: var(--text) !important;
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    margin: 0;
-    padding: 0 24px;
-  }
-
-  .site-header {
-    border-bottom: 1px solid var(--rule);
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .site-logo {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--plum);
-    text-decoration: none;
-  }
+  body { background: var(--cream) !important; color: var(--text) !important; font-family: 'DM Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.75; margin: 0; padding: 0 24px; }
+  body[dir="rtl"] blockquote { padding: 0 28px 0 0; border-left: none; border-right: 2px solid var(--mauve); }
+  body[dir="rtl"] .highlight-box { border-left: none; border-right: 3px solid var(--mauve); border-radius: 8px 0 0 8px; }
+  .site-header { border-bottom: 1px solid var(--rule); padding: 20px 0; display: flex; justify-content: space-between; align-items: center; max-width: 700px; margin: 0 auto; }
+  .site-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; font-weight: 600; color: var(--plum); text-decoration: none; }
   .site-logo span { color: var(--rose); }
-  .site-nav a {
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    text-decoration: none;
-    font-weight: 500;
-  }
+  .site-nav { display: flex; align-items: center; gap: 16px; }
+  .site-nav a { font-size: 0.85rem; color: var(--text-mid); text-decoration: none; font-weight: 500; }
   .site-nav a:hover { color: var(--plum); }
-
-  article {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 56px 0 96px;
-  }
-
-  .eyebrow {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--mauve);
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  h1 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
-    font-weight: 600;
-    line-height: 1.2;
-    margin: 0 0 24px;
-    color: var(--plum);
-  }
-
-  .standfirst {
-    font-size: 1.15rem;
-    line-height: 1.65;
-    color: var(--text-mid);
-    margin-bottom: 40px;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-  }
-
-  .meta {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 48px;
-    font-size: 0.82rem;
-    color: var(--text-mid);
-  }
-
-  .meta-avatar {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: var(--mauve-light);
-    border: 2px solid var(--mauve);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1rem;
-    color: var(--plum);
-    flex-shrink: 0;
-  }
+  .lang-switcher { display: flex; flex-wrap: wrap; gap: 6px; max-width: 700px; margin: 20px auto 0; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+  .lang-btn { background: var(--cream); border: 1px solid var(--rule); border-radius: 100px; padding: 4px 12px; font-size: 0.78rem; font-family: 'DM Sans', system-ui, sans-serif; color: var(--text-mid); cursor: pointer; transition: all 0.15s; font-weight: 500; }
+  .lang-btn:hover { border-color: var(--mauve); color: var(--plum); }
+  .lang-btn.active { background: var(--mauve-light); border-color: var(--mauve); color: var(--plum); font-weight: 600; }
+  article { max-width: 700px; margin: 0 auto; padding: 56px 0 96px; }
+  .eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--mauve); margin-bottom: 16px; display: block; }
+  h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 600; line-height: 1.2; margin: 0 0 24px; color: var(--plum); }
+  .standfirst { font-size: 1.15rem; line-height: 1.65; color: var(--text-mid); margin-bottom: 40px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
+  .meta { display: flex; align-items: center; gap: 16px; padding: 20px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 48px; font-size: 0.82rem; color: var(--text-mid); }
+  .meta-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--mauve-light); border: 2px solid var(--mauve); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; color: var(--plum); flex-shrink: 0; }
   .meta-text strong { display: block; color: var(--text); font-weight: 600; font-size: 0.85rem; }
-
-  h2 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.45rem;
-    font-weight: 600;
-    margin: 52px 0 14px;
-    color: var(--plum);
-  }
-
+  h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.45rem; font-weight: 600; margin: 52px 0 14px; color: var(--plum); }
   p { margin: 0 0 22px; color: var(--text); }
   strong { color: var(--text); }
   a { color: var(--plum); }
-
-  blockquote {
-    margin: 36px 0;
-    padding: 0 0 0 28px;
-    border-left: 2px solid var(--mauve);
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: var(--text-mid);
-  }
-
-  .highlight-box {
-    background: var(--highlight-bg);
-    border-left: 3px solid var(--mauve);
-    border-radius: 0 8px 8px 0;
-    padding: 18px 22px;
-    margin: 28px 0;
-    font-size: 0.93rem;
-    color: var(--text);
-  }
-  .highlight-box strong {
-    display: block; font-size: 0.78rem; font-weight: 600;
-    letter-spacing: 1.5px; text-transform: uppercase; color: var(--plum); margin-bottom: 6px;
-  }
-
-  /* Version timeline */
-  .version-timeline {
-    margin: 36px 0;
-    padding: 0;
-    list-style: none;
-  }
-  .version-timeline li {
-    display: flex;
-    gap: 18px;
-    padding-bottom: 28px;
-    position: relative;
-  }
-  .version-timeline li::before {
-    content: '';
-    position: absolute;
-    left: 19px;
-    top: 28px;
-    bottom: 0;
-    width: 1px;
-    background: var(--rule);
-  }
+  blockquote { margin: 36px 0; padding: 0 0 0 28px; border-left: 2px solid var(--mauve); font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: var(--text-mid); }
+  .highlight-box { background: var(--highlight-bg); border-left: 3px solid var(--mauve); border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 28px 0; font-size: 0.93rem; color: var(--text); }
+  .highlight-box strong { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--plum); margin-bottom: 6px; }
+  .version-timeline { margin: 36px 0; padding: 0; list-style: none; }
+  .version-timeline li { display: flex; gap: 18px; padding-bottom: 28px; position: relative; }
+  .version-timeline li::before { content: ''; position: absolute; left: 19px; top: 28px; bottom: 0; width: 1px; background: var(--rule); }
   .version-timeline li:last-child::before { display: none; }
-  .version-dot {
-    width: 38px; height: 38px; flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--mauve-light);
-    border: 2px solid var(--mauve);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem; font-weight: 700; color: var(--plum);
-    font-family: 'DM Sans', system-ui, sans-serif;
-  }
+  .version-dot { width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; background: var(--mauve-light); border: 2px solid var(--mauve); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: var(--plum); font-family: 'DM Sans', system-ui, sans-serif; }
   .version-body { padding-top: 6px; }
   .version-body strong { display: block; color: var(--plum); font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
   .version-body span { font-size: 0.88rem; color: var(--text-mid); }
-
-  .cta-section {
-    background: linear-gradient(135deg, var(--rose-light) 0%, var(--mauve-light) 100%);
-    border-radius: 20px;
-    padding: 40px;
-    margin-top: 60px;
-    text-align: center;
-  }
+  .cta-section { background: linear-gradient(135deg, var(--rose-light) 0%, var(--mauve-light) 100%); border-radius: 20px; padding: 40px; margin-top: 60px; text-align: center; }
   .cta-section h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.45rem; margin: 0 0 10px; color: var(--plum); }
   .cta-section p { color: var(--text-mid); margin-bottom: 22px; font-size: 0.93rem; }
-  .cta-btn {
-    display: inline-block; background: var(--rose); color: #fff;
-    font-family: 'DM Sans', system-ui, sans-serif; font-weight: 600; font-size: 0.9rem;
-    padding: 13px 26px; border-radius: 100px; text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-  }
+  .cta-btn { display: inline-block; background: var(--rose); color: #fff; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 600; font-size: 0.9rem; padding: 13px 26px; border-radius: 100px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
   .cta-btn:hover { background: #d44d67; transform: translateY(-2px); color: #fff; }
-
   .related-posts { margin-top: 72px; padding-top: 36px; border-top: 1px solid var(--rule); }
   .related-posts h3 { font-size: 0.74rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 20px; }
   .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -221,18 +65,15 @@
   .related-card .eyebrow { margin-bottom: 8px; }
   .related-card h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; margin: 0 0 6px; color: var(--plum); }
   .related-card p { font-size: 0.84rem; color: var(--text-mid); margin: 0; }
-
-  footer {
-    border-top: 1px solid var(--rule); padding: 28px 0;
-    text-align: center; font-size: 0.8rem; color: var(--text-light);
-    max-width: 700px; margin: 0 auto;
-  }
-
+  footer { border-top: 1px solid var(--rule); padding: 28px 0; text-align: center; font-size: 0.8rem; color: var(--text-light); max-width: 700px; margin: 0 auto; }
+  .lang-section { display: none; }
+  .lang-section.visible { display: block; }
   @media (max-width: 600px) {
     body { padding: 0 16px; }
     article { padding: 36px 0 64px; }
     .cta-section { padding: 24px 18px; }
     .related-grid { grid-template-columns: 1fr; }
+    .lang-switcher { gap: 5px; }
   }
 </style>
 </head>
@@ -240,130 +81,394 @@
 
 <header class="site-header">
   <a class="site-logo" href="https://getcyclesync.com/">Cycle<span>Sync</span></a>
-  <nav class="site-nav">
-    <a href="https://getcyclesync.com/">← Home</a>
-  </nav>
+  <nav class="site-nav"><a href="/blog/privacy-period-tracking.html">Blog</a> <a href="https://getcyclesync.com/">← Home</a></nav>
 </header>
 
+<div class="lang-switcher" role="group" aria-label="Choose language">
+  <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
+  <button class="lang-btn" data-lang="ar">🇦🇪 العربية</button>
+  <button class="lang-btn" data-lang="pt">🇧🇷 Português</button>
+  <button class="lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+  <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+  <button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
+  <button class="lang-btn" data-lang="hu">🇭🇺 Magyar</button>
+  <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+  <button class="lang-btn" data-lang="hi">🇮🇳 हिन्दी</button>
+  <button class="lang-btn" data-lang="id">🇮🇩 Indonesia</button>
+  <button class="lang-btn" data-lang="bn">🇧🇩 বাংলা</button>
+  <button class="lang-btn" data-lang="ja">🇯🇵 日本語</button>
+  <button class="lang-btn" data-lang="ko">🇰🇷 한국어</button>
+  <button class="lang-btn" data-lang="it">🇮🇹 Italiano</button>
+  <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+</div>
+
 <article>
+
+<!-- ENGLISH -->
+<div class="lang-section visible" id="lang-en">
   <span class="eyebrow">Origin Story</span>
   <h1>I sketched an idea. Then I built it — alone, from scratch, one version at a time.</h1>
   <p class="standfirst">On 24 March 2025, CycleSync didn't exist. Eighteen months later it runs on Chrome, Edge, and mobile in 14 languages. This is what happened in between.</p>
-
-  <div class="meta">
-    <div class="meta-avatar">T</div>
-    <div class="meta-text">
-      <strong>Tony Momoh</strong>
-      Creator of CycleSync · October 2026
-    </div>
-  </div>
-
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Creator of CycleSync · October 2026</div></div>
   <p>It started the way most things I've built start — with a sketch. Not a business plan, not a pitch deck. Just an idea scribbled down: what if a period tracker lived in your browser, stored nothing on a server, and asked for nothing in return?</p>
-
   <p>I've been in tech since the early 90s. I can read code. I understand branding, UX, product. I've worn every hat at some point. But CycleSync wasn't a calculated product decision. It was curiosity with conviction behind it.</p>
-
   <h2>Version 1.0 — simple, basic, a beginning</h2>
-
   <p>The first version was bare. A period tracker. That was it. No languages, no themes, no PWA, no Edge version. Just the core idea working in a browser extension — your data on your device, no account, no server.</p>
-
-  <p>I tested it myself. Then I sent it to my sisters. I have sisters, and when you're building something for women, the people closest to you become your first honest critics. They used it. They told me what felt off. I fixed it and built more.</p>
-
+  <p>I tested it myself. Then I sent it to my sisters. When you're building something for women, the people closest to you become your first honest critics. They used it. They told me what felt off. I fixed it and built more.</p>
   <blockquote>"What if we made it pink?" That thought came from understanding the people I was building for — not from a trend report or a focus group.</blockquote>
-
-  <p>I'm a designer. Colour isn't decoration to me — it's communication. Pink, lavender, rose, cream. These weren't arbitrary choices. They were the result of actually thinking about who opens this extension and what feeling it should give them. Something warm. Something theirs. Not clinical, not cold, not corporate.</p>
-
-  <p>Playing with the palette was genuinely enjoyable. That's when I knew the project had become something more than a proof of concept.</p>
-
+  <p>I'm a designer. Colour isn't decoration to me — it's communication. Pink, lavender, rose, cream. These weren't arbitrary choices. They were the result of actually thinking about who opens this extension and what feeling it should give them. Something warm. Something theirs.</p>
   <h2>The dog walks and the debug sessions</h2>
-
-  <p>I have a dog. Every day, between builds, I'd take her out. Those walks became part of the process — stepping away from the screen, letting an idea settle, coming back with fresh eyes. Some of the best decisions about CycleSync happened on those walks. What to add. What to cut. Whether a feature was actually useful or just interesting to build.</p>
-
+  <p>I have a dog. Every day, between builds, I'd take her out. Those walks became part of the process — stepping away from the screen, letting an idea settle, coming back with fresh eyes. Some of the best decisions about CycleSync happened on those walks.</p>
   <p>Then back to testing. Reading through the code, hunting for bugs, fixing what broke. No team to hand it off to. No QA department. Just me, the extension, and the question: does this work the way a real person would use it?</p>
-
-  <div class="highlight-box">
-    <strong>Everything, done by one person</strong>
-    The idea. The name. The branding. The UX. The code. The copy. The testing. The translations. The Chrome Store listing. The Edge submission. The PWA. The landing page. The blog. All of it — solo, from 24 March 2025 to today.
-  </div>
-
+  <div class="highlight-box"><strong>Everything, done by one person</strong>The idea. The name. The branding. The UX. The code. The copy. The testing. The translations. The Chrome Store listing. The Edge submission. The PWA. The landing page. The blog. All of it — solo, from 24 March 2025 to today.</div>
   <h2>From 1.0 to 1.2.2 — what grew with each version</h2>
-
   <ul class="version-timeline">
-    <li>
-      <div class="version-dot">1.0</div>
-      <div class="version-body">
-        <strong>The beginning — 24 March 2025</strong>
-        <span>Basic period tracker. English only. The idea proven to itself.</span>
-      </div>
-    </li>
-    <li>
-      <div class="version-dot">1.0.7</div>
-      <div class="version-body">
-        <strong>Colour, character, and feeling</strong>
-        <span>The rose and lavender palette takes shape. CycleSync starts to look like something worth using.</span>
-      </div>
-    </li>
-    <li>
-      <div class="version-dot">1.1.0</div>
-      <div class="version-body">
-        <strong>Languages — the world opens up</strong>
-        <span>A user in Russia wrote to say privacy mattered to her. That message changed everything. Languages followed — Russian, Arabic, Portuguese, German, Spanish, and more.</span>
-      </div>
-    </li>
-    <li>
-      <div class="version-dot">1.2.0</div>
-      <div class="version-body">
-        <strong>Edge, PWA, and getting serious</strong>
-        <span>Chrome extension, Microsoft Edge extension, and a mobile PWA. Three platforms, zero app stores, one codebase.</span>
-      </div>
-    </li>
-    <li>
-      <div class="version-dot">1.2.2</div>
-      <div class="version-body">
-        <strong>14 languages · getcyclesync.com · the blog</strong>
-        <span>A proper domain. A proper blog. Users in Algeria, India, UAE, Brazil, the US, the UK. The flywheel turning on its own.</span>
-      </div>
-    </li>
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>The beginning — 24 March 2025</strong><span>Basic period tracker. English only. The idea proven to itself.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Colour, character, and feeling</strong><span>The rose and lavender palette takes shape. CycleSync starts to look like something worth using.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Languages — the world opens up</strong><span>A user in Russia wrote to say privacy mattered to her. That message changed everything. Languages followed — Russian, Arabic, Portuguese, German, Spanish, and more.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA, and getting serious</strong><span>Chrome extension, Microsoft Edge extension, and a mobile PWA. Three platforms, zero app stores, one codebase.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 languages · getcyclesync.com · the blog</strong><span>A proper domain. A proper blog. Users in Algeria, India, UAE, Brazil, the US, the UK. The flywheel turning on its own.</span></div></li>
   </ul>
-
   <h2>The moment it stopped feeling like a side project</h2>
-
   <p>There wasn't one single moment. It was cumulative. A stranger in Russia installing it and writing to say it mattered. Algeria appearing in the install data without any effort on my part. chatgpt.com sending traffic because users were recommending CycleSync to each other through an AI assistant. A 26% install conversion rate on the Chrome Store — five times the industry average.</p>
-
-  <p>Each of those things, on its own, is just a data point. Together they say something: the problem is real, the solution is right, and people are finding it.</p>
-
   <h2>Why local-first was never a compromise</h2>
-
-  <p>Some people ask whether storing data locally — rather than in the cloud — limits what CycleSync can do. It doesn't. It defines what CycleSync <em>is</em>. Every other period tracking app made the same architectural choice: put the data on a server. CycleSync made the opposite choice, deliberately, on day one.</p>
-
   <p>Your period data never leaves your device. There is no CycleSync database of your health records. If we were ever served with a legal request for user data, we would have nothing to hand over — not because we deleted it, but because we never had it. That's not a limitation. That's the product.</p>
+  <div class="cta-section"><h3>Try CycleSync — it's free, private, and yours.</h3><p>No account. No server. No data sharing. Available on Chrome, Edge, and as a mobile app.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Add to Chrome — Free</a></div>
+  <div class="related-posts"><h3>More from the CycleSync blog</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacy</span><h4>Why period tracking privacy matters more than you think</h4><p>Your menstrual data is more sensitive than your bank account. Here's why it matters who holds it.</p></a><div class="related-card"><span class="eyebrow">Coming January 2027</span><h4>Period tracking during Ramadan</h4><p>How to use your cycle data to plan fasting days and track with confidence during the holy month.</p></div></div></div>
+</div>
 
-  <h2>What's next</h2>
+<!-- ARABIC -->
+<div class="lang-section" id="lang-ar">
+  <span class="eyebrow">قصة البداية</span>
+  <h1>رسمتُ فكرة. ثم بنيتُها — وحدي، من الصفر، إصداراً تلو الآخر.</h1>
+  <p class="standfirst">في 24 مارس 2025، لم يكن CycleSync موجوداً. بعد ثمانية عشر شهراً، يعمل على Chrome وEdge والجوال بـ14 لغة. هذه هي القصة.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>مؤسس CycleSync · أكتوبر 2026</div></div>
+  <p>بدأ الأمر كما تبدأ معظم المشاريع التي بنيتُها — برسمة. لا خطة عمل، لا عرض تقديمي. مجرد فكرة مكتوبة: ماذا لو كان متتبع الدورة الشهرية يعيش في متصفحك، ولا يخزّن شيئاً على خادم، ولا يطلب شيئاً في المقابل؟</p>
+  <p>أنا في مجال التقنية منذ التسعينيات. أستطيع قراءة الكود. أفهم العلامة التجارية وتجربة المستخدم والمنتج. لكن CycleSync لم يكن قراراً محسوباً — كان فضولاً مدعوماً بقناعة.</p>
+  <h2>الإصدار 1.0 — بسيط، أساسي، بداية</h2>
+  <p>كان الإصدار الأول مجرداً. متتبع للدورة. فقط. لا لغات، لا ثيمات. اختبرته بنفسي، ثم أرسلته لأخواتي. عندما تبني شيئاً للنساء، فإن أقرب الناس إليك يصبحون أول نقادك الصادقين. استخدمنه، أخبرنني بما يحتاج تحسيناً، أصلحته وبنيت المزيد.</p>
+  <blockquote>"ماذا لو جعلناه وردياً؟" جاءت هذه الفكرة من فهم من أبني من أجلهن — لا من تقرير اتجاهات أو مجموعة تركيز.</blockquote>
+  <p>أنا مصمم. اللون بالنسبة لي ليس زينة — بل تواصل. الوردي، اللافندر، الكريمي. لم تكن هذه اختيارات عشوائية.</p>
+  <h2>نزهات الكلبة وجلسات اصطياد الأخطاء</h2>
+  <p>لديّ كلبة. كل يوم، بين عمليات البناء، كنت آخذها للنزهة. أصبحت تلك النزهات جزءاً من العملية — ابتعاد عن الشاشة، وتركٍ للأفكار تترسخ، وعودة بعيون جديدة.</p>
+  <div class="highlight-box"><strong>كل شيء، بيد شخص واحد</strong>الفكرة. الاسم. العلامة التجارية. تجربة المستخدم. الكود. النصوص. الاختبار. الترجمات. متجر Chrome. Edge. PWA. الصفحة الرئيسية. المدونة. كل شيء — بمفردي، من 24 مارس 2025 حتى اليوم.</div>
+  <h2>من 1.0 إلى 1.2.2 — ما نما مع كل إصدار</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>البداية — 24 مارس 2025</strong><span>متتبع دورة بسيط. باللغة الإنجليزية فقط. الفكرة تُثبت نفسها.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>اللون والشخصية والإحساس</strong><span>لوحة الألوان الوردية واللافندر تتشكّل. CycleSync يبدو وكأنه شيء يستحق الاستخدام.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>اللغات — العالم يتسع</strong><span>مستخدمة في روسيا كتبت تقول إن الخصوصية تهمها. غيّرت تلك الرسالة كل شيء.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge وPWA والجدية</strong><span>ثلاث منصات، صفر متاجر تطبيقات، كودبيس واحد.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 لغة · getcyclesync.com · المدونة</strong><span>نطاق حقيقي. مدونة حقيقية. مستخدمون في الجزائر والهند والإمارات والبرازيل.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>جرّبي CycleSync — مجاني، خاص، ملكك.</h3><p>لا حساب. لا خادم. لا مشاركة بيانات.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">أضف إلى Chrome — مجاناً</a></div>
+  <div class="related-posts"><h3>المزيد من مدونة CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">الخصوصية</span><h4>لماذا تهم خصوصية تتبع الدورة أكثر مما تتخيلين</h4><p>بياناتك الصحية أكثر حساسية من بياناتك البنكية.</p></a><div class="related-card"><span class="eyebrow">قريباً - يناير 2027</span><h4>تتبع الدورة في رمضان</h4><p>كيف تستخدمين بيانات دورتك لتخطيط أيام الصيام.</p></div></div></div>
+</div>
 
-  <p>The Ramadan blog post is coming in January 2027 — a guide for Muslim women on tracking their cycle during the holy month. The money comparison post is coming too, because Flo charges £13 a month and CycleSync is free. And the Pro tier is already live for users who want to support the project and unlock more features.</p>
+<!-- PORTUGUESE -->
+<div class="lang-section" id="lang-pt">
+  <span class="eyebrow">História de Origem</span>
+  <h1>Fiz um esboço de uma ideia. Depois construí — sozinho, do zero, uma versão de cada vez.</h1>
+  <p class="standfirst">Em 24 de março de 2025, o CycleSync não existia. Dezoito meses depois, roda no Chrome, Edge e mobile em 14 idiomas. Isto é o que aconteceu no intervalo.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Criador do CycleSync · Outubro 2026</div></div>
+  <p>Começou da forma como a maioria das coisas que construí começa — com um esboço. Não um plano de negócios, não um pitch deck. Apenas uma ideia rabiscada: e se um rastreador menstrual vivesse no seu navegador, não armazenasse nada em um servidor e não pedisse nada em troca?</p>
+  <p>Estou na área de tecnologia desde o início dos anos 90. Consigo ler código. Entendo branding, UX, produto. Mas o CycleSync não foi uma decisão calculada — foi curiosidade com convicção por trás.</p>
+  <h2>Versão 1.0 — simples, básica, um começo</h2>
+  <p>A primeira versão era mínima. Um rastreador menstrual. Só isso. Testei eu mesmo. Depois enviei para as minhas irmãs. Quando você constrói algo para mulheres, as pessoas mais próximas se tornam seus primeiros críticos honestos. Elas usaram, disseram o que estava errado, corrigi e construí mais.</p>
+  <blockquote>"E se ficasse rosa?" Esse pensamento veio de entender as pessoas para quem eu estava construindo — não de um relatório de tendências ou grupo focal.</blockquote>
+  <p>Sou designer. Cor não é decoração para mim — é comunicação. Rosa, lavanda, creme. Não foram escolhas arbitrárias. Foram o resultado de pensar genuinamente em quem abre essa extensão e que sensação ela deve transmitir.</p>
+  <h2>Os passeios com o cachorro e as sessões de depuração</h2>
+  <p>Tenho uma cachorra. Todo dia, entre as construções, eu a levava para passear. Esses passeios se tornaram parte do processo — afastar da tela, deixar uma ideia sedimentar, voltar com os olhos frescos. Algumas das melhores decisões sobre o CycleSync aconteceram nesses passeios.</p>
+  <div class="highlight-box"><strong>Tudo, feito por uma pessoa só</strong>A ideia. O nome. O branding. O UX. O código. Os textos. Os testes. As traduções. A listagem no Chrome Store. A submissão no Edge. O PWA. A landing page. O blog. Tudo — solo, de 24 de março de 2025 até hoje.</div>
+  <h2>De 1.0 a 1.2.2 — o que cresceu a cada versão</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>O começo — 24 de março de 2025</strong><span>Rastreador menstrual básico. Apenas inglês. A ideia provada para si mesma.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Cor, caráter e sensação</strong><span>A paleta de rosa e lavanda toma forma. O CycleSync começa a parecer algo que vale usar.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Idiomas — o mundo se abre</strong><span>Uma usuária na Rússia escreveu dizendo que a privacidade importava para ela. Essa mensagem mudou tudo.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA e ficando sério</strong><span>Três plataformas, zero lojas de aplicativos, uma base de código.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 idiomas · getcyclesync.com · o blog</strong><span>Um domínio de verdade. Um blog de verdade. Usuários na Argélia, Índia, Emirados, Brasil, EUA, Reino Unido.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>Experimente o CycleSync — gratuito, privado e seu.</h3><p>Sem conta. Sem servidor. Sem compartilhamento de dados.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Adicionar ao Chrome — Grátis</a></div>
+  <div class="related-posts"><h3>Mais do blog CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacidade</span><h4>Por que a privacidade no rastreamento menstrual importa mais do que você pensa</h4><p>Seus dados menstruais são mais sensíveis do que os dados da sua conta bancária.</p></a><div class="related-card"><span class="eyebrow">Em breve — Janeiro 2027</span><h4>Rastreamento menstrual durante o Ramadã</h4><p>Como usar seus dados de ciclo para planejar os dias de jejum durante o mês sagrado.</p></div></div></div>
+</div>
 
-  <p>But the core of it — a private, local-first period tracker that belongs to the woman using it — that doesn't change. That was the sketch on 24 March 2025, and it's still the product today.</p>
+<!-- GERMAN -->
+<div class="lang-section" id="lang-de">
+  <span class="eyebrow">Entstehungsgeschichte</span>
+  <h1>Ich hatte eine Skizze einer Idee. Dann habe ich sie gebaut — allein, von Grund auf, eine Version nach der anderen.</h1>
+  <p class="standfirst">Am 24. März 2025 existierte CycleSync nicht. Achtzehn Monate später läuft es auf Chrome, Edge und Mobilgeräten in 14 Sprachen. Das ist, was dazwischen passiert ist.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Gründer von CycleSync · Oktober 2026</div></div>
+  <p>Es begann, wie die meisten Dinge, die ich gebaut habe — mit einer Skizze. Kein Geschäftsplan, kein Pitch Deck. Nur eine niedergeschriebene Idee: Was wäre, wenn ein Zyklus-Tracker in deinem Browser lebte, nichts auf einem Server speicherte und nichts im Gegenzug verlangte?</p>
+  <p>Ich bin seit den frühen 90ern in der Technologiebranche. Ich kann Code lesen. Ich verstehe Branding, UX, Produkt. CycleSync war keine kalkulierte Produktentscheidung — es war Neugier mit Überzeugung dahinter.</p>
+  <h2>Version 1.0 — einfach, grundlegend, ein Anfang</h2>
+  <p>Die erste Version war minimalistisch. Ein Zyklus-Tracker. Das war es. Ich habe es selbst getestet, dann an meine Schwestern geschickt. Wenn man etwas für Frauen baut, werden die nächsten Menschen zu den ersten ehrlichen Kritikern. Sie benutzten es, sagten mir, was sich falsch anfühlte, ich fixte es und baute mehr.</p>
+  <blockquote>"Was wäre, wenn wir es pink machen würden?" Dieser Gedanke kam von dem Verständnis der Menschen, für die ich baute — nicht von einem Trendreport oder einer Fokusgruppe.</blockquote>
+  <div class="highlight-box"><strong>Alles, von einer einzigen Person gemacht</strong>Die Idee. Der Name. Das Branding. Das UX. Der Code. Die Texte. Das Testen. Die Übersetzungen. Die Chrome Store Einträge. Die Edge Einreichung. Das PWA. Die Landing Page. Der Blog. Alles — allein, vom 24. März 2025 bis heute.</div>
+  <h2>Von 1.0 bis 1.2.2 — was mit jeder Version wuchs</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>Der Anfang — 24. März 2025</strong><span>Einfacher Zyklus-Tracker. Nur Englisch. Die Idee beweist sich selbst.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Farbe, Charakter und Gefühl</strong><span>Die Rosa- und Lavendelpalette nimmt Form an. CycleSync beginnt, wie etwas auszusehen, das es wert ist zu benutzen.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Sprachen — die Welt öffnet sich</strong><span>Eine Nutzerin in Russland schrieb, dass ihr Privatsphäre wichtig sei. Diese Nachricht veränderte alles.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA und ernst werden</strong><span>Drei Plattformen, null App Stores, eine Codebasis.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 Sprachen · getcyclesync.com · der Blog</strong><span>Eine richtige Domain. Ein richtiger Blog. Nutzer in Algerien, Indien, UAE, Brasilien, USA, UK.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>Probier CycleSync — kostenlos, privat und deins.</h3><p>Kein Konto. Kein Server. Keine Datenweitergabe.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Zu Chrome hinzufügen — Kostenlos</a></div>
+  <div class="related-posts"><h3>Mehr vom CycleSync Blog</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Datenschutz</span><h4>Warum Datenschutz beim Zyklus-Tracking wichtiger ist als du denkst</h4><p>Deine Menstruationsdaten sind sensibler als deine Bankdaten.</p></a><div class="related-card"><span class="eyebrow">Bald — Januar 2027</span><h4>Zyklus-Tracking während des Ramadans</h4><p>Wie du deine Zyklus-Daten nutzen kannst, um Fastentage zu planen.</p></div></div></div>
+</div>
 
-  <div class="cta-section">
-    <h3>Try CycleSync — it's free, private, and yours.</h3>
-    <p>No account. No server. No data sharing. Available on Chrome, Edge, and as a mobile app.</p>
-    <a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Add to Chrome — Free</a>
-  </div>
+<!-- SPANISH -->
+<div class="lang-section" id="lang-es">
+  <span class="eyebrow">Historia de Origen</span>
+  <h1>Dibujé una idea. Luego la construí — solo, desde cero, una versión a la vez.</h1>
+  <p class="standfirst">El 24 de marzo de 2025, CycleSync no existía. Dieciocho meses después funciona en Chrome, Edge y móvil en 14 idiomas. Esto es lo que pasó en medio.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Creador de CycleSync · Octubre 2026</div></div>
+  <p>Comenzó como comienzan la mayoría de las cosas que he construido — con un boceto. No un plan de negocios, no un pitch deck. Solo una idea garabateada: ¿y si un rastreador menstrual viviera en tu navegador, no almacenara nada en un servidor y no pidiera nada a cambio?</p>
+  <p>Llevo en tecnología desde principios de los 90. Puedo leer código. Entiendo branding, UX, producto. CycleSync no fue una decisión de producto calculada — fue curiosidad con convicción detrás.</p>
+  <h2>Versión 1.0 — simple, básica, un comienzo</h2>
+  <p>La primera versión era mínima. Un rastreador menstrual. Eso era todo. Lo probé yo mismo, luego se lo envié a mis hermanas. Cuando construyes algo para mujeres, las personas más cercanas a ti se convierten en tus primeras críticas honestas.</p>
+  <blockquote>"¿Y si lo hacemos rosa?" Ese pensamiento vino de entender a las personas para quienes construía — no de un informe de tendencias o un grupo focal.</blockquote>
+  <div class="highlight-box"><strong>Todo, hecho por una sola persona</strong>La idea. El nombre. El branding. La UX. El código. Los textos. Las pruebas. Las traducciones. La ficha en Chrome Store. La versión Edge. El PWA. La página de inicio. El blog. Todo — en solitario, desde el 24 de marzo de 2025 hasta hoy.</div>
+  <h2>De 1.0 a 1.2.2 — lo que creció con cada versión</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>El comienzo — 24 de marzo de 2025</strong><span>Rastreador menstrual básico. Solo inglés. La idea probándose a sí misma.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Color, carácter y sensación</strong><span>La paleta rosa y lavanda toma forma. CycleSync empieza a parecer algo que vale la pena usar.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Idiomas — el mundo se abre</strong><span>Una usuaria en Rusia escribió para decir que la privacidad le importaba. Ese mensaje lo cambió todo.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA y tomando en serio</strong><span>Tres plataformas, cero tiendas de aplicaciones, una base de código.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 idiomas · getcyclesync.com · el blog</strong><span>Un dominio de verdad. Un blog de verdad. Usuarios en Argelia, India, EAU, Brasil, EE.UU., Reino Unido.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>Prueba CycleSync — es gratis, privado y tuyo.</h3><p>Sin cuenta. Sin servidor. Sin compartir datos.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Añadir a Chrome — Gratis</a></div>
+  <div class="related-posts"><h3>Más del blog de CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacidad</span><h4>Por qué la privacidad en el rastreo menstrual importa más de lo que crees</h4><p>Tus datos menstruales son más sensibles que los de tu cuenta bancaria.</p></a><div class="related-card"><span class="eyebrow">Próximamente — Enero 2027</span><h4>Rastreo menstrual durante el Ramadán</h4><p>Cómo usar tus datos de ciclo para planificar los días de ayuno.</p></div></div></div>
+</div>
 
-  <div class="related-posts">
-    <h3>More from the CycleSync blog</h3>
-    <div class="related-grid">
-      <a class="related-card" href="/blog/privacy-period-tracking.html">
-        <span class="eyebrow">Privacy</span>
-        <h4>Why period tracking privacy matters more than you think</h4>
-        <p>Your menstrual data is more sensitive than your bank account. Here's why it matters who holds it.</p>
-      </a>
-      <div class="related-card">
-        <span class="eyebrow">Coming January 2027</span>
-        <h4>Period tracking during Ramadan</h4>
-        <p>How to use your cycle data to plan fasting days and track with confidence during the holy month.</p>
-      </div>
-    </div>
-  </div>
+<!-- RUSSIAN -->
+<div class="lang-section" id="lang-ru">
+  <span class="eyebrow">История создания</span>
+  <h1>Я набросал идею. Потом воплотил её — один, с нуля, версия за версией.</h1>
+  <p class="standfirst">24 марта 2025 года CycleSync не существовал. Восемнадцать месяцев спустя он работает в Chrome, Edge и на мобильных устройствах на 14 языках. Вот что произошло за это время.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Создатель CycleSync · Октябрь 2026</div></div>
+  <p>Всё началось так, как начинается большинство вещей, которые я создавал — с наброска. Не бизнес-план, не презентация. Просто записанная идея: что если трекер цикла живёт в браузере, ничего не хранит на сервере и ничего не просит взамен?</p>
+  <p>Я в технологиях с начала 90-х. Умею читать код. Понимаю брендинг, UX, продукт. CycleSync — это не рассчитанное продуктовое решение. Это любопытство, подкреплённое убеждением.</p>
+  <h2>Версия 1.0 — простая, базовая, начало</h2>
+  <p>Первая версия была минимальной. Трекер цикла. Всё. Я тестировал сам. Затем отправил сёстрам. Когда строишь что-то для женщин, самые близкие люди становятся первыми честными критиками.</p>
+  <blockquote>«А что если сделать его розовым?» Эта мысль пришла от понимания людей, для которых я строил — не из отчёта о трендах.</blockquote>
+  <div class="highlight-box"><strong>Всё, сделанное одним человеком</strong>Идея. Название. Брендинг. UX. Код. Тексты. Тестирование. Переводы. Листинг в Chrome Store. Edge. PWA. Лендинг. Блог. Всё — в одиночку, с 24 марта 2025 года по сегодняшний день.</div>
+  <h2>От 1.0 до 1.2.2 — что росло с каждой версией</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>Начало — 24 марта 2025</strong><span>Базовый трекер цикла. Только английский. Идея, доказавшая себя.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Цвет, характер и ощущение</strong><span>Розово-лавандовая палитра обретает форму. CycleSync начинает выглядеть как что-то стоящее.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Языки — мир открывается</strong><span>Пользователь из России написал, что конфиденциальность важна для неё. Это письмо изменило всё.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA и серьёзный подход</strong><span>Три платформы, ноль магазинов приложений, одна кодовая база.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 языков · getcyclesync.com · блог</strong><span>Настоящий домен. Настоящий блог. Пользователи в Алжире, Индии, ОАЭ, Бразилии, США, Великобритании.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>Попробуй CycleSync — бесплатно, приватно, твоё.</h3><p>Без аккаунта. Без сервера. Без передачи данных.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Добавить в Chrome — Бесплатно</a></div>
+  <div class="related-posts"><h3>Ещё из блога CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Конфиденциальность</span><h4>Почему конфиденциальность трекинга цикла важнее, чем ты думаешь</h4><p>Твои данные о менструации чувствительнее, чем данные банковского счёта.</p></a><div class="related-card"><span class="eyebrow">Скоро — Январь 2027</span><h4>Трекинг цикла во время Рамадана</h4><p>Как использовать данные о цикле для планирования постных дней.</p></div></div></div>
+</div>
+
+<!-- HUNGARIAN -->
+<div class="lang-section" id="lang-hu">
+  <span class="eyebrow">Eredettörténet</span>
+  <h1>Felvázoltam egy ötletet. Aztán megépítettem — egyedül, nulláról, verziónként.</h1>
+  <p class="standfirst">2025. március 24-én a CycleSync még nem létezett. Tizennyolc hónappal később 14 nyelven fut Chrome-on, Edge-en és mobilon. Ez történt közben.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>A CycleSync alkotója · 2026. október</div></div>
+  <p>Úgy kezdődött, ahogy a legtöbb dolog, amit építettem — egy vázlattal. Nem üzleti terv, nem pitch deck. Csak egy leírt ötlet: mi lenne, ha a cikluskövető a böngésződben élne, semmit sem tárolna szerveren, és semmit sem kérne cserébe?</p>
+  <p>A 90-es évek elejétől vagyok a tech területén. Olvasok kódot. Értem a branding-et, az UX-et, a terméket. CycleSync nem volt kiszámított termékdöntés — kíváncsiság volt, meggyőződéssel mögötte.</p>
+  <h2>1.0-ás verzió — egyszerű, alap, egy kezdet</h2>
+  <p>Az első verzió minimális volt. Egy cikluskövető. Ennyi. Magam teszteltem, majd elküldtem a nővéreimnek. Amikor nőknek építesz valamit, a hozzád legközelebb állók lesznek az első őszinte kritikusaid.</p>
+  <div class="highlight-box"><strong>Minden, egyetlen ember által</strong>Az ötlet. A név. A márka. Az UX. A kód. A szövegek. A tesztelés. A fordítások. A Chrome Store listázás. Az Edge beküldés. A PWA. A landing oldal. A blog. Mind — egyedül, 2025. március 24-től a mai napig.</div>
+  <h2>1.0-tól 1.2.2-ig — mi nőtt minden verzióval</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>A kezdet — 2025. március 24.</strong><span>Alap cikluskövető. Csak angolul. Az ötlet igazolja önmagát.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Szín, karakter és érzés</strong><span>A rózsa és levendula paletta formát ölt. A CycleSync kezd úgy kinézni, mint ami megéri használni.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Nyelvek — a világ megnyílik</strong><span>Egy oroszországi felhasználó írta, hogy fontos számára az adatvédelem. Ez az üzenet mindent megváltoztatott.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA és komollyá válás</strong><span>Három platform, nulla alkalmazásbolt, egy kódbázis.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 nyelv · getcyclesync.com · a blog</strong><span>Igazi domain. Igazi blog. Felhasználók Algériában, Indiában, az Emirátusokban, Brazíliában, az USA-ban, az Egyesült Királyságban.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>Próbáld ki a CycleSync-et — ingyenes, privát és a tiéd.</h3><p>Nincs fiók. Nincs szerver. Nincs adatmegosztás.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Hozzáadás Chrome-hoz — Ingyenes</a></div>
+  <div class="related-posts"><h3>Több a CycleSync blogból</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Adatvédelem</span><h4>Miért fontosabb a cikluskövető adatvédelme, mint gondolnád</h4><p>A menstruációs adatok érzékenyebbek, mint a bankszámlaadatok.</p></a><div class="related-card"><span class="eyebrow">Hamarosan — 2027. január</span><h4>Cikluskövető Ramadán alatt</h4><p>Hogyan használd ciklusadataidat a böjtnapok tervezéséhez.</p></div></div></div>
+</div>
+
+<!-- FRENCH -->
+<div class="lang-section" id="lang-fr">
+  <span class="eyebrow">Histoire des origines</span>
+  <h1>J'ai esquissé une idée. Puis je l'ai construite — seul, de zéro, une version à la fois.</h1>
+  <p class="standfirst">Le 24 mars 2025, CycleSync n'existait pas. Dix-huit mois plus tard, il fonctionne sur Chrome, Edge et mobile en 14 langues. Voici ce qui s'est passé entre les deux.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Créateur de CycleSync · Octobre 2026</div></div>
+  <p>Ça a commencé comme la plupart des choses que j'ai construites — avec une esquisse. Pas un plan d'affaires, pas un pitch deck. Juste une idée griffonnée : et si un tracker menstruel vivait dans votre navigateur, ne stockait rien sur un serveur, et ne demandait rien en retour ?</p>
+  <p>Je suis dans la tech depuis le début des années 90. Je sais lire du code. Je comprends le branding, l'UX, le produit. CycleSync n'était pas une décision produit calculée — c'était de la curiosité avec de la conviction derrière.</p>
+  <h2>Version 1.0 — simple, basique, un commencement</h2>
+  <p>La première version était épurée. Un tracker menstruel. C'est tout. Je l'ai testé moi-même, puis l'ai envoyé à mes sœurs. Quand on construit quelque chose pour les femmes, les personnes les plus proches de vous deviennent vos premières critiques honnêtes.</p>
+  <blockquote>« Et si on le faisait en rose ? » Cette pensée est venue de la compréhension des personnes pour lesquelles je construisais — pas d'un rapport de tendances ou d'un groupe de discussion.</blockquote>
+  <div class="highlight-box"><strong>Tout, fait par une seule personne</strong>L'idée. Le nom. Le branding. L'UX. Le code. Les textes. Les tests. Les traductions. La fiche Chrome Store. La soumission Edge. Le PWA. La landing page. Le blog. Tout — en solo, du 24 mars 2025 à aujourd'hui.</div>
+  <h2>De 1.0 à 1.2.2 — ce qui a grandi avec chaque version</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>Le début — 24 mars 2025</strong><span>Tracker menstruel basique. Anglais uniquement. L'idée qui se prouve à elle-même.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Couleur, caractère et sensation</strong><span>La palette rose et lavande prend forme. CycleSync commence à ressembler à quelque chose qui vaut la peine d'être utilisé.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Les langues — le monde s'ouvre</strong><span>Une utilisatrice en Russie a écrit pour dire que la confidentialité comptait pour elle. Ce message a tout changé.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA et sérieux</strong><span>Trois plateformes, zéro boutique d'applications, une base de code.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 langues · getcyclesync.com · le blog</strong><span>Un vrai domaine. Un vrai blog. Des utilisateurs en Algérie, Inde, EAU, Brésil, USA, Royaume-Uni.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>Essayez CycleSync — gratuit, privé et à vous.</h3><p>Pas de compte. Pas de serveur. Pas de partage de données.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Ajouter à Chrome — Gratuit</a></div>
+  <div class="related-posts"><h3>Plus du blog CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Confidentialité</span><h4>Pourquoi la confidentialité du suivi menstruel compte plus que vous ne le pensez</h4><p>Vos données menstruelles sont plus sensibles que vos données bancaires.</p></a><div class="related-card"><span class="eyebrow">Bientôt — Janvier 2027</span><h4>Suivi menstruel pendant le Ramadan</h4><p>Comment utiliser vos données de cycle pour planifier les jours de jeûne.</p></div></div></div>
+</div>
+
+<!-- HINDI -->
+<div class="lang-section" id="lang-hi">
+  <span class="eyebrow">उत्पत्ति की कहानी</span>
+  <h1>मैंने एक विचार का रेखाचित्र बनाया। फिर उसे बनाया — अकेले, शून्य से, एक-एक संस्करण।</h1>
+  <p class="standfirst">24 मार्च 2025 को CycleSync अस्तित्व में नहीं था। अठारह महीने बाद यह Chrome, Edge और मोबाइल पर 14 भाषाओं में चलता है। बीच में यह हुआ।</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync के निर्माता · अक्टूबर 2026</div></div>
+  <p>यह उसी तरह शुरू हुआ जैसे मैंने जो कुछ भी बनाया है वह शुरू होता है — एक रेखाचित्र से। न कोई व्यापार योजना, न पिच डेक। बस एक लिखा हुआ विचार: क्या होगा यदि एक पीरियड ट्रैकर आपके ब्राउज़र में रहे, सर्वर पर कुछ भी संग्रहीत न करे, और बदले में कुछ न मांगे?</p>
+  <p>मैं 90 के दशक की शुरुआत से तकनीक में हूं। मैं कोड पढ़ सकता हूं। मैं ब्रांडिंग, UX, उत्पाद समझता हूं। CycleSync एक गणनात्मक उत्पाद निर्णय नहीं था — यह उसके पीछे दृढ़ विश्वास के साथ जिज्ञासा थी।</p>
+  <h2>संस्करण 1.0 — सरल, बुनियादी, एक शुरुआत</h2>
+  <p>पहला संस्करण न्यूनतम था। एक पीरियड ट्रैकर। बस। मैंने खुद परीक्षण किया, फिर अपनी बहनों को भेजा। जब आप महिलाओं के लिए कुछ बनाते हैं, तो आपके सबसे करीबी लोग आपके पहले ईमानदार आलोचक बन जाते हैं।</p>
+  <div class="highlight-box"><strong>सब कुछ, एक व्यक्ति द्वारा किया गया</strong>विचार। नाम। ब्रांडिंग। UX। कोड। टेक्स्ट। परीक्षण। अनुवाद। Chrome Store लिस्टिंग। Edge सबमिशन। PWA। लैंडिंग पेज। ब्लॉग। सब कुछ — अकेले, 24 मार्च 2025 से आज तक।</div>
+  <h2>1.0 से 1.2.2 तक — हर संस्करण के साथ क्या बढ़ा</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>शुरुआत — 24 मार्च 2025</strong><span>बुनियादी पीरियड ट्रैकर। केवल अंग्रेजी। विचार खुद को साबित करता है।</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>रंग, चरित्र और अनुभव</strong><span>गुलाबी और लैवेंडर पैलेट आकार लेता है।</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>भाषाएं — दुनिया खुलती है</strong><span>रूस की एक उपयोगकर्ता ने लिखा कि गोपनीयता उनके लिए मायने रखती है। उस संदेश ने सब कुछ बदल दिया।</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA और गंभीरता</strong><span>तीन प्लेटफॉर्म, शून्य ऐप स्टोर, एक कोडबेस।</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 भाषाएं · getcyclesync.com · ब्लॉग</strong><span>एक असली डोमेन। एक असली ब्लॉग। अल्जीरिया, भारत, UAE, ब्राज़ील, अमेरिका, UK में उपयोगकर्ता।</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>CycleSync आज़माएं — मुफ़्त, निजी और आपका।</h3><p>कोई खाता नहीं। कोई सर्वर नहीं। कोई डेटा साझाकरण नहीं।</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome में जोड़ें — मुफ़्त</a></div>
+  <div class="related-posts"><h3>CycleSync ब्लॉग से और</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">गोपनीयता</span><h4>पीरियड ट्रैकिंग गोपनीयता आपके विचार से अधिक क्यों मायने रखती है</h4><p>आपका मासिक धर्म डेटा बैंक खाते से अधिक संवेदनशील है।</p></a><div class="related-card"><span class="eyebrow">जल्द आ रहा है — जनवरी 2027</span><h4>रमज़ान के दौरान पीरियड ट्रैकिंग</h4><p>उपवास के दिनों की योजना बनाने के लिए अपने चक्र डेटा का उपयोग कैसे करें।</p></div></div></div>
+</div>
+
+<!-- INDONESIAN -->
+<div class="lang-section" id="lang-id">
+  <span class="eyebrow">Kisah Asal Usul</span>
+  <h1>Saya membuat sketsa ide. Lalu membangunnya — sendiri, dari nol, satu versi demi versi.</h1>
+  <p class="standfirst">Pada 24 Maret 2025, CycleSync belum ada. Delapan belas bulan kemudian, ia berjalan di Chrome, Edge, dan ponsel dalam 14 bahasa. Inilah yang terjadi di antaranya.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Pencipta CycleSync · Oktober 2026</div></div>
+  <p>Dimulai seperti kebanyakan hal yang saya bangun — dengan sketsa. Bukan rencana bisnis, bukan pitch deck. Hanya ide yang ditulis: bagaimana jika pelacak siklus menstruasi hidup di browser Anda, tidak menyimpan apa pun di server, dan tidak meminta apa pun sebagai gantinya?</p>
+  <p>Saya sudah di bidang teknologi sejak awal 90-an. Saya bisa membaca kode. Saya memahami branding, UX, produk. CycleSync bukan keputusan produk yang dikalkulasi — ini adalah rasa ingin tahu dengan keyakinan di baliknya.</p>
+  <h2>Versi 1.0 — sederhana, dasar, sebuah awal</h2>
+  <p>Versi pertama sangat minimal. Pelacak siklus menstruasi. Itu saja. Saya mengujinya sendiri, lalu mengirimkannya ke saudara perempuan saya. Ketika Anda membangun sesuatu untuk perempuan, orang-orang terdekat Anda menjadi kritikus jujur pertama Anda.</p>
+  <div class="highlight-box"><strong>Semua, dilakukan oleh satu orang</strong>Ide. Nama. Branding. UX. Kode. Teks. Pengujian. Terjemahan. Listing Chrome Store. Pengiriman Edge. PWA. Landing page. Blog. Semua — sendiri, dari 24 Maret 2025 hingga hari ini.</div>
+  <h2>Dari 1.0 ke 1.2.2 — apa yang berkembang di setiap versi</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>Permulaan — 24 Maret 2025</strong><span>Pelacak siklus menstruasi dasar. Hanya bahasa Inggris. Ide yang membuktikan dirinya sendiri.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Warna, karakter, dan perasaan</strong><span>Palet mawar dan lavender terbentuk. CycleSync mulai terlihat seperti sesuatu yang layak digunakan.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Bahasa — dunia terbuka</strong><span>Seorang pengguna di Rusia menulis bahwa privasi penting baginya. Pesan itu mengubah segalanya.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA, dan serius</strong><span>Tiga platform, nol toko aplikasi, satu codebase.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 bahasa · getcyclesync.com · blog</strong><span>Domain sungguhan. Blog sungguhan. Pengguna di Aljazair, India, UEA, Brasil, AS, UK.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>Coba CycleSync — gratis, privat, dan milik Anda.</h3><p>Tanpa akun. Tanpa server. Tanpa berbagi data.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Tambahkan ke Chrome — Gratis</a></div>
+  <div class="related-posts"><h3>Lebih banyak dari blog CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privasi</span><h4>Mengapa privasi pelacakan siklus lebih penting dari yang Anda kira</h4><p>Data menstruasi Anda lebih sensitif dari data rekening bank Anda.</p></a><div class="related-card"><span class="eyebrow">Segera — Januari 2027</span><h4>Pelacakan siklus selama Ramadan</h4><p>Cara menggunakan data siklus Anda untuk merencanakan hari puasa.</p></div></div></div>
+</div>
+
+<!-- BENGALI -->
+<div class="lang-section" id="lang-bn">
+  <span class="eyebrow">উৎপত্তির গল্প</span>
+  <h1>আমি একটি ধারণার স্কেচ করেছিলাম। তারপর এটি তৈরি করেছিলাম — একা, শূন্য থেকে, একটি একটি করে ভার্সন।</h1>
+  <p class="standfirst">২৪ মার্চ ২০২৫-এ CycleSync ছিল না। আঠারো মাস পরে এটি ১৪টি ভাষায় Chrome, Edge এবং মোবাইলে চলছে। এর মাঝে যা ঘটেছিল এটি সেই গল্প।</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync-এর স্রষ্টা · অক্টোবর ২০২৬</div></div>
+  <p>এটি শুরু হয়েছিল যেভাবে আমার তৈরি করা বেশিরভাগ জিনিস শুরু হয় — একটি স্কেচ দিয়ে। কোনো ব্যবসায়িক পরিকল্পনা নয়, কোনো পিচ ডেক নয়। শুধু একটি লেখা ধারণা: কী হবে যদি একটি পিরিয়ড ট্র্যাকার আপনার ব্রাউজারে থাকে, সার্ভারে কিছু সংরক্ষণ না করে, এবং বিনিময়ে কিছু না চায়?</p>
+  <div class="highlight-box"><strong>সব কিছু, একজনের দ্বারা</strong>ধারণা। নাম। ব্র্যান্ডিং। UX। কোড। টেক্সট। পরীক্ষা। অনুবাদ। Chrome Store লিস্টিং। Edge সাবমিশন। PWA। ল্যান্ডিং পেজ। ব্লগ। সব কিছু — একা, ২৪ মার্চ ২০২৫ থেকে আজ পর্যন্ত।</div>
+  <h2>১.০ থেকে ১.২.২ — প্রতিটি ভার্সনে কী বেড়েছে</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>শুরু — ২৪ মার্চ ২০২৫</strong><span>মৌলিক পিরিয়ড ট্র্যাকার। শুধু ইংরেজি।</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>রঙ, চরিত্র এবং অনুভূতি</strong><span>গোলাপী এবং ল্যাভেন্ডার প্যালেট আকার নেয়।</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>ভাষা — বিশ্ব খুলে যায়</strong><span>রাশিয়ার একজন ব্যবহারকারী লিখেছিলেন যে গোপনীয়তা তার কাছে গুরুত্বপূর্ণ। সেই বার্তাটি সব কিছু পরিবর্তন করে দিয়েছিল।</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA এবং গুরুত্বসহকারে</strong><span>তিনটি প্ল্যাটফর্ম, শূন্য অ্যাপ স্টোর, একটি কোডবেস।</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>১৪ ভাষা · getcyclesync.com · ব্লগ</strong><span>একটি আসল ডোমেন। একটি আসল ব্লগ। আলজেরিয়া, ভারত, UAE, ব্রাজিল, মার্কিন যুক্তরাষ্ট্র, যুক্তরাজ্যে ব্যবহারকারী।</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>CycleSync ব্যবহার করুন — বিনামূল্যে, ব্যক্তিগত এবং আপনার।</h3><p>কোনো অ্যাকাউন্ট নেই। কোনো সার্ভার নেই। কোনো ডেটা শেয়ারিং নেই।</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome-এ যোগ করুন — বিনামূল্যে</a></div>
+  <div class="related-posts"><h3>CycleSync ব্লগ থেকে আরও</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">গোপনীয়তা</span><h4>পিরিয়ড ট্র্যাকিং গোপনীয়তা কেন আপনার ভাবনার চেয়ে বেশি গুরুত্বপূর্ণ</h4><p>আপনার মাসিক ডেটা আপনার ব্যাংক অ্যাকাউন্টের চেয়ে বেশি সংবেদনশীল।</p></a><div class="related-card"><span class="eyebrow">শীঘ্রই — জানুয়ারি ২০২৭</span><h4>রমজানে পিরিয়ড ট্র্যাকিং</h4><p>রোজার দিন পরিকল্পনা করতে আপনার সাইকেল ডেটা কীভাবে ব্যবহার করবেন।</p></div></div></div>
+</div>
+
+<!-- JAPANESE -->
+<div class="lang-section" id="lang-ja">
+  <span class="eyebrow">誕生の物語</span>
+  <h1>アイデアをスケッチした。そして作り上げた ― 一人で、ゼロから、一バージョンずつ。</h1>
+  <p class="standfirst">2025年3月24日、CycleSyncは存在していなかった。18ヶ月後、14言語でChrome、Edge、モバイルで動作している。その間に何が起きたのか。</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSyncの生みの親 · 2026年10月</div></div>
+  <p>私が作ってきたほとんどのものと同じように始まった ― スケッチから。事業計画でも、ピッチデッキでもない。ただ書き留めたアイデア：生理トラッカーがブラウザの中に住み、サーバーには何も保存せず、見返りに何も求めなかったら？</p>
+  <p>私は90年代初頭からテクノロジーの世界にいる。コードを読める。ブランディング、UX、プロダクトを理解している。CycleSyncは計算されたプロダクト判断ではなかった ― 確信を伴った好奇心だった。</p>
+  <h2>バージョン1.0 ― シンプル、基本、始まり</h2>
+  <p>最初のバージョンは最小限だった。生理トラッカー。それだけ。自分でテストし、妹たちに送った。女性のために何かを作るとき、最も身近な人々が最初の正直な批評家になる。</p>
+  <div class="highlight-box"><strong>すべて、一人で</strong>アイデア。名前。ブランディング。UX。コード。コピー。テスト。翻訳。Chromeストア掲載。Edge申請。PWA。ランディングページ。ブログ。すべて ― 2025年3月24日から今日まで、一人で。</div>
+  <h2>1.0から1.2.2へ ― 各バージョンで何が成長したか</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>始まり ― 2025年3月24日</strong><span>基本的な生理トラッカー。英語のみ。アイデアが自らを証明する。</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>色、個性、感覚</strong><span>ローズとラベンダーのパレットが形を成す。CycleSyncが使う価値のあるものに見え始める。</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>言語 ― 世界が開く</strong><span>ロシアのユーザーがプライバシーが大切だと書いてくれた。そのメッセージがすべてを変えた。</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge、PWA、そして本格化</strong><span>3つのプラットフォーム、ゼロのアプリストア、1つのコードベース。</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14言語 · getcyclesync.com · ブログ</strong><span>本物のドメイン。本物のブログ。アルジェリア、インド、UAE、ブラジル、米国、英国のユーザー。</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>CycleSyncを試す ― 無料、プライベート、あなたのもの。</h3><p>アカウント不要。サーバーなし。データ共有なし。</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chromeに追加 ― 無料</a></div>
+  <div class="related-posts"><h3>CycleSyncブログからもっと</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">プライバシー</span><h4>生理トラッキングのプライバシーが思う以上に重要な理由</h4><p>生理データは銀行口座の情報より敏感です。</p></a><div class="related-card"><span class="eyebrow">近日公開 ― 2027年1月</span><h4>ラマダン中の生理トラッキング</h4><p>断食の日を計画するためにサイクルデータを活用する方法。</p></div></div></div>
+</div>
+
+<!-- KOREAN -->
+<div class="lang-section" id="lang-ko">
+  <span class="eyebrow">탄생 이야기</span>
+  <h1>아이디어를 스케치했습니다. 그리고 혼자 만들었습니다 — 처음부터, 버전 하나씩.</h1>
+  <p class="standfirst">2025년 3월 24일, CycleSync는 존재하지 않았습니다. 18개월 후, 14개 언어로 Chrome, Edge, 모바일에서 실행됩니다. 그 사이에 일어난 일입니다.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync 창시자 · 2026년 10월</div></div>
+  <p>제가 만든 대부분의 것처럼 시작했습니다 — 스케치로. 사업 계획도, 피치 덱도 아니었습니다. 그냥 적어둔 아이디어: 생리 트래커가 브라우저 안에 살고, 서버에 아무것도 저장하지 않으며, 대가로 아무것도 요구하지 않는다면?</p>
+  <p>저는 90년대 초부터 기술 분야에 있었습니다. 코드를 읽을 수 있습니다. 브랜딩, UX, 제품을 이해합니다. CycleSync는 계산된 제품 결정이 아니었습니다 — 확신이 뒷받침된 호기심이었습니다.</p>
+  <h2>버전 1.0 — 단순하고 기본적인 시작</h2>
+  <p>첫 번째 버전은 최소한이었습니다. 생리 트래커. 그게 전부. 직접 테스트한 후 여동생들에게 보냈습니다. 여성을 위한 것을 만들 때, 가장 가까운 사람들이 첫 번째 솔직한 비평가가 됩니다.</p>
+  <div class="highlight-box"><strong>모든 것, 한 사람이</strong>아이디어. 이름. 브랜딩. UX. 코드. 카피. 테스트. 번역. Chrome Store 등록. Edge 제출. PWA. 랜딩 페이지. 블로그. 모든 것 — 2025년 3월 24일부터 오늘까지 혼자.</div>
+  <h2>1.0에서 1.2.2까지 — 각 버전에서 무엇이 성장했나</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>시작 — 2025년 3월 24일</strong><span>기본 생리 트래커. 영어만. 아이디어가 스스로를 증명하다.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>색상, 개성, 감각</strong><span>로즈와 라벤더 팔레트가 형태를 갖추다.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>언어 — 세계가 열리다</strong><span>러시아의 한 사용자가 프라이버시가 중요하다고 글을 남겼습니다. 그 메시지가 모든 것을 바꿨습니다.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA, 그리고 진지하게</strong><span>세 가지 플랫폼, 앱 스토어 없음, 하나의 코드베이스.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14개 언어 · getcyclesync.com · 블로그</strong><span>제대로 된 도메인. 제대로 된 블로그. 알제리, 인도, UAE, 브라질, 미국, 영국의 사용자들.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>CycleSync를 사용해보세요 — 무료, 비공개, 당신의 것.</h3><p>계정 없음. 서버 없음. 데이터 공유 없음.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome에 추가 — 무료</a></div>
+  <div class="related-posts"><h3>CycleSync 블로그에서 더 보기</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">프라이버시</span><h4>생리 추적 프라이버시가 생각보다 중요한 이유</h4><p>생리 데이터는 은행 계좌 정보보다 더 민감합니다.</p></a><div class="related-card"><span class="eyebrow">곧 출시 — 2027년 1월</span><h4>라마단 중 생리 추적</h4><p>단식일을 계획하기 위해 사이클 데이터를 활용하는 방법.</p></div></div></div>
+</div>
+
+<!-- ITALIAN -->
+<div class="lang-section" id="lang-it">
+  <span class="eyebrow">Storia delle origini</span>
+  <h1>Ho abbozzato un'idea. Poi l'ho costruita — da solo, da zero, una versione alla volta.</h1>
+  <p class="standfirst">Il 24 marzo 2025 CycleSync non esisteva. Diciotto mesi dopo funziona su Chrome, Edge e mobile in 14 lingue. Ecco cosa è successo nel mezzo.</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>Creatore di CycleSync · Ottobre 2026</div></div>
+  <p>È iniziato come iniziano la maggior parte delle cose che ho costruito — con uno schizzo. Non un piano aziendale, non un pitch deck. Solo un'idea scritta: e se un tracker del ciclo vivesse nel tuo browser, non memorizzasse nulla su un server e non chiedesse nulla in cambio?</p>
+  <p>Sono nel settore tecnologico dai primi anni '90. So leggere il codice. Capisco branding, UX, prodotto. CycleSync non è stata una decisione di prodotto calcolata — era curiosità con la convinzione dietro.</p>
+  <h2>Versione 1.0 — semplice, base, un inizio</h2>
+  <p>La prima versione era minima. Un tracker del ciclo. Tutto qui. L'ho testato io stesso, poi l'ho mandato alle mie sorelle. Quando costruisci qualcosa per le donne, le persone più vicine a te diventano le tue prime critiche oneste.</p>
+  <blockquote>"E se lo facessimo rosa?" Quel pensiero è venuto dalla comprensione delle persone per cui stavo costruendo — non da un report di tendenze o un gruppo di discussione.</blockquote>
+  <div class="highlight-box"><strong>Tutto, fatto da una sola persona</strong>L'idea. Il nome. Il branding. L'UX. Il codice. I testi. I test. Le traduzioni. La scheda Chrome Store. La submission Edge. La PWA. La landing page. Il blog. Tutto — da solo, dal 24 marzo 2025 ad oggi.</div>
+  <h2>Da 1.0 a 1.2.2 — cosa è cresciuto con ogni versione</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>L'inizio — 24 marzo 2025</strong><span>Tracker del ciclo di base. Solo inglese. L'idea che si prova da sola.</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>Colore, carattere e sensazione</strong><span>La palette rosa e lavanda prende forma. CycleSync inizia a sembrare qualcosa che vale la pena usare.</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>Lingue — il mondo si apre</strong><span>Una utente in Russia ha scritto per dire che la privacy contava per lei. Quel messaggio ha cambiato tutto.</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge, PWA e sul serio</strong><span>Tre piattaforme, zero app store, una codebase.</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 lingue · getcyclesync.com · il blog</strong><span>Un dominio vero. Un blog vero. Utenti in Algeria, India, EAU, Brasile, USA, Regno Unito.</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>Prova CycleSync — gratuito, privato e tuo.</h3><p>Nessun account. Nessun server. Nessuna condivisione di dati.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Aggiungi a Chrome — Gratis</a></div>
+  <div class="related-posts"><h3>Altro dal blog CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacy</span><h4>Perché la privacy nel tracking del ciclo conta più di quanto pensi</h4><p>I tuoi dati mestruali sono più sensibili dei dati del tuo conto bancario.</p></a><div class="related-card"><span class="eyebrow">Prossimamente — Gennaio 2027</span><h4>Tracking del ciclo durante il Ramadan</h4><p>Come usare i dati del ciclo per pianificare i giorni di digiuno.</p></div></div></div>
+</div>
+
+<!-- SIMPLIFIED CHINESE -->
+<div class="lang-section" id="lang-zh">
+  <span class="eyebrow">起源故事</span>
+  <h1>我画了一个想法的草图。然后我把它建造出来 — 独自一人，从零开始，一个版本接一个版本。</h1>
+  <p class="standfirst">2025年3月24日，CycleSync还不存在。十八个月后，它以14种语言在Chrome、Edge和手机上运行。这是中间发生的事情。</p>
+  <div class="meta"><div class="meta-avatar">T</div><div class="meta-text"><strong>Tony Momoh</strong>CycleSync创始人 · 2026年10月</div></div>
+  <p>它的开始方式和我建造的大多数东西一样 — 从一个草图开始。不是商业计划，不是路演材料。只是一个写下来的想法：如果一个经期追踪器住在你的浏览器里，不在服务器上存储任何东西，也不索取任何回报，会怎样？</p>
+  <p>我从90年代初就在科技领域。我能读懂代码。我理解品牌、用户体验、产品。CycleSync不是一个经过计算的产品决策 — 它是充满信念的好奇心。</p>
+  <h2>1.0版本 — 简单、基础、一个开始</h2>
+  <p>第一个版本很简单。一个经期追踪器。就这些。我自己测试了，然后发给了我的姐妹们。当你为女性构建东西时，最亲近的人成为你最初的诚实批评者。</p>
+  <blockquote>"如果我们把它做成粉色呢？"这个想法来自于理解我为之构建的人 — 而不是趋势报告或焦点小组。</blockquote>
+  <div class="highlight-box"><strong>一切，由一个人完成</strong>想法。名字。品牌。用户体验。代码。文案。测试。翻译。Chrome商店上架。Edge提交。PWA。落地页。博客。一切 — 独自一人，从2025年3月24日到今天。</div>
+  <h2>从1.0到1.2.2 — 每个版本的成长</h2>
+  <ul class="version-timeline">
+    <li><div class="version-dot">1.0</div><div class="version-body"><strong>开始 — 2025年3月24日</strong><span>基础经期追踪器。仅英语。想法证明了自己。</span></div></li>
+    <li><div class="version-dot">1.0.7</div><div class="version-body"><strong>色彩、个性和感觉</strong><span>玫瑰色和薰衣草色调板成型。CycleSync开始看起来像值得使用的东西。</span></div></li>
+    <li><div class="version-dot">1.1.0</div><div class="version-body"><strong>语言 — 世界打开</strong><span>俄罗斯的一位用户写信说隐私对她很重要。那条信息改变了一切。</span></div></li>
+    <li><div class="version-dot">1.2.0</div><div class="version-body"><strong>Edge、PWA和认真对待</strong><span>三个平台，零个应用商店，一个代码库。</span></div></li>
+    <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14种语言 · getcyclesync.com · 博客</strong><span>真正的域名。真正的博客。阿尔及利亚、印度、阿联酋、巴西、美国、英国的用户。</span></div></li>
+  </ul>
+  <div class="cta-section"><h3>试试CycleSync — 免费、私密、属于你。</h3><p>无需账户。无服务器。无数据共享。</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">添加到Chrome — 免费</a></div>
+  <div class="related-posts"><h3>CycleSync博客更多内容</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">隐私</span><h4>为什么经期追踪隐私比你想象的更重要</h4><p>你的月经数据比银行账户信息更敏感。</p></a><div class="related-card"><span class="eyebrow">即将到来 — 2027年1月</span><h4>斋月期间的经期追踪</h4><p>如何使用周期数据来规划斋戒日。</p></div></div></div>
+</div>
 
 </article>
 
@@ -371,7 +476,22 @@
   © 2026 CycleSync · <a href="https://getcyclesync.com/" style="color:var(--text-light);">getcyclesync.com</a> · Built by <a href="https://tonymomoh.co.uk/" target="_blank" rel="noopener" style="color:var(--rose); text-decoration:none; font-weight:500;">Tony Momoh</a>
 </footer>
 
+<script>
+  const btns = document.querySelectorAll('.lang-btn');
+  const sections = document.querySelectorAll('.lang-section');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      btns.forEach(b => b.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('visible'));
+      btn.classList.add('active');
+      const target = document.getElementById('lang-' + lang);
+      if (target) target.classList.add('visible');
+      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+    });
+  });
+</script>
+
 </body>
 </html>
-
-</body></html>
