@@ -1,0 +1,200 @@
+/* ===== CYCLESYNC PWA — RAMADAN MODE STYLES ===== */
+
+/* Cairo font for Arabic */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+/* ===== HIJRI BADGE (dashboard hero) ===== */
+.hijri-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  margin-top: 4px;
+}
+
+.hijri-badge--ramadan {
+  background: rgba(255,183,77,0.2);
+  border-color: rgba(255,183,77,0.4);
+  color: #FFD580;
+  animation: hijri-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hijri-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,183,77,0); }
+  50%       { box-shadow: 0 0 0 6px rgba(255,183,77,0.15); }
+}
+
+.hijri-badge-icon { font-size: 16px; }
+.hijri-badge-text { letter-spacing: 0.2px; }
+
+/* ===== RAMADAN SCREEN ===== */
+.ramadan-hero {
+  background: linear-gradient(160deg, #1A0A2E 0%, #2D1050 60%, #3D1A5A 100%);
+  padding: 28px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.ramadan-date-pill {
+  background: rgba(255,183,77,0.15);
+  border: 1px solid rgba(255,183,77,0.3);
+  border-radius: 24px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFD580;
+  text-align: center;
+}
+
+.ramadan-laylah-banner {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  max-width: 320px;
+}
+
+.ramadan-laylah-banner.laylah-odd {
+  background: rgba(255,215,0,0.12);
+  border-color: rgba(255,215,0,0.3);
+  color: #FFE566;
+  animation: laylah-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes laylah-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); }
+  50%       { box-shadow: 0 0 16px rgba(255,215,0,0.25); }
+}
+
+/* ===== RAMADAN SECTIONS ===== */
+.ramadan-section {
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ramadan-section:last-child {
+  border-bottom: none;
+}
+
+.ramadan-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 14px;
+}
+
+/* ===== FAST TRACKER BUTTON ===== */
+.ramadan-fast-btn {
+  width: 100%;
+  padding: 14px;
+  background: rgba(255,183,77,0.12);
+  border: 1.5px dashed rgba(255,183,77,0.4);
+  border-radius: 14px;
+  color: #B8860B;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.ramadan-fast-btn:active { opacity: 0.8; }
+
+.ramadan-fast-btn.logged {
+  background: rgba(255,183,77,0.2);
+  border-style: solid;
+  border-color: rgba(255,183,77,0.5);
+  color: #8B6914;
+}
+
+.ramadan-fast-streak {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rose);
+  min-height: 20px;
+}
+
+/* ===== TIME INPUTS ===== */
+.ramadan-time-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.ramadan-time-row:last-child {
+  border-bottom: none;
+}
+
+.ramadan-time-input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: var(--text);
+  background: white;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.ramadan-time-input:focus {
+  border-color: var(--rose);
+}
+
+/* ===== TOGGLE ROW ===== */
+.ramadan-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ===== NAV BUTTON — Ramadan active state ===== */
+.nav-btn.ramadan-active .nav-btn-icon {
+  animation: moon-glow 2s ease-in-out infinite;
+}
+
+@keyframes moon-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(255,183,77,0)); }
+  50%       { filter: drop-shadow(0 0 6px rgba(255,183,77,0.8)); }
+}
+
+/* ===== SETTINGS — Ramadan toggle in settings screen ===== */
+.ramadan-settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ===== RTL SUPPORT ===== */
+[dir="rtl"] .hijri-badge { flex-direction: row-reverse; }
+[dir="rtl"] .ramadan-toggle-row { flex-direction: row-reverse; }
+[dir="rtl"] .ramadan-time-row { flex-direction: row-reverse; }
+[dir="rtl"] .ramadan-fast-btn { font-family: 'Cairo', sans-serif; }
+[dir="rtl"] .ramadan-date-pill { font-family: 'Cairo', sans-serif; }
+[dir="rtl"] .ramadan-laylah-banner { font-family: 'Cairo', sans-serif; direction: rtl; }
+[dir="rtl"] .ramadan-section-title { text-align: right; }

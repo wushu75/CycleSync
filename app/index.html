@@ -14,6 +14,7 @@
   <link rel="apple-touch-icon" href="icon128.png">
   <link rel="apple-touch-icon" sizes="180x180" href="icon128.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ramadan-pwa-styles.css">
   <style>
     :root {
       --plum: #2D1F3D;
@@ -405,6 +406,9 @@
     @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
     #pro-key-input::placeholder { color: #c084b0; }
     #pro-key-input:focus { border-color: #f4607a; box-shadow: 0 0 0 2px rgba(244,96,122,0.15); }
+
+    /* Ramadan nav button hidden by default until mode enabled */
+    #nav-ramadan { display: none; }
   </style>
 </head>
 <body>
@@ -696,6 +700,33 @@
       </button>
     </div>
 
+    <!-- Ramadan Mode toggle in settings -->
+    <div class="settings-section" id="ramadan-settings-section">
+      <div class="settings-title" id="lbl-ramadan-settings-title">Ramadan Mode</div>
+      <div class="ramadan-settings-row">
+        <div>
+          <div style="font-size:14px; font-weight:500; color:var(--text);" id="lbl-ramadan-toggle-title">☽ Ramadan Mode</div>
+          <div style="font-size:12px; color:var(--text-light); margin-top:2px;" id="lbl-ramadan-toggle-desc">Hijri calendar, fast tracker &amp; Laylat al-Qadr</div>
+        </div>
+        <label class="notif-toggle">
+          <input type="checkbox" id="settings-ramadan-toggle" onchange="onSettingsRamadanToggle(this.checked)">
+          <span class="notif-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Visit website card -->
+    <div class="settings-section">
+      <a href="https://getcyclesync.com/" target="_blank"
+        style="display:flex; align-items:center; justify-content:space-between; padding:14px 16px; background:var(--plum); border-radius:14px; text-decoration:none; color:white;">
+        <div>
+          <div style="font-size:14px; font-weight:600;">🌐 Visit getcyclesync.com</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.6); margin-top:2px;">App updates, news &amp; blog</div>
+        </div>
+        <span style="font-size:18px; color:rgba(255,255,255,0.5);">›</span>
+      </a>
+    </div>
+
     <div class="settings-section">
       <div class="support-card">
         <p id="lbl-support-desc">CycleSync is free and always will be. If it's been helpful, a small coffee goes a long way ☕</p>
@@ -793,6 +824,11 @@
     </div>
   </div>
 
+  <!-- Ramadan Screen -->
+  <div class="screen" id="screen-ramadan">
+    <!-- filled dynamically by RamadanUI.renderRamadanScreen() -->
+  </div>
+
   <!-- Bottom Nav -->
   <nav class="bottom-nav">
     <button class="nav-btn active" onclick="showScreen('home')" id="nav-home">
@@ -806,6 +842,10 @@
     <button class="nav-btn" onclick="showScreen('symptoms')" id="nav-symptoms">
       <span class="nav-btn-icon">✏️</span>
       <span class="nav-btn-label" id="lbl-nav-symptoms">Symptoms</span>
+    </button>
+    <button class="nav-btn" onclick="showScreen('ramadan')" id="nav-ramadan">
+      <span class="nav-btn-icon">☽</span>
+      <span class="nav-btn-label" id="lbl-nav-ramadan">Ramadan</span>
     </button>
     <button class="nav-btn" onclick="showScreen('settings')" id="nav-settings">
       <span class="nav-btn-icon">⚙️</span>
@@ -854,11 +894,12 @@
 </div>
 
 <script src="app.js"></script>
+<script src="ramadan-pwa.js"></script>
 <script>
 // ===== SERVICE WORKER REGISTRATION =====
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('sw.js?v=5')
+    navigator.serviceWorker.register('sw.js?v=6')
       .then(function(reg) {
         console.log('SW registered:', reg.scope);
 
@@ -893,6 +934,35 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+// ===== RAMADAN MODE — SETTINGS TOGGLE BRIDGE =====
+function onSettingsRamadanToggle(enabled) {
+  if (typeof RamadanUI !== 'undefined') {
+    RamadanUI.onToggleMode(enabled);
+  }
+  // Keep nav-ramadan visibility in sync
+  var navBtn = document.getElementById('nav-ramadan');
+  if (navBtn) navBtn.style.display = enabled ? '' : 'none';
+}
+
+// Keep settings toggle in sync when settings screen is opened
+(function() {
+  var origShowScreen = window.showScreen;
+  if (typeof origShowScreen === 'function') {
+    window.showScreen = function(name) {
+      origShowScreen(name);
+      if (name === 'settings') {
+        var toggle = document.getElementById('settings-ramadan-toggle');
+        if (toggle && typeof RamadanManager !== 'undefined') {
+          toggle.checked = RamadanManager.isEnabled();
+        }
+      }
+      if (name === 'ramadan' && typeof RamadanUI !== 'undefined') {
+        RamadanUI.renderRamadanScreen();
+      }
+    };
+  }
+})();
+
 // ===== OFFLINE INDICATOR =====
 function updateOnlineStatus() {
   var indicator = document.getElementById('offline-indicator');
@@ -911,6 +981,28 @@ function updateOnlineStatus() {
 window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 updateOnlineStatus();
+
+// ===== RAMADAN INIT =====
+// Hook into app after onboarding check / initApp completes
+window.addEventListener('DOMContentLoaded', function() {
+  // Delay slightly so app.js DOMContentLoaded fires first and initApp runs
+  setTimeout(function() {
+    if (typeof RamadanUI !== 'undefined') {
+      var appEl = document.getElementById('app');
+      if (appEl && appEl.classList.contains('visible')) {
+        RamadanUI.init();
+      }
+      // Also init after onboarding completes — patch saveOnboarding
+      var origSave = window.saveOnboarding;
+      if (typeof origSave === 'function') {
+        window.saveOnboarding = function() {
+          origSave.apply(this, arguments);
+          setTimeout(function() { RamadanUI.init(); }, 300);
+        };
+      }
+    }
+  }, 200);
+});
 </script>
 </body>
 </html>

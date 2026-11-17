@@ -1,9 +1,11 @@
-const CACHE_NAME = 'cyclesync-v5';
+const CACHE_NAME = 'cyclesync-v6';
 
 const ASSETS = [
   '/CycleSync/app/',
   '/CycleSync/app/index.html',
   '/CycleSync/app/app.js',
+  '/CycleSync/app/ramadan-pwa.js',
+  '/CycleSync/app/ramadan-pwa-styles.css',
   '/CycleSync/app/manifest.json',
   '/CycleSync/app/icon128.png',
   'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap'

@@ -68,7 +68,7 @@ const T = {
     notifLater: 'Later',
     notifPromptTitle: 'Never miss your period',
     notifPromptDesc: 'Get a reminder 3 days before. Private — stays on your device.',
-    shareMsg: 'CycleSync tracks my cycle privately in my browser — no account, no data sharing, completely free. Works on iPhone and Android too: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync tracks my cycle privately in my browser — no account, no data sharing, completely free. Works on iPhone and Android too: https://getcyclesync.com/',
     shareBtnLabel: 'Share with friends'
   },
   ru: {
@@ -124,7 +124,7 @@ const T = {
     notifLater: 'Позже',
     notifPromptTitle: 'Не пропустите месячные',
     notifPromptDesc: 'Напоминание за 3 дня.',
-    shareMsg: 'CycleSync трекает мой цикл приватно — без аккаунта, бесплатно: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync трекает мой цикл приватно — без аккаунта, бесплатно: https://getcyclesync.com/',
     shareBtnLabel: 'Поделиться'
   },
   es: {
@@ -180,7 +180,7 @@ const T = {
     notifLater: 'Luego',
     notifPromptTitle: 'No te pierdas tu período',
     notifPromptDesc: 'Aviso 3 días antes. Privado.',
-    shareMsg: 'CycleSync rastrea mi ciclo de forma privada — sin cuenta, sin compartir datos, gratis: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync rastrea mi ciclo de forma privada — sin cuenta, sin compartir datos, gratis: https://getcyclesync.com/',
     shareBtnLabel: 'Compartir con amigas'
   },
   pt: {
@@ -236,7 +236,7 @@ const T = {
     notifLater: 'Depois',
     notifPromptTitle: 'Nunca perca sua menstruação',
     notifPromptDesc: 'Aviso 3 dias antes. Privado.',
-    shareMsg: 'CycleSync rastreia meu ciclo de forma privada — sem conta, sem compartilhar dados, grátis: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync rastreia meu ciclo de forma privada — sem conta, sem compartilhar dados, grátis: https://getcyclesync.com/',
     shareBtnLabel: 'Compartilhar com amigas'
   },
   fr: {
@@ -292,7 +292,7 @@ const T = {
     notifLater: 'Plus tard',
     notifPromptTitle: 'Ne manquez pas vos règles',
     notifPromptDesc: 'Rappel 3 jours avant. Privé.',
-    shareMsg: 'CycleSync suit mon cycle privément — sans compte, sans partage de données, gratuit: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync suit mon cycle privément — sans compte, sans partage de données, gratuit: https://getcyclesync.com/',
     shareBtnLabel: 'Partager avec des amies'
   },
   de: {
@@ -348,7 +348,7 @@ const T = {
     notifLater: 'Später',
     notifPromptTitle: 'Verpassen Sie Ihre Periode nicht',
     notifPromptDesc: 'Erinnerung 3 Tage vorher. Privat.',
-    shareMsg: 'CycleSync verfolgt meinen Zyklus privat — ohne Konto, ohne Datenweitergabe, kostenlos: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync verfolgt meinen Zyklus privat — ohne Konto, ohne Datenweitergabe, kostenlos: https://getcyclesync.com/',
     shareBtnLabel: 'Mit Freundinnen teilen'
   },
   hi: {
@@ -404,7 +404,7 @@ const T = {
     notifLater: 'बाद में',
     notifPromptTitle: 'माहवारी मिस न करें',
     notifPromptDesc: '3 दिन पहले रिमाइंडर।',
-    shareMsg: 'CycleSync मेरे चक्र को ब्राउज़र में प्राइवेटली ट्रैक करता है — मुफ़्त, कोई खाता नहीं: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync मेरे चक्र को ब्राउज़र में प्राइवेटली ट्रैक करता है — मुफ़्त, कोई खाता नहीं: https://getcyclesync.com/',
     shareBtnLabel: 'सहेलियों के साथ शेयर करें'
   },
   id: {
@@ -460,7 +460,7 @@ const T = {
     notifLater: 'Nanti',
     notifPromptTitle: 'Jangan lewatkan haid Anda',
     notifPromptDesc: 'Pengingat 3 hari sebelum. Privat.',
-    shareMsg: 'CycleSync melacak siklus saya secara pribadi — tanpa akun, tanpa berbagi data, gratis: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync melacak siklus saya secara pribadi — tanpa akun, tanpa berbagi data, gratis: https://getcyclesync.com/',
     shareBtnLabel: 'Bagikan ke teman'
   },
   bn: {
@@ -516,7 +516,7 @@ const T = {
     notifLater: 'পরে',
     notifPromptTitle: 'মাসিক মিস করবেন না',
     notifPromptDesc: '3 দিন আগে রিমাইন্ডার।',
-    shareMsg: 'CycleSync আমার চক্র ব্যক্তিগতভাবে ট্র্যাক করে — কোনো অ্যাকাউন্ট নেই, বিনামূল্যে: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync আমার চক্র ব্যক্তিগতভাবে ট্র্যাক করে — কোনো অ্যাকাউন্ট নেই, বিনামূল্যে: https://getcyclesync.com/',
     shareBtnLabel: 'বন্ধুদের সাথে শেয়ার করুন'
   },
   ja: {
@@ -572,7 +572,7 @@ const T = {
     notifLater: '後で',
     notifPromptTitle: '生理を見逃さないで',
     notifPromptDesc: '3日前にお知らせ。プライベート。',
-    shareMsg: 'CycleSyncはブラウザでプライベートに生理周期を記録できます—無料: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSyncはブラウザでプライベートに生理周期を記録できます—無料: https://getcyclesync.com/',
     shareBtnLabel: '友達にシェア'
   },
   ko: {
@@ -628,7 +628,7 @@ const T = {
     notifLater: '나중에',
     notifPromptTitle: '생리를 놓치지 마세요',
     notifPromptDesc: '3일 전 알림. 비공개.',
-    shareMsg: 'CycleSync는 브라우저에서 생리 주기를 비공개로 추적합니다 — 무료: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync는 브라우저에서 생리 주기를 비공개로 추적합니다 — 무료: https://getcyclesync.com/',
     shareBtnLabel: '친구와 공유'
   },
   zh: {
@@ -684,7 +684,7 @@ const T = {
     notifLater: '稍后',
     notifPromptTitle: '不要错过月经',
     notifPromptDesc: '3天前提醒。私密。',
-    shareMsg: 'CycleSync在浏览器中私密追踪我的周期—无需账户，完全免费: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync在浏览器中私密追踪我的周期—无需账户，完全免费: https://getcyclesync.com/',
     shareBtnLabel: '分享给朋友'
   },
   it: {
@@ -740,7 +740,7 @@ const T = {
     notifLater: 'Dopo',
     notifPromptTitle: 'Non perdere il tuo ciclo',
     notifPromptDesc: 'Promemoria 3 giorni prima. Privato.',
-    shareMsg: 'CycleSync traccia il mio ciclo privatamente — senza account, gratis: https://wushu75.github.io/CycleSync/',
+    shareMsg: 'CycleSync traccia il mio ciclo privatamente — senza account, gratis: https://getcyclesync.com/',
     shareBtnLabel: 'Condividi con le amiche'
   },
   ar: {
@@ -780,8 +780,27 @@ const T = {
     notifOvul: 'تذكير التبويض', notifDaily: 'تذكير يومي', notifTime: 'وقت التذكير',
     notifEnable: 'تفعيل', notifLater: 'لاحقاً',
     notifPromptTitle: 'لا تفوتي دورتك', notifPromptDesc: 'تذكير قبل 3 أيام. خصوصي تماماً.',
-    shareMsg: 'CycleSync يتتبع دورتي بخصوصية تامة — بدون حساب، بدون مشاركة بيانات، مجاني تماماً: https://wushu75.github.io/CycleSync/',
-    shareBtnLabel: 'شاركي مع الصديقات'
+    shareMsg: 'CycleSync يتتبع دورتي بخصوصية تامة — بدون حساب، بدون مشاركة بيانات، مجاني تماماً: https://getcyclesync.com/',
+    shareBtnLabel: 'شاركي مع الصديقات',
+    // Ramadan Mode strings
+    navRamadan: 'رمضان',
+    ramadanTitle: 'وضع رمضان',
+    ramadanSettingsTitle: 'وضع رمضان',
+    ramadanToggleTitle: '☽ وضع رمضان',
+    ramadanToggleDesc: 'التقويم الهجري، متابعة الصيام وليلة القدر',
+    ramadanFastBtn: '🌙 صمت اليوم',
+    ramadanFastLogged: '✓ تم تسجيل الصيام اليوم',
+    ramadanFastTracker: 'تسجيل الصيام',
+    ramadanSuhoor: 'السحور',
+    ramadanIftar: 'الإفطار',
+    ramadanTimes: 'أوقات السحور والإفطار',
+    ramadanEnabled: 'تم تفعيل وضع رمضان',
+    ramadanDisabled: 'تم إيقاف وضع رمضان',
+    ramadanFastLoggedToast: 'تم تسجيل الصيام ✓',
+    ramadanFastRemovedToast: 'تم حذف الصيام',
+    ramadanLaylahOdd: '✨ ليلة القدر المحتملة',
+    ramadanLast10: 'العشر الأواخر',
+    ramadanNotStarted: 'رمضان لم يبدأ بعد'
   }
 };
 
@@ -918,6 +937,11 @@ function applyLanguage() {
   setText('lbl-nav-calendar', tr.navCalendar);
   setText('lbl-nav-symptoms', tr.navSymptoms);
   setText('lbl-nav-settings', tr.navSettings);
+  if (tr.navRamadan) setText('lbl-nav-ramadan', tr.navRamadan);
+  // Ramadan settings labels
+  if (tr.ramadanSettingsTitle) setText('lbl-ramadan-settings-title', tr.ramadanSettingsTitle);
+  if (tr.ramadanToggleTitle) setText('lbl-ramadan-toggle-title', tr.ramadanToggleTitle);
+  if (tr.ramadanToggleDesc) setText('lbl-ramadan-toggle-desc', tr.ramadanToggleDesc);
 
   // Dashboard
   setText('lbl-quick-log', tr.quickLog);
@@ -1604,13 +1628,13 @@ function exportCSV() {
 function shareApp() {
   var lang = getLang();
   var tr = T[lang] || T['en'];
-  var msg = (tr.shareMsg) ? tr.shareMsg : "CycleSync tracks my cycle privately in my browser. No account, no data sharing, free. iPhone and Android: https://wushu75.github.io/CycleSync/";
+  var msg = (tr.shareMsg) ? tr.shareMsg : "CycleSync tracks my cycle privately in my browser. No account, no data sharing, free. iPhone and Android: https://getcyclesync.com/";
 
   if (navigator.share) {
     navigator.share({
       title: 'CycleSync',
       text: msg,
-      url: 'https://wushu75.github.io/CycleSync/'
+      url: 'https://getcyclesync.com/'
     }).catch(function(e) {
       if (e.name !== 'AbortError') copyShareLink();
     });
@@ -1620,7 +1644,7 @@ function shareApp() {
 }
 
 function copyShareLink() {
-  var url = 'https://wushu75.github.io/CycleSync/';
+  var url = 'https://getcyclesync.com/';
   if (navigator.clipboard) {
     navigator.clipboard.writeText(url).then(function() {
       showToast('Link copied!');
