@@ -75,6 +75,46 @@
     .related-grid { grid-template-columns: 1fr; }
     .lang-switcher { gap: 5px; }
   }
+
+  /* Blog pagination */
+  .blog-pagination { margin-top: 20px; display: flex; gap: 10px; align-items: center; }
+  .blog-page { display: none; }
+  .blog-page.visible { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pagination-btn {
+    background: var(--cream); border: 1px solid var(--rule); border-radius: 100px;
+    padding: 6px 16px; font-size: 0.78rem; font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--text-mid); cursor: pointer; transition: all 0.15s; font-weight: 500;
+  }
+  .pagination-btn:hover { border-color: var(--mauve); color: var(--plum); }
+  .pagination-btn:disabled { opacity: 0.35; cursor: default; }
+  .pagination-info { font-size: 0.75rem; color: var(--text-light); margin: 0 auto; }
+  /* Coming soon card */
+  .coming-soon-card {
+    background: var(--cream);
+    border: 1px dashed var(--mauve);
+    border-radius: 12px;
+    padding: 22px;
+    display: block;
+    text-decoration: none;
+    opacity: 0.75;
+    position: relative;
+    overflow: hidden;
+  }
+  .coming-soon-card::after {
+    content: 'Coming soon';
+    position: absolute;
+    top: 12px; right: 14px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--mauve);
+    background: var(--mauve-light);
+    border-radius: 100px;
+    padding: 2px 10px;
+  }
+  .coming-soon-card h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; margin: 0 0 6px; color: var(--plum); }
+  .coming-soon-card p { font-size: 0.84rem; color: var(--text-mid); margin: 0; }
 </style>
 </head>
 <body>
@@ -134,7 +174,16 @@
   <h2>Why local-first was never a compromise</h2>
   <p>Your period data never leaves your device. There is no CycleSync database of your health records. If we were ever served with a legal request for user data, we would have nothing to hand over — not because we deleted it, but because we never had it. That's not a limitation. That's the product.</p>
   <div class="cta-section"><h3>Try CycleSync — it's free, private, and yours.</h3><p>No account. No server. No data sharing. Available on Chrome, Edge, and as a mobile app.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Add to Chrome — Free</a></div>
-  <div class="related-posts"><h3>More from the CycleSync blog</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacy</span><h4>Why period tracking privacy matters more than you think</h4><p>Your menstrual data is more sensitive than your bank account. Here's why it matters who holds it.</p></a><div class="related-card"><span class="eyebrow">Coming January 2027</span><h4>Period tracking during Ramadan</h4><p>How to use your cycle data to plan fasting days and track with confidence during the holy month.</p></div></div></div>
+  <div class="related-posts"><h3>More from the CycleSync blog</h3><div class="blog-page visible" id="en-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacy</span><h4>Why period tracking privacy matters more than you think</h4><p>Your menstrual data is more sensitive than your bank account. Here's why it matters who holds it.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Faith &amp; Cycle Health</span><h4>Period tracking during Ramadan: what every Muslim woman should know</h4><p>How to use your cycle data to plan fasting days and track with confidence during the holy month.</p></a></div><div class="blog-page" id="en-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Faith · Niddah</span>
+          <h4>Tracking your cycle through Niddah and Mikveh</h4>
+          <p>How CycleSync's Niddah mode helps Jewish women align their cycle, Taharat HaMishpacha, and life — in full privacy.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Coming soon</span>
+          <h4>More articles on the way</h4>
+          <p>New guides dropping soon. Add CycleSync to stay updated.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="en-prev" onclick="changePage('en',-1)" disabled>← Prev</button><span class="pagination-info" id="en-page-info">Page 1 of 2</span><button class="pagination-btn" id="en-next" onclick="changePage('en',1)">Next →</button></div></div>
 </div>
 
 <!-- ARABIC -->
@@ -161,7 +210,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 لغة · getcyclesync.com · المدونة</strong><span>نطاق حقيقي. مدونة حقيقية. مستخدمون في الجزائر والهند والإمارات والبرازيل.</span></div></li>
   </ul>
   <div class="cta-section"><h3>جرّبي CycleSync — مجاني، خاص، ملكك.</h3><p>لا حساب. لا خادم. لا مشاركة بيانات.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">أضف إلى Chrome — مجاناً</a></div>
-  <div class="related-posts"><h3>المزيد من مدونة CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">الخصوصية</span><h4>لماذا تهم خصوصية تتبع الدورة أكثر مما تتخيلين</h4><p>بياناتك الصحية أكثر حساسية من بياناتك البنكية.</p></a><div class="related-card"><span class="eyebrow">قريباً - يناير 2027</span><h4>تتبع الدورة في رمضان</h4><p>كيف تستخدمين بيانات دورتك لتخطيط أيام الصيام.</p></div></div></div>
+  <div class="related-posts"><h3>المزيد من مدونة CycleSync</h3><div class="blog-page visible" id="ar-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">الخصوصية</span><h4>لماذا تهم خصوصية تتبع الدورة أكثر مما تتخيلين</h4><p>بياناتك الصحية أكثر حساسية من بياناتك البنكية.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">الإيمان وصحة الدورة</span><h4>تتبع الدورة الشهرية في رمضان: ما تحتاج كل امرأة مسلمة معرفته</h4><p>كيف تستخدمين بيانات دورتك لتخطيط أيام الصيام بثقة خلال الشهر الكريم.</p></a></div><div class="blog-page" id="ar-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">الإيمان · النِّدَّة</span>
+          <h4>تتبع دورتك في أوقات الطهارة والنِّدَّة</h4>
+          <p>قريباً — دليل CycleSync للمرأة اليهودية حول طهارة الأسرة وتتبع الدورة بخصوصية تامة.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">قريباً</span>
+          <h4>المزيد قادم</h4>
+          <p>مقالات جديدة قريباً.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="ar-prev" onclick="changePage('ar',-1)" disabled>← السابق</button><span class="pagination-info" id="ar-page-info">صفحة 1 من 2</span><button class="pagination-btn" id="ar-next" onclick="changePage('ar',1)">التالي →</button></div></div>
 </div>
 
 <!-- PORTUGUESE -->
@@ -188,7 +246,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 idiomas · getcyclesync.com · o blog</strong><span>Um domínio de verdade. Um blog de verdade. Usuários na Argélia, Índia, Emirados, Brasil, EUA, Reino Unido.</span></div></li>
   </ul>
   <div class="cta-section"><h3>Experimente o CycleSync — gratuito, privado e seu.</h3><p>Sem conta. Sem servidor. Sem compartilhamento de dados.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Adicionar ao Chrome — Grátis</a></div>
-  <div class="related-posts"><h3>Mais do blog CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacidade</span><h4>Por que a privacidade no rastreamento menstrual importa mais do que você pensa</h4><p>Seus dados menstruais são mais sensíveis do que os dados da sua conta bancária.</p></a><div class="related-card"><span class="eyebrow">Em breve — Janeiro 2027</span><h4>Rastreamento menstrual durante o Ramadã</h4><p>Como usar seus dados de ciclo para planejar os dias de jejum durante o mês sagrado.</p></div></div></div>
+  <div class="related-posts"><h3>Mais do blog CycleSync</h3><div class="blog-page visible" id="pt-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacidade</span><h4>Por que a privacidade no rastreamento menstrual importa mais do que você pensa</h4><p>Seus dados menstruais são mais sensíveis do que os dados da sua conta bancária.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Fé &amp; Saúde do Ciclo</span><h4>Rastreamento menstrual durante o Ramadã: o que toda mulher muçulmana deve saber</h4><p>Como usar seus dados de ciclo para planejar os dias de jejum com confiança durante o mês sagrado.</p></a></div><div class="blog-page" id="pt-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Fé · Niddah</span>
+          <h4>Rastreando seu ciclo durante o Niddah e o Mikveh</h4>
+          <p>Em breve — como o modo Niddah do CycleSync ajuda mulheres judias com total privacidade.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Em breve</span>
+          <h4>Mais artigos chegando</h4>
+          <p>Novos guias em breve.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="pt-prev" onclick="changePage('pt',-1)" disabled>← Anterior</button><span class="pagination-info" id="pt-page-info">Página 1 de 2</span><button class="pagination-btn" id="pt-next" onclick="changePage('pt',1)">Próximo →</button></div></div>
 </div>
 
 <!-- GERMAN -->
@@ -212,7 +279,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 Sprachen · getcyclesync.com · der Blog</strong><span>Eine richtige Domain. Ein richtiger Blog. Nutzer in Algerien, Indien, UAE, Brasilien, USA, UK.</span></div></li>
   </ul>
   <div class="cta-section"><h3>Probier CycleSync — kostenlos, privat und deins.</h3><p>Kein Konto. Kein Server. Keine Datenweitergabe.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Zu Chrome hinzufügen — Kostenlos</a></div>
-  <div class="related-posts"><h3>Mehr vom CycleSync Blog</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Datenschutz</span><h4>Warum Datenschutz beim Zyklus-Tracking wichtiger ist als du denkst</h4><p>Deine Menstruationsdaten sind sensibler als deine Bankdaten.</p></a><div class="related-card"><span class="eyebrow">Bald — Januar 2027</span><h4>Zyklus-Tracking während des Ramadans</h4><p>Wie du deine Zyklus-Daten nutzen kannst, um Fastentage zu planen.</p></div></div></div>
+  <div class="related-posts"><h3>Mehr vom CycleSync Blog</h3><div class="blog-page visible" id="de-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Datenschutz</span><h4>Warum Datenschutz beim Zyklus-Tracking wichtiger ist als du denkst</h4><p>Deine Menstruationsdaten sind sensibler als deine Bankdaten.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Glaube &amp; Zyklus-Gesundheit</span><h4>Zyklus-Tracking während des Ramadans: Was jede muslimische Frau wissen sollte</h4><p>Wie du deine Zyklus-Daten nutzen kannst, um Fastentage sicher zu planen.</p></a></div><div class="blog-page" id="de-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Glaube · Niddah</span>
+          <h4>Deinen Zyklus während Niddah und Mikveh verfolgen</h4>
+          <p>Demnächst — wie CycleSync's Niddah-Modus jüdischen Frauen hilft, in voller Privatsphäre.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Demnächst</span>
+          <h4>Mehr Artikel kommen</h4>
+          <p>Neue Guides folgen bald.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="de-prev" onclick="changePage('de',-1)" disabled>← Zurück</button><span class="pagination-info" id="de-page-info">Seite 1 von 2</span><button class="pagination-btn" id="de-next" onclick="changePage('de',1)">Weiter →</button></div></div>
 </div>
 
 <!-- SPANISH -->
@@ -236,7 +312,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 idiomas · getcyclesync.com · el blog</strong><span>Un dominio de verdad. Un blog de verdad. Usuarios en Argelia, India, EAU, Brasil, EE.UU., Reino Unido.</span></div></li>
   </ul>
   <div class="cta-section"><h3>Prueba CycleSync — es gratis, privado y tuyo.</h3><p>Sin cuenta. Sin servidor. Sin compartir datos.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Añadir a Chrome — Gratis</a></div>
-  <div class="related-posts"><h3>Más del blog de CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacidad</span><h4>Por qué la privacidad en el rastreo menstrual importa más de lo que crees</h4><p>Tus datos menstruales son más sensibles que los de tu cuenta bancaria.</p></a><div class="related-card"><span class="eyebrow">Próximamente — Enero 2027</span><h4>Rastreo menstrual durante el Ramadán</h4><p>Cómo usar tus datos de ciclo para planificar los días de ayuno.</p></div></div></div>
+  <div class="related-posts"><h3>Más del blog de CycleSync</h3><div class="blog-page visible" id="es-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacidad</span><h4>Por qué la privacidad en el rastreo menstrual importa más de lo que crees</h4><p>Tus datos menstruales son más sensibles que los de tu cuenta bancaria.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Fe &amp; Salud del Ciclo</span><h4>Rastreo menstrual durante el Ramadán: lo que toda mujer musulmana debe saber</h4><p>Cómo usar tus datos de ciclo para planificar los días de ayuno con confianza durante el mes sagrado.</p></a></div><div class="blog-page" id="es-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Fe · Niddah</span>
+          <h4>Rastreando tu ciclo durante el Niddah y el Mikveh</h4>
+          <p>Próximamente — cómo el modo Niddah de CycleSync ayuda a mujeres judías con total privacidad.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Próximamente</span>
+          <h4>Más artículos en camino</h4>
+          <p>Nuevas guías próximamente.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="es-prev" onclick="changePage('es',-1)" disabled>← Anterior</button><span class="pagination-info" id="es-page-info">Página 1 de 2</span><button class="pagination-btn" id="es-next" onclick="changePage('es',1)">Siguiente →</button></div></div>
 </div>
 
 <!-- RUSSIAN -->
@@ -260,7 +345,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 языков · getcyclesync.com · блог</strong><span>Настоящий домен. Настоящий блог. Пользователи в Алжире, Индии, ОАЭ, Бразилии, США, Великобритании.</span></div></li>
   </ul>
   <div class="cta-section"><h3>Попробуй CycleSync — бесплатно, приватно, твоё.</h3><p>Без аккаунта. Без сервера. Без передачи данных.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Добавить в Chrome — Бесплатно</a></div>
-  <div class="related-posts"><h3>Ещё из блога CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Конфиденциальность</span><h4>Почему конфиденциальность трекинга цикла важнее, чем ты думаешь</h4><p>Твои данные о менструации чувствительнее, чем данные банковского счёта.</p></a><div class="related-card"><span class="eyebrow">Скоро — Январь 2027</span><h4>Трекинг цикла во время Рамадана</h4><p>Как использовать данные о цикле для планирования постных дней.</p></div></div></div>
+  <div class="related-posts"><h3>Ещё из блога CycleSync</h3><div class="blog-page visible" id="ru-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Конфиденциальность</span><h4>Почему конфиденциальность трекинга цикла важнее, чем ты думаешь</h4><p>Твои данные о менструации чувствительнее, чем данные банковского счёта.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Вера и здоровье цикла</span><h4>Трекинг цикла во время Рамадана: что должна знать каждая мусульманка</h4><p>Как использовать данные о цикле для уверенного планирования постных дней в священный месяц.</p></a></div><div class="blog-page" id="ru-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Вера · Нидда</span>
+          <h4>Отслеживание цикла в период Нидды и Миквы</h4>
+          <p>Скоро — как режим Нидды в CycleSync помогает еврейским женщинам в полной конфиденциальности.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Скоро</span>
+          <h4>Новые статьи на подходе</h4>
+          <p>Новые руководства скоро.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="ru-prev" onclick="changePage('ru',-1)" disabled>← Назад</button><span class="pagination-info" id="ru-page-info">Страница 1 из 2</span><button class="pagination-btn" id="ru-next" onclick="changePage('ru',1)">Далее →</button></div></div>
 </div>
 
 <!-- HUNGARIAN -->
@@ -283,7 +377,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 nyelv · getcyclesync.com · a blog</strong><span>Igazi domain. Igazi blog. Felhasználók Algériában, Indiában, az Emirátusokban, Brazíliában, az USA-ban, az Egyesült Királyságban.</span></div></li>
   </ul>
   <div class="cta-section"><h3>Próbáld ki a CycleSync-et — ingyenes, privát és a tiéd.</h3><p>Nincs fiók. Nincs szerver. Nincs adatmegosztás.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Hozzáadás Chrome-hoz — Ingyenes</a></div>
-  <div class="related-posts"><h3>Több a CycleSync blogból</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Adatvédelem</span><h4>Miért fontosabb a cikluskövető adatvédelme, mint gondolnád</h4><p>A menstruációs adatok érzékenyebbek, mint a bankszámlaadatok.</p></a><div class="related-card"><span class="eyebrow">Hamarosan — 2027. január</span><h4>Cikluskövető Ramadán alatt</h4><p>Hogyan használd ciklusadataidat a böjtnapok tervezéséhez.</p></div></div></div>
+  <div class="related-posts"><h3>Több a CycleSync blogból</h3><div class="blog-page visible" id="hu-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Adatvédelem</span><h4>Miért fontosabb a cikluskövető adatvédelme, mint gondolnád</h4><p>A menstruációs adatok érzékenyebbek, mint a bankszámlaadatok.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Hit &amp; Ciklusegészség</span><h4>Cikluskövető Ramadán alatt: amit minden muszlim nőnek tudnia kell</h4><p>Hogyan használd ciklusadataidat a böjtnapok magabiztos megtervezéséhez a szent hónapban.</p></a></div><div class="blog-page" id="hu-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Hit · Nidda</span>
+          <h4>A ciklus követése Nidda és Mikvé időszakában</h4>
+          <p>Hamarosan — hogyan segít a CycleSync Nidda módja a zsidó nőknek teljes magánszférában.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Hamarosan</span>
+          <h4>Több cikk jön</h4>
+          <p>Új útmutatók hamarosan.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="hu-prev" onclick="changePage('hu',-1)" disabled>← Előző</button><span class="pagination-info" id="hu-page-info">1. oldal / 2</span><button class="pagination-btn" id="hu-next" onclick="changePage('hu',1)">Következő →</button></div></div>
 </div>
 
 <!-- FRENCH -->
@@ -307,7 +410,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 langues · getcyclesync.com · le blog</strong><span>Un vrai domaine. Un vrai blog. Des utilisateurs en Algérie, Inde, EAU, Brésil, USA, Royaume-Uni.</span></div></li>
   </ul>
   <div class="cta-section"><h3>Essayez CycleSync — gratuit, privé et à vous.</h3><p>Pas de compte. Pas de serveur. Pas de partage de données.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Ajouter à Chrome — Gratuit</a></div>
-  <div class="related-posts"><h3>Plus du blog CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Confidentialité</span><h4>Pourquoi la confidentialité du suivi menstruel compte plus que vous ne le pensez</h4><p>Vos données menstruelles sont plus sensibles que vos données bancaires.</p></a><div class="related-card"><span class="eyebrow">Bientôt — Janvier 2027</span><h4>Suivi menstruel pendant le Ramadan</h4><p>Comment utiliser vos données de cycle pour planifier les jours de jeûne.</p></div></div></div>
+  <div class="related-posts"><h3>Plus du blog CycleSync</h3><div class="blog-page visible" id="fr-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Confidentialité</span><h4>Pourquoi la confidentialité du suivi menstruel compte plus que vous ne le pensez</h4><p>Vos données menstruelles sont plus sensibles que vos données bancaires.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Foi &amp; Santé du Cycle</span><h4>Suivi menstruel pendant le Ramadan : ce que toute femme musulmane devrait savoir</h4><p>Comment utiliser vos données de cycle pour planifier les jours de jeûne en toute confiance.</p></a></div><div class="blog-page" id="fr-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Foi · Nidda</span>
+          <h4>Suivre son cycle pendant la Nidda et le Mikvé</h4>
+          <p>Prochainement — comment le mode Nidda de CycleSync aide les femmes juives en toute confidentialité.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Prochainement</span>
+          <h4>Plus d'articles à venir</h4>
+          <p>Nouveaux guides bientôt.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="fr-prev" onclick="changePage('fr',-1)" disabled>← Précédent</button><span class="pagination-info" id="fr-page-info">Page 1 sur 2</span><button class="pagination-btn" id="fr-next" onclick="changePage('fr',1)">Suivant →</button></div></div>
 </div>
 
 <!-- HINDI -->
@@ -330,7 +442,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 भाषाएं · getcyclesync.com · ब्लॉग</strong><span>एक असली डोमेन। एक असली ब्लॉग। अल्जीरिया, भारत, UAE, ब्राज़ील, अमेरिका, UK में उपयोगकर्ता।</span></div></li>
   </ul>
   <div class="cta-section"><h3>CycleSync आज़माएं — मुफ़्त, निजी और आपका।</h3><p>कोई खाता नहीं। कोई सर्वर नहीं। कोई डेटा साझाकरण नहीं।</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome में जोड़ें — मुफ़्त</a></div>
-  <div class="related-posts"><h3>CycleSync ब्लॉग से और</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">गोपनीयता</span><h4>पीरियड ट्रैकिंग गोपनीयता आपके विचार से अधिक क्यों मायने रखती है</h4><p>आपका मासिक धर्म डेटा बैंक खाते से अधिक संवेदनशील है।</p></a><div class="related-card"><span class="eyebrow">जल्द आ रहा है — जनवरी 2027</span><h4>रमज़ान के दौरान पीरियड ट्रैकिंग</h4><p>उपवास के दिनों की योजना बनाने के लिए अपने चक्र डेटा का उपयोग कैसे करें।</p></div></div></div>
+  <div class="related-posts"><h3>CycleSync ब्लॉग से और</h3><div class="blog-page visible" id="hi-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">गोपनीयता</span><h4>पीरियड ट्रैकिंग गोपनीयता आपके विचार से अधिक क्यों मायने रखती है</h4><p>आपका मासिक धर्म डेटा बैंक खाते से अधिक संवेदनशील है।</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">आस्था और चक्र स्वास्थ्य</span><h4>रमज़ान के दौरान पीरियड ट्रैकिंग: हर मुस्लिम महिला को यह जानना चाहिए</h4><p>उपवास के दिनों की आत्मविश्वास के साथ योजना बनाने के लिए अपने चक्र डेटा का उपयोग करें।</p></a></div><div class="blog-page" id="hi-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">आस्था · निद्दा</span>
+          <h4>निद्दा और मिकवेह के दौरान अपने चक्र को ट्रैक करना</h4>
+          <p>जल्द आ रहा है — CycleSync का निद्दा मोड यहूदी महिलाओं की कैसे मदद करता है।</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">जल्द आ रहा है</span>
+          <h4>और लेख आ रहे हैं</h4>
+          <p>नए गाइड जल्द आएंगे।</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="hi-prev" onclick="changePage('hi',-1)" disabled>← पिछला</button><span class="pagination-info" id="hi-page-info">पृष्ठ 1 / 2</span><button class="pagination-btn" id="hi-next" onclick="changePage('hi',1)">अगला →</button></div></div>
 </div>
 
 <!-- INDONESIAN -->
@@ -353,7 +474,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 bahasa · getcyclesync.com · blog</strong><span>Domain sungguhan. Blog sungguhan. Pengguna di Aljazair, India, UEA, Brasil, AS, UK.</span></div></li>
   </ul>
   <div class="cta-section"><h3>Coba CycleSync — gratis, privat, dan milik Anda.</h3><p>Tanpa akun. Tanpa server. Tanpa berbagi data.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Tambahkan ke Chrome — Gratis</a></div>
-  <div class="related-posts"><h3>Lebih banyak dari blog CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privasi</span><h4>Mengapa privasi pelacakan siklus lebih penting dari yang Anda kira</h4><p>Data menstruasi Anda lebih sensitif dari data rekening bank Anda.</p></a><div class="related-card"><span class="eyebrow">Segera — Januari 2027</span><h4>Pelacakan siklus selama Ramadan</h4><p>Cara menggunakan data siklus Anda untuk merencanakan hari puasa.</p></div></div></div>
+  <div class="related-posts"><h3>Lebih banyak dari blog CycleSync</h3><div class="blog-page visible" id="id-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privasi</span><h4>Mengapa privasi pelacakan siklus lebih penting dari yang Anda kira</h4><p>Data menstruasi Anda lebih sensitif dari data rekening bank Anda.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Iman &amp; Kesehatan Siklus</span><h4>Pelacakan siklus selama Ramadan: yang perlu diketahui setiap wanita Muslim</h4><p>Cara menggunakan data siklus Anda untuk merencanakan hari puasa dengan penuh keyakinan.</p></a></div><div class="blog-page" id="id-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Iman · Niddah</span>
+          <h4>Melacak siklus selama Niddah dan Mikveh</h4>
+          <p>Segera hadir — bagaimana mode Niddah CycleSync membantu perempuan Yahudi dengan privasi penuh.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Segera hadir</span>
+          <h4>Lebih banyak artikel akan datang</h4>
+          <p>Panduan baru segera hadir.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="id-prev" onclick="changePage('id',-1)" disabled>← Sebelumnya</button><span class="pagination-info" id="id-page-info">Halaman 1 dari 2</span><button class="pagination-btn" id="id-next" onclick="changePage('id',1)">Berikutnya →</button></div></div>
 </div>
 
 <!-- BENGALI -->
@@ -373,7 +503,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>১৪ ভাষা · getcyclesync.com · ব্লগ</strong><span>একটি আসল ডোমেন। একটি আসল ব্লগ। আলজেরিয়া, ভারত, UAE, ব্রাজিল, মার্কিন যুক্তরাষ্ট্র, যুক্তরাজ্যে ব্যবহারকারী।</span></div></li>
   </ul>
   <div class="cta-section"><h3>CycleSync ব্যবহার করুন — বিনামূল্যে, ব্যক্তিগত এবং আপনার।</h3><p>কোনো অ্যাকাউন্ট নেই। কোনো সার্ভার নেই। কোনো ডেটা শেয়ারিং নেই।</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome-এ যোগ করুন — বিনামূল্যে</a></div>
-  <div class="related-posts"><h3>CycleSync ব্লগ থেকে আরও</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">গোপনীয়তা</span><h4>পিরিয়ড ট্র্যাকিং গোপনীয়তা কেন আপনার ভাবনার চেয়ে বেশি গুরুত্বপূর্ণ</h4><p>আপনার মাসিক ডেটা আপনার ব্যাংক অ্যাকাউন্টের চেয়ে বেশি সংবেদনশীল।</p></a><div class="related-card"><span class="eyebrow">শীঘ্রই — জানুয়ারি ২০২৭</span><h4>রমজানে পিরিয়ড ট্র্যাকিং</h4><p>রোজার দিন পরিকল্পনা করতে আপনার সাইকেল ডেটা কীভাবে ব্যবহার করবেন।</p></div></div></div>
+  <div class="related-posts"><h3>CycleSync ব্লগ থেকে আরও</h3><div class="blog-page visible" id="bn-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">গোপনীয়তা</span><h4>পিরিয়ড ট্র্যাকিং গোপনীয়তা কেন আপনার ভাবনার চেয়ে বেশি গুরুত্বপূর্ণ</h4><p>আপনার মাসিক ডেটা আপনার ব্যাংক অ্যাকাউন্টের চেয়ে বেশি সংবেদনশীল।</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">বিশ্বাস ও চক্র স্বাস্থ্য</span><h4>রমজানে পিরিয়ড ট্র্যাকিং: প্রতিটি মুসলিম নারীর যা জানা উচিত</h4><p>রোজার দিন আত্মবিশ্বাসের সাথে পরিকল্পনা করতে আপনার সাইকেল ডেটা ব্যবহার করুন।</p></a></div><div class="blog-page" id="bn-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">ঈমান · নিদ্দা</span>
+          <h4>নিদ্দা ও মিকভেহের সময় চক্র ট্র্যাক করা</h4>
+          <p>শীঘ্রই আসছে — CycleSync-এর নিদ্দা মোড ইহুদি নারীদের কীভাবে সাহায্য করে।</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">শীঘ্রই আসছে</span>
+          <h4>আরও নিবন্ধ আসছে</h4>
+          <p>নতুন গাইড শীঘ্রই।</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="bn-prev" onclick="changePage('bn',-1)" disabled>← আগের</button><span class="pagination-info" id="bn-page-info">পৃষ্ঠা 1 / 2</span><button class="pagination-btn" id="bn-next" onclick="changePage('bn',1)">পরের →</button></div></div>
 </div>
 
 <!-- JAPANESE -->
@@ -396,7 +535,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14言語 · getcyclesync.com · ブログ</strong><span>本物のドメイン。本物のブログ。アルジェリア、インド、UAE、ブラジル、米国、英国のユーザー。</span></div></li>
   </ul>
   <div class="cta-section"><h3>CycleSyncを試す ― 無料、プライベート、あなたのもの。</h3><p>アカウント不要。サーバーなし。データ共有なし。</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chromeに追加 ― 無料</a></div>
-  <div class="related-posts"><h3>CycleSyncブログからもっと</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">プライバシー</span><h4>生理トラッキングのプライバシーが思う以上に重要な理由</h4><p>生理データは銀行口座の情報より敏感です。</p></a><div class="related-card"><span class="eyebrow">近日公開 ― 2027年1月</span><h4>ラマダン中の生理トラッキング</h4><p>断食の日を計画するためにサイクルデータを活用する方法。</p></div></div></div>
+  <div class="related-posts"><h3>CycleSyncブログからもっと</h3><div class="blog-page visible" id="ja-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">プライバシー</span><h4>生理トラッキングのプライバシーが思う以上に重要な理由</h4><p>生理データは銀行口座の情報より敏感です。</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">信仰とサイクルヘルス</span><h4>ラマダン中の生理トラッキング：すべてのムスリム女性が知るべきこと</h4><p>神聖な月に自信を持って断食の日を計画するためにサイクルデータを活用する方法。</p></a></div><div class="blog-page" id="ja-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">信仰 · ニダ</span>
+          <h4>ニダとミクヴェ中の生理周期を追跡する</h4>
+          <p>近日公開 — CycleSyncのニダモードがユダヤ人女性を完全なプライバシーでサポートする方法。</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">近日公開</span>
+          <h4>さらなる記事が来ます</h4>
+          <p>新しいガイドが近日公開予定。</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="ja-prev" onclick="changePage('ja',-1)" disabled>← 前へ</button><span class="pagination-info" id="ja-page-info">1 / 2 ページ</span><button class="pagination-btn" id="ja-next" onclick="changePage('ja',1)">次へ →</button></div></div>
 </div>
 
 <!-- KOREAN -->
@@ -419,7 +567,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14개 언어 · getcyclesync.com · 블로그</strong><span>제대로 된 도메인. 제대로 된 블로그. 알제리, 인도, UAE, 브라질, 미국, 영국의 사용자들.</span></div></li>
   </ul>
   <div class="cta-section"><h3>CycleSync를 사용해보세요 — 무료, 비공개, 당신의 것.</h3><p>계정 없음. 서버 없음. 데이터 공유 없음.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Chrome에 추가 — 무료</a></div>
-  <div class="related-posts"><h3>CycleSync 블로그에서 더 보기</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">프라이버시</span><h4>생리 추적 프라이버시가 생각보다 중요한 이유</h4><p>생리 데이터는 은행 계좌 정보보다 더 민감합니다.</p></a><div class="related-card"><span class="eyebrow">곧 출시 — 2027년 1월</span><h4>라마단 중 생리 추적</h4><p>단식일을 계획하기 위해 사이클 데이터를 활용하는 방법.</p></div></div></div>
+  <div class="related-posts"><h3>CycleSync 블로그에서 더 보기</h3><div class="blog-page visible" id="ko-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">프라이버시</span><h4>생리 추적 프라이버시가 생각보다 중요한 이유</h4><p>생리 데이터는 은행 계좌 정보보다 더 민감합니다.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">신앙과 사이클 건강</span><h4>라마단 중 생리 추적: 모든 무슬림 여성이 알아야 할 것</h4><p>신성한 달 동안 단식일을 자신 있게 계획하기 위해 사이클 데이터를 활용하는 방법.</p></a></div><div class="blog-page" id="ko-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">신앙 · 니다</span>
+          <h4>니다와 미크베 기간 동안 생리 주기 추적하기</h4>
+          <p>곧 출시 — CycleSync의 니다 모드가 유대인 여성을 완전한 개인정보 보호로 돕는 방법.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">곧 출시</span>
+          <h4>더 많은 글이 나옵니다</h4>
+          <p>새로운 가이드가 곧 나옵니다.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="ko-prev" onclick="changePage('ko',-1)" disabled>← 이전</button><span class="pagination-info" id="ko-page-info">1 / 2 페이지</span><button class="pagination-btn" id="ko-next" onclick="changePage('ko',1)">다음 →</button></div></div>
 </div>
 
 <!-- ITALIAN -->
@@ -443,7 +600,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14 lingue · getcyclesync.com · il blog</strong><span>Un dominio vero. Un blog vero. Utenti in Algeria, India, EAU, Brasile, USA, Regno Unito.</span></div></li>
   </ul>
   <div class="cta-section"><h3>Prova CycleSync — gratuito, privato e tuo.</h3><p>Nessun account. Nessun server. Nessuna condivisione di dati.</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">Aggiungi a Chrome — Gratis</a></div>
-  <div class="related-posts"><h3>Altro dal blog CycleSync</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacy</span><h4>Perché la privacy nel tracking del ciclo conta più di quanto pensi</h4><p>I tuoi dati mestruali sono più sensibili dei dati del tuo conto bancario.</p></a><div class="related-card"><span class="eyebrow">Prossimamente — Gennaio 2027</span><h4>Tracking del ciclo durante il Ramadan</h4><p>Come usare i dati del ciclo per pianificare i giorni di digiuno.</p></div></div></div>
+  <div class="related-posts"><h3>Altro dal blog CycleSync</h3><div class="blog-page visible" id="it-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">Privacy</span><h4>Perché la privacy nel tracking del ciclo conta più di quanto pensi</h4><p>I tuoi dati mestruali sono più sensibili dei dati del tuo conto bancario.</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">Fede &amp; Salute del Ciclo</span><h4>Tracking del ciclo durante il Ramadan: ciò che ogni donna musulmana dovrebbe sapere</h4><p>Come usare i dati del ciclo per pianificare i giorni di digiuno con fiducia durante il mese sacro.</p></a></div><div class="blog-page" id="it-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">Fede · Niddah</span>
+          <h4>Tracciare il ciclo durante la Niddah e il Mikvé</h4>
+          <p>Prossimamente — come la modalità Niddah di CycleSync aiuta le donne ebree in totale privacy.</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">Prossimamente</span>
+          <h4>Altri articoli in arrivo</h4>
+          <p>Nuove guide presto.</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="it-prev" onclick="changePage('it',-1)" disabled>← Precedente</button><span class="pagination-info" id="it-page-info">Pagina 1 di 2</span><button class="pagination-btn" id="it-next" onclick="changePage('it',1)">Successivo →</button></div></div>
 </div>
 
 <!-- SIMPLIFIED CHINESE -->
@@ -467,7 +633,16 @@
     <li><div class="version-dot">1.2.2</div><div class="version-body"><strong>14种语言 · getcyclesync.com · 博客</strong><span>真正的域名。真正的博客。阿尔及利亚、印度、阿联酋、巴西、美国、英国的用户。</span></div></li>
   </ul>
   <div class="cta-section"><h3>试试CycleSync — 免费、私密、属于你。</h3><p>无需账户。无服务器。无数据共享。</p><a class="cta-btn" href="https://chromewebstore.google.com/detail/cyclesync/egmjjdfhnnbkloiijjehpkjgfeghifeb" target="_blank" rel="noopener">添加到Chrome — 免费</a></div>
-  <div class="related-posts"><h3>CycleSync博客更多内容</h3><div class="related-grid"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">隐私</span><h4>为什么经期追踪隐私比你想象的更重要</h4><p>你的月经数据比银行账户信息更敏感。</p></a><div class="related-card"><span class="eyebrow">即将到来 — 2027年1月</span><h4>斋月期间的经期追踪</h4><p>如何使用周期数据来规划斋戒日。</p></div></div></div>
+  <div class="related-posts"><h3>CycleSync博客更多内容</h3><div class="blog-page visible" id="zh-page-1"><a class="related-card" href="/blog/privacy-period-tracking.html"><span class="eyebrow">隐私</span><h4>为什么经期追踪隐私比你想象的更重要</h4><p>你的月经数据比银行账户信息更敏感。</p></a><a class="related-card" href="/blog/tracking-your-cycle-during-ramadan.html"><span class="eyebrow">信仰与周期健康</span><h4>斋月期间的经期追踪：每位穆斯林女性应该了解的知识</h4><p>如何自信地利用周期数据在圣月中规划斋戒日。</p></a></div><div class="blog-page" id="zh-page-2"><div class="coming-soon-card">
+          <span class="eyebrow">信仰 · 尼达</span>
+          <h4>在尼达和浸礼期间追踪生理周期</h4>
+          <p>即将推出 — CycleSync的尼达模式如何以完全隐私的方式帮助犹太女性。</p>
+        </div>
+        <div class="related-card" style="opacity:0.4; pointer-events:none;">
+          <span class="eyebrow">即将推出</span>
+          <h4>更多文章即将发布</h4>
+          <p>新指南即将推出。</p>
+        </div></div><div class="blog-pagination"><button class="pagination-btn" id="zh-prev" onclick="changePage('zh',-1)" disabled>← 上一页</button><span class="pagination-info" id="zh-page-info">第 1 页，共 2 页</span><button class="pagination-btn" id="zh-next" onclick="changePage('zh',1)">下一页 →</button></div></div>
 </div>
 
 </article>
@@ -491,6 +666,36 @@
       document.documentElement.lang = lang;
     });
   });
+</script>
+
+
+
+<script>
+  const pageState = {};
+  function changePage(lang, dir) {
+    if (!pageState[lang]) pageState[lang] = 1;
+    const total = 2;
+    const current = pageState[lang];
+    const next = current + dir;
+    if (next < 1 || next > total) return;
+    document.getElementById(lang + '-page-' + current).classList.remove('visible');
+    document.getElementById(lang + '-page-' + next).classList.add('visible');
+    pageState[lang] = next;
+    document.getElementById(lang + '-prev').disabled = next <= 1;
+    document.getElementById(lang + '-next').disabled = next >= total;
+    const labels = {
+      en:`Page ${next} of ${total}`,ar:`صفحة ${next} من ${total}`,
+      pt:`Página ${next} de ${total}`,de:`Seite ${next} von ${total}`,
+      es:`Página ${next} de ${total}`,ru:`Страница ${next} из ${total}`,
+      hu:`${next}. oldal / ${total}`,fr:`Page ${next} sur ${total}`,
+      hi:`पृष्ठ ${next} / ${total}`,id:`Halaman ${next} dari ${total}`,
+      bn:`পৃষ্ঠা ${next} / ${total}`,ja:`${next} / ${total} ページ`,
+      ko:`${next} / ${total} 페이지`,it:`Pagina ${next} di ${total}`,
+      zh:`第 ${next} 页，共 ${total} 页`
+    };
+    const info = document.getElementById(lang + '-page-info');
+    if (info && labels[lang]) info.textContent = labels[lang];
+  }
 </script>
 
 </body>
